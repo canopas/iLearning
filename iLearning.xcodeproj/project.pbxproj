@@ -16,6 +16,7 @@
 		D8AA6354291CD4CB00F2A88A /* iLearningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AA6353291CD4CB00F2A88A /* iLearningTests.swift */; };
 		D8AA635E291CD4CB00F2A88A /* iLearningUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AA635D291CD4CB00F2A88A /* iLearningUITests.swift */; };
 		D8AA6360291CD4CB00F2A88A /* iLearningUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AA635F291CD4CB00F2A88A /* iLearningUITestsLaunchTests.swift */; };
+		D8BCE96B291E2CE700BBD0D4 /* SplashView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8BCE96A291E2CE700BBD0D4 /* SplashView.storyboard */; };
 		D8FC55CB291CDAA700106153 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FC55CA291CDAA700106153 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		D8AA6359291CD4CB00F2A88A /* iLearningUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iLearningUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AA635D291CD4CB00F2A88A /* iLearningUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iLearningUITests.swift; sourceTree = "<group>"; };
 		D8AA635F291CD4CB00F2A88A /* iLearningUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iLearningUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D8BCE96A291E2CE700BBD0D4 /* SplashView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SplashView.storyboard; sourceTree = "<group>"; };
 		D8FC55CA291CDAA700106153 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				D8AA6341291CD4CA00F2A88A /* iLearningApp.swift */,
+				D8BCE96A291E2CE700BBD0D4 /* SplashView.storyboard */,
 				D8FC55CA291CDAA700106153 /* AppDelegate.swift */,
 				D8AA6343291CD4CA00F2A88A /* ContentView.swift */,
 				D8AA6345291CD4CB00F2A88A /* Assets.xcassets */,
@@ -270,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8BCE96B291E2CE700BBD0D4 /* SplashView.storyboard in Resources */,
 				D8AA6346291CD4CB00F2A88A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,6 +570,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = SplashView;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -605,6 +610,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = SplashView;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
