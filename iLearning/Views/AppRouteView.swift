@@ -32,10 +32,10 @@ struct AppRouteView: View {
             }
         }
         .onAppear {
-//            if AppPreference.shared.isOnboardShown {
-//                pilot.pop()
-//                pilot.push(.Login)
-//            }
+            if AppPreference.shared.isOnboardShown {
+                pilot.pop()
+                pilot.push(.Login)
+            }
         }
     }
 }
