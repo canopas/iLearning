@@ -5,8 +5,14 @@ target 'iLearning' do
   use_frameworks!
 
   # Pods for iLearning
-    pod 'FirebaseCore'
-    pod 'FirebaseFirestore'
+  pod 'UIPilot'
+  
+  pod 'R.swift'
+  
+  pod 'Kingfisher'
+
+  pod 'FirebaseCore'
+  pod 'FirebaseFirestore'
 
   target 'iLearningTests' do
     inherit! :search_paths
