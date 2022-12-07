@@ -8,7 +8,7 @@ target 'iLearning' do
   pod 'UIPilot'
   
   pod 'R.swift'
-  
+  pod 'Swinject'
   pod 'Kingfisher'
 
   pod 'FirebaseCore'

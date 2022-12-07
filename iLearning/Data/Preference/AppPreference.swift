@@ -8,10 +8,10 @@
 import Foundation
 
 public class AppPreference {
+
     enum Key: String {
         case isOnboardShown = "is_onboard_shown"
     }
-    static let shared = AppPreference()
 
     private let userDefaults: UserDefaults
     

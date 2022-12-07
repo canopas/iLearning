@@ -17,6 +17,8 @@ public enum AppRoute: Equatable {
 
 struct AppRouteView: View {
     
+    @Inject var preference: AppPreference
+
     @StateObject var pilot: UIPilot<AppRoute> = .init(initial: .Onboard)
 
     var body: some View {
@@ -32,7 +34,7 @@ struct AppRouteView: View {
             }
         }
         .onAppear {
-            if AppPreference.shared.isOnboardShown {
+            if preference.isOnboardShown {
                 pilot.pop()
                 pilot.push(.Login)
             }

@@ -12,7 +12,7 @@ import Rswift
 public extension StringResource {
 
     /// Localize the current string to the selected language - returns: The localized string
-    func localized(_ language: Languages = LanguageManger.shared.currentLanguage) -> String {
+    func localized(_ language: Languages = appResolve(serviceType: LanguageManger.self).currentLanguage) -> String {
         var baseBundle: Bundle?
         var localizedBundle: Bundle?
         var fallback: String?

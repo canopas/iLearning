@@ -11,6 +11,8 @@ import UIPilot
 
 class OnboardViewModel: ObservableObject {
     
+    @Inject var preference: AppPreference
+    
     private let appPilot: UIPilot<AppRoute>
     
     init(pilot: UIPilot<AppRoute>) {
@@ -19,7 +21,7 @@ class OnboardViewModel: ObservableObject {
     
     func onStartButtonTap() {
         appPilot.pop()
-        AppPreference.shared.isOnboardShown = true
+        preference.isOnboardShown = true
         appPilot.push(.Login)
     }
 }

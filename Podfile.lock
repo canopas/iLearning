@@ -694,6 +694,7 @@ PODS:
   - R.swift (6.1.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
+  - Swinject (2.8.2)
   - UIPilot (2.0.2)
 
 DEPENDENCIES:
@@ -701,6 +702,7 @@ DEPENDENCIES:
   - FirebaseFirestore
   - Kingfisher
   - R.swift
+  - Swinject
   - UIPilot
 
 SPEC REPOS:
@@ -720,6 +722,7 @@ SPEC REPOS:
     - PromisesObjC
     - R.swift
     - R.swift.Library
+    - Swinject
     - UIPilot
 
 SPEC CHECKSUMS:
@@ -738,8 +741,9 @@ SPEC CHECKSUMS:
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
+  Swinject: b4a11b31992e8668308dc594ba1cb9b3164a37ab
   UIPilot: dec727d11749dcb34654df4f8c94b98b29903566
 
-PODFILE CHECKSUM: ac23191510a8da9c8d0cd5b7f2863eecbafc328d
+PODFILE CHECKSUM: 4ed26a6b192a79827b21fc2f41496ffc42db1337
 
 COCOAPODS: 1.11.3
