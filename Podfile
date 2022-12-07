@@ -1,4 +1,4 @@
-platform :ios, '15.6'
+platform :ios, '16'
 
 target 'iLearning' do
   # Comment the next line if you don't want to use dynamic frameworks

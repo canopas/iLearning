@@ -23,7 +23,7 @@ struct AppRouteView: View {
         UIPilotHost(pilot) { route in
             switch route {
             case .Onboard:
-                OnBoardView()
+                OnboardView(viewModel: OnboardViewModel(pilot: pilot))
                     .navigationBarIsHidden(true)
             case .Login:
                 LoginView()
@@ -31,11 +31,11 @@ struct AppRouteView: View {
                 HomeView()
             }
         }
-    }
-}
-
-struct AppRouteView_Previews: PreviewProvider {
-    static var previews: some View {
-        AppRouteView()
+        .onAppear {
+//            if AppPreference.shared.isOnboardShown {
+//                pilot.pop()
+//                pilot.push(.Login)
+//            }
+        }
     }
 }
