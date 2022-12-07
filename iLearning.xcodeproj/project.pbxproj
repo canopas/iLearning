@@ -196,9 +196,9 @@
 		D887A445293F6FAA00A0AAA9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				D887A443293F6F8100A0AAA9 /* LanguageManager.swift */,
-				D887A446293F6FB700A0AAA9 /* NotificationDispatcher.swift */,
-				D887A44D294063AD00A0AAA9 /* AppPreference.swift */,
+				D887A45329406DF400A0AAA9 /* Preference */,
+				D887A45129406DD800A0AAA9 /* Language */,
+				D887A45229406DE700A0AAA9 /* Notification */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -226,6 +226,30 @@
 				D8AA6343291CD4CA00F2A88A /* HomeView.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		D887A45129406DD800A0AAA9 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				D887A443293F6F8100A0AAA9 /* LanguageManager.swift */,
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
+		D887A45229406DE700A0AAA9 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				D887A446293F6FB700A0AAA9 /* NotificationDispatcher.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		D887A45329406DF400A0AAA9 /* Preference */ = {
+			isa = PBXGroup;
+			children = (
+				D887A44D294063AD00A0AAA9 /* AppPreference.swift */,
+			);
+			path = Preference;
 			sourceTree = "<group>";
 		};
 		D8AA6335291CD4CA00F2A88A = {
