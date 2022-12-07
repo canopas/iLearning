@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct iLearningApp: App {
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
+    init() {
+        Injector.shared.initInjector()
+    }
+
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            AppRouteView()
         }
     }
 }
