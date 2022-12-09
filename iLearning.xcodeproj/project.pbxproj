@@ -318,7 +318,7 @@
 				D8FC55CA291CDAA700106153 /* AppDelegate.swift */,
 				D8B3D588293F0F45001E959B /* Resources */,
 				D887A445293F6FAA00A0AAA9 /* Data */,
-				D8B3D589293F10B8001E959B /* Views */,
+				D8B3D589293F10B8001E959B /* UI */,
 				D887A426293F202B00A0AAA9 /* Utils */,
 				D887A433293F65F700A0AAA9 /* Modifier */,
 				D887A430293F657700A0AAA9 /* HelperView */,
@@ -354,7 +354,7 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		D8B3D589293F10B8001E959B /* Views */ = {
+		D8B3D589293F10B8001E959B /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				D8B3D58C293F1162001E959B /* AppRouteView.swift */,
@@ -362,7 +362,7 @@
 				D887A44B29405CD600A0AAA9 /* Login */,
 				D887A44C29405CDD00A0AAA9 /* Main */,
 			);
-			path = Views;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		D8B3D592293F139B001E959B /* Extension */ = {

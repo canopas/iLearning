@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct OnboardView: View {
-    
+
     @ObservedObject var viewModel: OnboardViewModel
-    
+
     let images: [String] = ["online-discussion", "online-course", "online-classroom"]
-    
+
     var body: some View {
         VStack(spacing: 50) {
             PageScrollView(images: .constant(images))
@@ -24,9 +24,9 @@ struct OnboardView: View {
 }
 
 struct PageScrollView: View {
-    
+
     @Binding var images: [String]
-    
+
     var body: some View {
         TabView {
             ForEach(images, id: \.self) { image in
