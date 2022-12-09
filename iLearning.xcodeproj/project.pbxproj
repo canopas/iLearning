@@ -31,6 +31,7 @@
 		D887A45A2940785F00A0AAA9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D887A4592940785F00A0AAA9 /* GoogleService-Info.plist */; };
 		D887A45C2940BEB900A0AAA9 /* online-education.gif in Resources */ = {isa = PBXBuildFile; fileRef = D887A45B2940BEB900A0AAA9 /* online-education.gif */; };
 		D887A45F2940C45200A0AAA9 /* LoginScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = D887A4612940C45200A0AAA9 /* LoginScreen.strings */; };
+		D887A4642942F7A400A0AAA9 /* DDLoggerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D887A4632942F7A400A0AAA9 /* DDLoggerProvider.swift */; };
 		D8AA6342291CD4CA00F2A88A /* iLearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AA6341291CD4CA00F2A88A /* iLearningApp.swift */; };
 		D8AA6344291CD4CA00F2A88A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AA6343291CD4CA00F2A88A /* HomeView.swift */; };
 		D8AA6346291CD4CB00F2A88A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8AA6345291CD4CB00F2A88A /* Assets.xcassets */; };
@@ -92,6 +93,7 @@
 		D887A4592940785F00A0AAA9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D887A45B2940BEB900A0AAA9 /* online-education.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "online-education.gif"; sourceTree = "<group>"; };
 		D887A4602940C45200A0AAA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginScreen.strings; sourceTree = "<group>"; };
+		D887A4632942F7A400A0AAA9 /* DDLoggerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLoggerProvider.swift; sourceTree = "<group>"; };
 		D8AA633E291CD4CA00F2A88A /* iLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AA6341291CD4CA00F2A88A /* iLearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iLearningApp.swift; sourceTree = "<group>"; };
 		D8AA6343291CD4CA00F2A88A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -208,10 +210,11 @@
 		D887A445293F6FAA00A0AAA9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				D887A45329406DF400A0AAA9 /* Preference */,
-				D887A45129406DD800A0AAA9 /* Language */,
-				D887A45229406DE700A0AAA9 /* Notification */,
 				D887A4562940751200A0AAA9 /* DI */,
+				D887A4652942F8AC00A0AAA9 /* Logger */,
+				D887A45129406DD800A0AAA9 /* Language */,
+				D887A45329406DF400A0AAA9 /* Preference */,
+				D887A45229406DE700A0AAA9 /* Notification */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -272,6 +275,14 @@
 				D887A4572940752300A0AAA9 /* AppAssembly.swift */,
 			);
 			path = DI;
+			sourceTree = "<group>";
+		};
+		D887A4652942F8AC00A0AAA9 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				D887A4632942F7A400A0AAA9 /* DDLoggerProvider.swift */,
+			);
+			path = Logger;
 			sourceTree = "<group>";
 		};
 		D8AA6335291CD4CA00F2A88A = {
@@ -626,6 +637,7 @@
 		};
 		D887A4622942F01D00A0AAA9 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -653,6 +665,7 @@
 				D887A44929405B4C00A0AAA9 /* OnboardViewModel.swift in Sources */,
 				D8FC55CB291CDAA700106153 /* AppDelegate.swift in Sources */,
 				D887A442293F6F5500A0AAA9 /* StringResource+Extension.swift in Sources */,
+				D887A4642942F7A400A0AAA9 /* DDLoggerProvider.swift in Sources */,
 				D8B3D591293F1381001E959B /* UIView+Extension.swift in Sources */,
 				D8B3D58D293F1162001E959B /* AppRouteView.swift in Sources */,
 				D887A447293F6FB700A0AAA9 /* NotificationDispatcher.swift in Sources */,

@@ -57,7 +57,7 @@ public class NotificationDispatcher {
 
 public extension Notification {
 
-    public var appNotification: AppNotification? {
+    var appNotification: AppNotification? {
         if let userInfo = self.userInfo, let notificationHolder = userInfo[NotificationDispatcher.appNotificationUserInfoKey] as? NotificationHolder {
             return notificationHolder.notification
         }

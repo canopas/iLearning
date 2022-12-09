@@ -8,8 +8,10 @@ target 'iLearning' do
   pod 'UIPilot'
   
   pod 'R.swift'
-  pod 'Swinject'
   pod 'SwiftLint'
+  pod 'CocoaLumberjack/Swift'
+  
+  pod 'Swinject'
   pod 'Kingfisher'
 
   pod 'FirebaseCore'
