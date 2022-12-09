@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct OnBoardView: View {
-    
+
     let url = Bundle.main.url(forResource: "online-discussion", withExtension: "gif")
-    
+
     var body: some View {
         VStack {
             KFAnimatedImage(resource: url)

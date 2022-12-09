@@ -14,11 +14,11 @@ public class AppPreference {
     }
 
     private let userDefaults: UserDefaults
-    
+
     init() {
         self.userDefaults = UserDefaults.standard
     }
-    
+
     public var isOnboardShown: Bool {
         get {
             return userDefaults.bool(forKey: Key.isOnboardShown.rawValue)

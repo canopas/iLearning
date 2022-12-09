@@ -15,13 +15,13 @@ struct LoginView: View {
             VStack(alignment: .center, spacing: 30) {
                 KFAnimatedImage(resource: Bundle.main.url(forResource: "online-education", withExtension: "gif"))
                     .frame(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.width * 0.8, alignment: .center)
-                
+
                 Text(R.string.loginScreen.login_screen_text.localized())
                     .padding(.horizontal, 20)
                     .multilineTextAlignment(.center)
-                
+
                 ButtonDividerView()
-                
+
                 SignInWithAppleButton(.continue) { request in
                     request.requestedScopes = [.fullName, .email]
                 } onCompletion: { result in
@@ -59,7 +59,6 @@ struct ButtonDividerView: View {
         }
     }
 }
-
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {

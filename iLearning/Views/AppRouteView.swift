@@ -14,9 +14,8 @@ public enum AppRoute: Equatable {
     case Home
 }
 
-
 struct AppRouteView: View {
-    
+
     @Inject var preference: AppPreference
 
     @StateObject var pilot: UIPilot<AppRoute> = .init(initial: .Onboard)

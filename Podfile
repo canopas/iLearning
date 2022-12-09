@@ -9,6 +9,7 @@ target 'iLearning' do
   
   pod 'R.swift'
   pod 'Swinject'
+  pod 'SwiftLint'
   pod 'Kingfisher'
 
   pod 'FirebaseCore'

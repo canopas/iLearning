@@ -10,15 +10,15 @@ import Combine
 import UIPilot
 
 class OnboardViewModel: ObservableObject {
-    
+
     @Inject var preference: AppPreference
-    
+
     private let appPilot: UIPilot<AppRoute>
-    
+
     init(pilot: UIPilot<AppRoute>) {
         self.appPilot = pilot
     }
-    
+
     func onStartButtonTap() {
         appPilot.pop()
         preference.isOnboardShown = true

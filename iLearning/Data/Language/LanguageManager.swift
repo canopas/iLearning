@@ -11,7 +11,7 @@ import SwiftUI
 public class LanguageManger {
 
     public init() { }
-    
+
     /// Returns the currnet language
     public var currentLanguage: Languages {
         get {

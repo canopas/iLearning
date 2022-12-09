@@ -373,6 +373,7 @@
 			buildPhases = (
 				CB5936CF1D3A071EFBBF6448 /* [CP] Check Pods Manifest.lock */,
 				D887A434293F667C00A0AAA9 /* R.Swift */,
+				D887A4622942F01D00A0AAA9 /* SwiftLint */,
 				D8AA633A291CD4CA00F2A88A /* Sources */,
 				D8AA633B291CD4CA00F2A88A /* Frameworks */,
 				D8AA633C291CD4CA00F2A88A /* Resources */,
@@ -622,6 +623,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
+		D887A4622942F01D00A0AAA9 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\" --fix iLearning\n\"${PODS_ROOT}/SwiftLint/swiftlint\" iLearning\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

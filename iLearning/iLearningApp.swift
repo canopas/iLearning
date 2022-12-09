@@ -9,9 +9,9 @@ import SwiftUI
 
 @main
 struct iLearningApp: App {
-    
+
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
+
     init() {
         Injector.shared.initInjector()
     }

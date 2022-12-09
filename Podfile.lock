@@ -694,6 +694,7 @@ PODS:
   - R.swift (6.1.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
+  - SwiftLint (0.50.1)
   - Swinject (2.8.2)
   - UIPilot (2.0.2)
 
@@ -702,6 +703,7 @@ DEPENDENCIES:
   - FirebaseFirestore
   - Kingfisher
   - R.swift
+  - SwiftLint
   - Swinject
   - UIPilot
 
@@ -722,6 +724,7 @@ SPEC REPOS:
     - PromisesObjC
     - R.swift
     - R.swift.Library
+    - SwiftLint
     - Swinject
     - UIPilot
 
@@ -741,9 +744,10 @@ SPEC CHECKSUMS:
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
+  SwiftLint: 6b0cf1f4d619808dbc16e4fab064ce6fc79f090b
   Swinject: b4a11b31992e8668308dc594ba1cb9b3164a37ab
   UIPilot: dec727d11749dcb34654df4f8c94b98b29903566
 
-PODFILE CHECKSUM: 4ed26a6b192a79827b21fc2f41496ffc42db1337
+PODFILE CHECKSUM: d8697949820abed95eb56f89689f2a08964834db
 
 COCOAPODS: 1.11.3
