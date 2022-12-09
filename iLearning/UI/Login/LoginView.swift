@@ -10,6 +10,9 @@ import UIKit
 import AuthenticationServices
 
 struct LoginView: View {
+
+    @ObservedObject var viewModel: LoginViewModel
+
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .center, spacing: 30) {
@@ -26,10 +29,14 @@ struct LoginView: View {
                     request.requestedScopes = [.fullName, .email]
                 } onCompletion: { result in
                     switch result {
-                    case .success(let success):
-                        print("Authorisation successful :: \(success.description)")
+                    case .success(let authorization):
+                        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+                            viewModel.setUser(emailId: appleIDCredential.email ?? "",
+                                              firstName: appleIDCredential.fullName?.givenName ?? "",
+                                              lastName: appleIDCredential.fullName?.familyName ?? "")
+                        }
                     case .failure(let error):
-                        print("Authorisation failed: \(error.localizedDescription)")
+                        LogE("Apple authorisation failed: \(error.localizedDescription)")
                     }
                 }
                 .frame(width: UIScreen.main.bounds.width * 0.8, height: 50, alignment: .center)
@@ -57,11 +64,5 @@ struct ButtonDividerView: View {
                 .frame(width: 100, height: 1.0, alignment: .bottom)
                 .foregroundColor(.gray)
         }
-    }
-}
-
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
     }
 }

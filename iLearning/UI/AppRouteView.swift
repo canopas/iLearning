@@ -27,7 +27,7 @@ struct AppRouteView: View {
                 OnboardView(viewModel: OnboardViewModel(pilot: pilot))
                     .navigationBarIsHidden(true)
             case .Login:
-                LoginView()
+                LoginView(viewModel: LoginViewModel(pilot: pilot))
             case .Home:
                 HomeView()
             }
@@ -35,7 +35,11 @@ struct AppRouteView: View {
         .onAppear {
             if preference.isOnboardShown {
                 pilot.pop()
-                pilot.push(.Login)
+                if preference.isVerifiedUser {
+                    pilot.push(.Home)
+                } else {
+                    pilot.push(.Login)
+                }
             }
         }
     }
