@@ -14,7 +14,7 @@ public struct PrimaryButton: View {
     private let isEventEnabled: Bool
 
     private var color: Color {
-        return isEnabled ? R.color.appDarkColor.color : R.color.appMainColor.color.opacity(0.6)
+        return isEnabled ? R.color.appMainColor.color : R.color.appMainColor.color.opacity(0.6)
     }
 
     public init(text: String, isEnabled: Bool = true, isEventEnabled: Bool? = nil, onClick: (() -> Void)? = nil) {
@@ -46,6 +46,45 @@ public struct PrimaryButton: View {
                 }
                 .clipShape(Capsule())
             })
+            .buttonStyle(.scale)
+        }
+    }
+}
+
+public struct SecondaryButton: View {
+    private let text: String
+    private let isEnabled: Bool = true
+    private let onClick: (() -> Void)?
+
+    private var color: Color {
+        return isEnabled ? R.color.appMainColor.color : R.color.appMainColor.color.opacity(0.6)
+    }
+
+    public init(text: String, onClick: (() -> Void)?) {
+        self.text = text
+        self.onClick = onClick
+    }
+
+    public var body: some View {
+        ZStack(alignment: .center) {
+            Button {
+                if isEnabled {
+                    onClick?()
+                }
+            } label: {
+                Text(text)
+                    .bold()
+                    .foregroundColor(color)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .frame(height: 50)
+                    .clipShape(Capsule())
+                    .background(Color.white.opacity(0.1))
+                    .minimumScaleFactor(0.5)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 50)
+                            .stroke(color, lineWidth: 1)
+                    )
+            }
             .buttonStyle(.scale)
         }
     }

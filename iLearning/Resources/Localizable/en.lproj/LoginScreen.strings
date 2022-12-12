@@ -1,0 +1,24 @@
+/* 
+  LoginScreen.strings
+  iLearning
+
+  Created by Amisha Italiya on 07/12/22.
+  
+*/
+
+"sign_in_or_up_text"        = "Sign In / Sign Up";
+"login_screen_text"         = "To continue with the best learning you have to log in to our app";
+"or_options_text"           = "or";
+"sign_in_with_email_text"   = "Sign In with Email";
+"create_account_text"       = "Create Account";
+
+//MARK: - Email Login Screen
+"continue_with_email_text"  = "Continue with Email";
+"enter_email_text"          = "Email ID";
+"enter_password_text"       = "Password";
+"sign_in_text"              = "Sign In";
+"sign_up_text"              = "Sign Up";
+
+"something_went_wrong_text" = "Oops, Something went wrong.";
+"valid_input_text"          = "Please enter valid email id and password with more than 6 characters.";
+"ok_text"                   = "Ok";

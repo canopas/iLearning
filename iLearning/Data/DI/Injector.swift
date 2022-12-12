@@ -24,11 +24,9 @@ public class Injector {
     }
 }
 
-
 public func appResolve<S>(serviceType: S.Type) -> S {
     Injector.shared.appAssembler.resolver.resolve(serviceType)!
 }
-
 
 @propertyWrapper
 public struct Inject<Component> {
