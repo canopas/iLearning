@@ -66,7 +66,7 @@ class EmailLoginViewModel: ObservableObject {
             self.preference.userEmail = self.email
         })
     }
-    
+
     func showAuthErrorAlert() {
         showAlert = true
         alertText = R.string.loginScreen.something_went_wrong_text.localized()
