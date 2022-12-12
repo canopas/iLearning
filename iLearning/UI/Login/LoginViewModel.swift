@@ -29,9 +29,17 @@ class LoginViewModel: ObservableObject {
         preference.isVerifiedUser = true
         goToHome()
     }
-    
+
     func goToHome() {
         appPilot.pop()
         appPilot.push(.Home)
+    }
+
+    func clickOnEmailLogin() {
+
+    }
+
+    func clickOnCreateAccount() {
+
     }
 }

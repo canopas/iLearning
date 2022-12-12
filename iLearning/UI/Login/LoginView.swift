@@ -15,7 +15,10 @@ struct LoginView: View {
 
     var body: some View {
         ScrollView(showsIndicators: false) {
-            VStack(alignment: .center, spacing: 30) {
+            VStack(alignment: .center, spacing: 20) {
+                Text(R.string.loginScreen.sign_in_or_up_text.localized())
+                    .font(.title.bold())
+
                 KFAnimatedImage(resource: Bundle.main.url(forResource: "online-education", withExtension: "gif"))
                     .frame(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.width * 0.8, alignment: .center)
 
@@ -23,23 +26,36 @@ struct LoginView: View {
                     .padding(.horizontal, 20)
                     .multilineTextAlignment(.center)
 
-                ButtonDividerView()
-
-                SignInWithAppleButton(.continue) { request in
-                    request.requestedScopes = [.fullName, .email]
-                } onCompletion: { result in
-                    switch result {
-                    case .success(let authorization):
-                        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-                            viewModel.setUser(emailId: appleIDCredential.email ?? "",
-                                              firstName: appleIDCredential.fullName?.givenName ?? "",
-                                              lastName: appleIDCredential.fullName?.familyName ?? "")
+                VStack(alignment: .center, spacing: 20) {
+                    SignInWithAppleButton(.continue) { request in
+                        request.requestedScopes = [.fullName, .email]
+                    } onCompletion: { result in
+                        switch result {
+                        case .success(let authorization):
+                            if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+                                viewModel.setUser(emailId: appleIDCredential.email ?? "",
+                                                  firstName: appleIDCredential.fullName?.givenName ?? "",
+                                                  lastName: appleIDCredential.fullName?.familyName ?? "")
+                            }
+                        case .failure(let error):
+                            LogE("Apple authorisation failed: \(error.localizedDescription)")
                         }
-                    case .failure(let error):
-                        LogE("Apple authorisation failed: \(error.localizedDescription)")
                     }
+                    .frame(height: 50, alignment: .center)
+                    .cornerRadius(25)
+
+                    PrimaryButton(text: R.string.loginScreen.sign_in_with_email_text.localized()) {
+                        viewModel.clickOnEmailLogin()
+                    }
+
+                    ButtonDividerView(text: R.string.loginScreen.or_options_text.localized())
+
+                    SecondaryButton(text: R.string.loginScreen.create_accountText.localized()) {
+                        viewModel.clickOnCreateAccount()
+                    }
+                    .padding(.horizontal, 3)
                 }
-                .frame(width: UIScreen.main.bounds.width * 0.8, height: 50, alignment: .center)
+                .frame(width: UIScreen.main.bounds.width * 0.8, alignment: .center)
 
                 Spacer()
             }
@@ -50,13 +66,15 @@ struct LoginView: View {
 
 struct ButtonDividerView: View {
 
+    var text: String
+
     var body: some View {
         HStack(spacing: 10) {
             Rectangle()
                 .frame(width: 100, height: 1.0, alignment: .bottom)
                 .foregroundColor(.gray)
 
-            Text(R.string.loginScreen.options_text.localized())
+            Text(text)
                 .font(.caption)
                 .foregroundColor(.gray)
 

@@ -6,5 +6,8 @@
   
 */
 
-"login_screen_text" = "To continue with the best learning you have to log in to our app";
-"options_text"      = "options";
+"sign_in_or_up_text"        = "Sign In / Sign Up";
+"login_screen_text"         = "To continue with the best learning you have to log in to our app";
+"or_options_text"           = "or";
+"sign_in_with_email_text"   = "Sign In with Email";
+"create_account+text"       = "Create Account";
