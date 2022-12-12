@@ -36,10 +36,10 @@ class LoginViewModel: ObservableObject {
     }
 
     func clickOnEmailLogin() {
-
+        appPilot.push(.EmailLogin(isForSignUp: false))
     }
 
     func clickOnCreateAccount() {
-
+        appPilot.push(.EmailLogin(isForSignUp: true))
     }
 }

@@ -14,7 +14,7 @@ public struct PrimaryButton: View {
     private let isEventEnabled: Bool
 
     private var color: Color {
-        return isEnabled ? R.color.appDarkColor.color : R.color.appMainColor.color.opacity(0.6)
+        return isEnabled ? R.color.appMainColor.color : R.color.appMainColor.color.opacity(0.6)
     }
 
     public init(text: String, isEnabled: Bool = true, isEventEnabled: Bool? = nil, onClick: (() -> Void)? = nil) {
@@ -57,7 +57,7 @@ public struct SecondaryButton: View {
     private let onClick: (() -> Void)?
 
     private var color: Color {
-        return isEnabled ? R.color.appDarkColor.color : R.color.appMainColor.color.opacity(0.6)
+        return isEnabled ? R.color.appMainColor.color : R.color.appMainColor.color.opacity(0.6)
     }
 
     public init(text: String, onClick: (() -> Void)?) {

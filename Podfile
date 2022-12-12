@@ -15,6 +15,7 @@ target 'iLearning' do
   pod 'Kingfisher'
 
   pod 'FirebaseCore'
+  pod 'FirebaseAuth'
   pod 'FirebaseFirestore'
 
   target 'iLearningTests' do

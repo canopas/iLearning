@@ -10,6 +10,7 @@
 		16A69F1E97A4FF9E1716395B /* Pods_iLearningTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23619AE1F32A294040B2914 /* Pods_iLearningTests.framework */; };
 		8E0DF995C2C16957BFB7140F /* Pods_iLearning_iLearningUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE97DEE5A4203D5C55E8D55F /* Pods_iLearning_iLearningUITests.framework */; };
 		D71966EF0C363CD4C0E26742 /* Pods_iLearning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8232A45F5BD92C97948EB2E5 /* Pods_iLearning.framework */; };
+		D8241EBF294739480033ED6E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8241EBE294739480033ED6E /* GoogleService-Info.plist */; };
 		D887A425293F202800A0AAA9 /* KFAnimatedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D887A424293F202800A0AAA9 /* KFAnimatedImage.swift */; };
 		D887A428293F634600A0AAA9 /* online-classroom.gif in Resources */ = {isa = PBXBuildFile; fileRef = D887A427293F634600A0AAA9 /* online-classroom.gif */; };
 		D887A42A293F634C00A0AAA9 /* online-course.gif in Resources */ = {isa = PBXBuildFile; fileRef = D887A429293F634C00A0AAA9 /* online-course.gif */; };
@@ -28,7 +29,6 @@
 		D887A45029406C1F00A0AAA9 /* OnboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D887A44F29406C1F00A0AAA9 /* OnboardView.swift */; };
 		D887A455294074B400A0AAA9 /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D887A454294074B400A0AAA9 /* Injector.swift */; };
 		D887A4582940752300A0AAA9 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D887A4572940752300A0AAA9 /* AppAssembly.swift */; };
-		D887A45A2940785F00A0AAA9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D887A4592940785F00A0AAA9 /* GoogleService-Info.plist */; };
 		D887A45C2940BEB900A0AAA9 /* online-education.gif in Resources */ = {isa = PBXBuildFile; fileRef = D887A45B2940BEB900A0AAA9 /* online-education.gif */; };
 		D887A45F2940C45200A0AAA9 /* LoginScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = D887A4612940C45200A0AAA9 /* LoginScreen.strings */; };
 		D887A4642942F7A400A0AAA9 /* DDLoggerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D887A4632942F7A400A0AAA9 /* DDLoggerProvider.swift */; };
@@ -43,6 +43,10 @@
 		D8B3D591293F1381001E959B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B3D590293F1381001E959B /* UIView+Extension.swift */; };
 		D8BCE96B291E2CE700BBD0D4 /* SplashView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8BCE96A291E2CE700BBD0D4 /* SplashView.storyboard */; };
 		D8E866BF294334BB00FD5E44 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E866BE294334BB00FD5E44 /* LoginViewModel.swift */; };
+		D8E866C12946F54900FD5E44 /* EmailLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E866C02946F54900FD5E44 /* EmailLoginView.swift */; };
+		D8E866C32946F55C00FD5E44 /* EmailLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E866C22946F55C00FD5E44 /* EmailLoginViewModel.swift */; };
+		D8E866C52946FCC700FD5E44 /* OutlinedTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E866C42946FCC700FD5E44 /* OutlinedTextFieldStyle.swift */; };
+		D8E866C72947111900FD5E44 /* online-study.gif in Resources */ = {isa = PBXBuildFile; fileRef = D8E866C62947111900FD5E44 /* online-study.gif */; };
 		D8FC55CB291CDAA700106153 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FC55CA291CDAA700106153 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +77,7 @@
 		BB44387E70793B8A5AD0F51E /* Pods-iLearningTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLearningTests.debug.xcconfig"; path = "Target Support Files/Pods-iLearningTests/Pods-iLearningTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BE97DEE5A4203D5C55E8D55F /* Pods_iLearning_iLearningUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLearning_iLearningUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30F047976AAC2D44BC3FAE2 /* Pods-iLearning-iLearningUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLearning-iLearningUITests.debug.xcconfig"; path = "Target Support Files/Pods-iLearning-iLearningUITests/Pods-iLearning-iLearningUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D8241EBE294739480033ED6E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D887A424293F202800A0AAA9 /* KFAnimatedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFAnimatedImage.swift; sourceTree = "<group>"; };
 		D887A427293F634600A0AAA9 /* online-classroom.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "online-classroom.gif"; sourceTree = "<group>"; };
 		D887A429293F634C00A0AAA9 /* online-course.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "online-course.gif"; sourceTree = "<group>"; };
@@ -91,7 +96,6 @@
 		D887A44F29406C1F00A0AAA9 /* OnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardView.swift; sourceTree = "<group>"; };
 		D887A454294074B400A0AAA9 /* Injector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
 		D887A4572940752300A0AAA9 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
-		D887A4592940785F00A0AAA9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D887A45B2940BEB900A0AAA9 /* online-education.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "online-education.gif"; sourceTree = "<group>"; };
 		D887A4602940C45200A0AAA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginScreen.strings; sourceTree = "<group>"; };
 		D887A4632942F7A400A0AAA9 /* DDLoggerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLoggerProvider.swift; sourceTree = "<group>"; };
@@ -110,6 +114,10 @@
 		D8B3D590293F1381001E959B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D8BCE96A291E2CE700BBD0D4 /* SplashView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SplashView.storyboard; sourceTree = "<group>"; };
 		D8E866BE294334BB00FD5E44 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		D8E866C02946F54900FD5E44 /* EmailLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginView.swift; sourceTree = "<group>"; };
+		D8E866C22946F55C00FD5E44 /* EmailLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewModel.swift; sourceTree = "<group>"; };
+		D8E866C42946FCC700FD5E44 /* OutlinedTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlinedTextFieldStyle.swift; sourceTree = "<group>"; };
+		D8E866C62947111900FD5E44 /* online-study.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "online-study.gif"; sourceTree = "<group>"; };
 		D8FC55CA291CDAA700106153 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				D887A424293F202800A0AAA9 /* KFAnimatedImage.swift */,
+				D8E866C42946FCC700FD5E44 /* OutlinedTextFieldStyle.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -177,6 +186,7 @@
 			children = (
 				D887A42B293F635300A0AAA9 /* online-discussion.gif */,
 				D887A45B2940BEB900A0AAA9 /* online-education.gif */,
+				D8E866C62947111900FD5E44 /* online-study.gif */,
 				D887A429293F634C00A0AAA9 /* online-course.gif */,
 				D887A427293F634600A0AAA9 /* online-classroom.gif */,
 			);
@@ -235,6 +245,8 @@
 			children = (
 				D8B3D58A293F10C5001E959B /* LoginView.swift */,
 				D8E866BE294334BB00FD5E44 /* LoginViewModel.swift */,
+				D8E866C02946F54900FD5E44 /* EmailLoginView.swift */,
+				D8E866C22946F55C00FD5E44 /* EmailLoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -315,7 +327,7 @@
 			children = (
 				D8BCE96A291E2CE700BBD0D4 /* SplashView.storyboard */,
 				D8AA6347291CD4CB00F2A88A /* iLearning.entitlements */,
-				D887A4592940785F00A0AAA9 /* GoogleService-Info.plist */,
+				D8241EBE294739480033ED6E /* GoogleService-Info.plist */,
 				D887A435293F66D500A0AAA9 /* R.generated.swift */,
 				D8AA6341291CD4CA00F2A88A /* iLearningApp.swift */,
 				D8FC55CA291CDAA700106153 /* AppDelegate.swift */,
@@ -496,8 +508,9 @@
 				D887A45F2940C45200A0AAA9 /* LoginScreen.strings in Resources */,
 				D8AA6346291CD4CB00F2A88A /* Assets.xcassets in Resources */,
 				D887A428293F634600A0AAA9 /* online-classroom.gif in Resources */,
+				D8241EBF294739480033ED6E /* GoogleService-Info.plist in Resources */,
+				D8E866C72947111900FD5E44 /* online-study.gif in Resources */,
 				D887A45C2940BEB900A0AAA9 /* online-education.gif in Resources */,
-				D887A45A2940785F00A0AAA9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,7 +678,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D887A42F293F657100A0AAA9 /* PrimaryButton.swift in Sources */,
+				D8E866C12946F54900FD5E44 /* EmailLoginView.swift in Sources */,
 				D887A44929405B4C00A0AAA9 /* OnboardViewModel.swift in Sources */,
+				D8E866C52946FCC700FD5E44 /* OutlinedTextFieldStyle.swift in Sources */,
 				D8E866BF294334BB00FD5E44 /* LoginViewModel.swift in Sources */,
 				D8FC55CB291CDAA700106153 /* AppDelegate.swift in Sources */,
 				D887A442293F6F5500A0AAA9 /* StringResource+Extension.swift in Sources */,
@@ -680,6 +695,7 @@
 				D887A45029406C1F00A0AAA9 /* OnboardView.swift in Sources */,
 				D887A438293F698C00A0AAA9 /* Color+Extension.swift in Sources */,
 				D887A444293F6F8100A0AAA9 /* LanguageManager.swift in Sources */,
+				D8E866C32946F55C00FD5E44 /* EmailLoginViewModel.swift in Sources */,
 				D8B3D58B293F10C5001E959B /* LoginView.swift in Sources */,
 				D8AA6342291CD4CA00F2A88A /* iLearningApp.swift in Sources */,
 				D887A436293F66D500A0AAA9 /* R.generated.swift in Sources */,

@@ -3,32 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>429917429125-v0ptqahce8kga21mncshusetd3lb0chn.apps.googleusercontent.com</string>
+	<string>130761606274-797ijea80nujn00n5i7h76n9ok3h9cdt.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.429917429125-v0ptqahce8kga21mncshusetd3lb0chn</string>
+	<string>com.googleusercontent.apps.130761606274-797ijea80nujn00n5i7h76n9ok3h9cdt</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDAcNzD5MoxNDDp4dSaDz6G7sc86K-Zkck</string>
+	<string>AIzaSyBXxGTegyx0Ehmb9aLz28ZUn20-Bvy_nZ0</string>
 	<key>GCM_SENDER_ID</key>
-	<string>429917429125</string>
+	<string>130761606274</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.canopas.iLearning</string>
+	<string>com.canopas.iLearnings</string>
 	<key>PROJECT_ID</key>
-	<string>ilearnings-9d005</string>
+	<string>ilearning-1030</string>
 	<key>STORAGE_BUCKET</key>
-	<string>ilearnings-9d005.appspot.com</string>
+	<string>ilearning-1030.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:429917429125:ios:a59b6a0b658312f87bf8ec</string>
+	<string>1:130761606274:ios:d9804fcab73c0e7905e09b</string>
 </dict>
 </plist>

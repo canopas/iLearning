@@ -7,11 +7,13 @@
 
 import SwiftUI
 import UIPilot
+import FirebaseAuth
 
 public enum AppRoute: Equatable {
     case Onboard
     case Login
     case Home
+    case EmailLogin(isForSignUp: Bool)
 }
 
 struct AppRouteView: View {
@@ -30,12 +32,17 @@ struct AppRouteView: View {
                 LoginView(viewModel: LoginViewModel(pilot: pilot))
             case .Home:
                 HomeView()
+            case .EmailLogin(let isForSignUp):
+                EmailLoginView(viewModel: EmailLoginViewModel(pilot: pilot, isForSignUp: isForSignUp))
             }
         }
         .onAppear {
             if preference.isOnboardShown {
                 pilot.pop()
                 if preference.isVerifiedUser {
+                    func isUserLoggedIn() -> Bool {
+                        return Auth.auth().currentUser != nil
+                    }
                     pilot.push(.Home)
                 } else {
                     pilot.push(.Login)

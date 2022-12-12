@@ -16,6 +16,8 @@ struct LoginView: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .center, spacing: 20) {
+                VSpacer(30)
+
                 Text(R.string.loginScreen.sign_in_or_up_text.localized())
                     .font(.title.bold())
 
@@ -50,16 +52,17 @@ struct LoginView: View {
 
                     ButtonDividerView(text: R.string.loginScreen.or_options_text.localized())
 
-                    SecondaryButton(text: R.string.loginScreen.create_accountText.localized()) {
+                    SecondaryButton(text: R.string.loginScreen.create_account_text.localized()) {
                         viewModel.clickOnCreateAccount()
                     }
                     .padding(.horizontal, 3)
                 }
                 .frame(width: UIScreen.main.bounds.width * 0.8, alignment: .center)
 
-                Spacer()
+                VSpacer()
             }
-            .padding(20)
+            .padding(.horizontal, 20)
+            .navigationBarIsHidden(true)
         }
     }
 }
