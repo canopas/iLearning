@@ -1,0 +1,20 @@
+/* 
+  AccountSettingView.strings
+  iLearning
+
+  Created by Amisha Italiya on 13/12/22.
+  
+*/
+
+
+"account_text"              = "Account";
+"unknown_text"              = "Unknown User";
+"account_setting_text"      = "Account Settings";
+"download_option_text"      = "Download options";
+"email_notification_text"   = "Email notifications";
+"push_notification_text"    = "Push notifications";
+"about_ilearning_text"      = "About iLearning";
+"help_n_support_text"       = "Help and Support";
+"account_security_text"     = "Account security";
+"delete_account_text"       = "Delete Account";
+"sign_out_text"             = "Sign Out";

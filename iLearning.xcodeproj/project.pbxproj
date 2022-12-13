@@ -11,6 +11,13 @@
 		8E0DF995C2C16957BFB7140F /* Pods_iLearning_iLearningUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE97DEE5A4203D5C55E8D55F /* Pods_iLearning_iLearningUITests.framework */; };
 		D71966EF0C363CD4C0E26742 /* Pods_iLearning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8232A45F5BD92C97948EB2E5 /* Pods_iLearning.framework */; };
 		D8241EBF294739480033ED6E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8241EBE294739480033ED6E /* GoogleService-Info.plist */; };
+		D876A7D229484A9700E2F0BE /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A7D129484A9700E2F0BE /* AccountView.swift */; };
+		D876A7D429484B0800E2F0BE /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A7D329484B0800E2F0BE /* SearchView.swift */; };
+		D876A7D629484B1B00E2F0BE /* WishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A7D529484B1B00E2F0BE /* WishlistView.swift */; };
+		D876A7D829484B6000E2F0BE /* FeaturedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A7D729484B6000E2F0BE /* FeaturedView.swift */; };
+		D876A7DC2948583200E2F0BE /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A7DB2948583200E2F0BE /* AccountViewModel.swift */; };
+		D876A7DF29485F1200E2F0BE /* AccountSettingView.strings in Resources */ = {isa = PBXBuildFile; fileRef = D876A7E129485F1200E2F0BE /* AccountSettingView.strings */; };
+		D876A7E32948985400E2F0BE /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A7E22948985400E2F0BE /* ProfileView.swift */; };
 		D887A425293F202800A0AAA9 /* KFAnimatedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D887A424293F202800A0AAA9 /* KFAnimatedImage.swift */; };
 		D887A428293F634600A0AAA9 /* online-classroom.gif in Resources */ = {isa = PBXBuildFile; fileRef = D887A427293F634600A0AAA9 /* online-classroom.gif */; };
 		D887A42A293F634C00A0AAA9 /* online-course.gif in Resources */ = {isa = PBXBuildFile; fileRef = D887A429293F634C00A0AAA9 /* online-course.gif */; };
@@ -78,6 +85,13 @@
 		BE97DEE5A4203D5C55E8D55F /* Pods_iLearning_iLearningUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLearning_iLearningUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30F047976AAC2D44BC3FAE2 /* Pods-iLearning-iLearningUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLearning-iLearningUITests.debug.xcconfig"; path = "Target Support Files/Pods-iLearning-iLearningUITests/Pods-iLearning-iLearningUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D8241EBE294739480033ED6E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D876A7D129484A9700E2F0BE /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		D876A7D329484B0800E2F0BE /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		D876A7D529484B1B00E2F0BE /* WishlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistView.swift; sourceTree = "<group>"; };
+		D876A7D729484B6000E2F0BE /* FeaturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedView.swift; sourceTree = "<group>"; };
+		D876A7DB2948583200E2F0BE /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		D876A7E029485F1200E2F0BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AccountSettingView.strings; sourceTree = "<group>"; };
+		D876A7E22948985400E2F0BE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D887A424293F202800A0AAA9 /* KFAnimatedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFAnimatedImage.swift; sourceTree = "<group>"; };
 		D887A427293F634600A0AAA9 /* online-classroom.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "online-classroom.gif"; sourceTree = "<group>"; };
 		D887A429293F634C00A0AAA9 /* online-course.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "online-course.gif"; sourceTree = "<group>"; };
@@ -172,6 +186,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D876A7D92948581700E2F0BE /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				D876A7D129484A9700E2F0BE /* AccountView.swift */,
+				D876A7DB2948583200E2F0BE /* AccountViewModel.swift */,
+				D876A7E22948985400E2F0BE /* ProfileView.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		D887A426293F202B00A0AAA9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +239,7 @@
 			children = (
 				D887A43F293F6D1300A0AAA9 /* OnboardView.strings */,
 				D887A4612940C45200A0AAA9 /* LoginScreen.strings */,
+				D876A7E129485F1200E2F0BE /* AccountSettingView.strings */,
 			);
 			path = Localizable;
 			sourceTree = "<group>";
@@ -255,6 +280,10 @@
 			isa = PBXGroup;
 			children = (
 				D8AA6343291CD4CA00F2A88A /* HomeView.swift */,
+				D876A7D729484B6000E2F0BE /* FeaturedView.swift */,
+				D876A7D329484B0800E2F0BE /* SearchView.swift */,
+				D876A7D529484B1B00E2F0BE /* WishlistView.swift */,
+				D876A7D92948581700E2F0BE /* Account */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -509,6 +538,7 @@
 				D8AA6346291CD4CB00F2A88A /* Assets.xcassets in Resources */,
 				D887A428293F634600A0AAA9 /* online-classroom.gif in Resources */,
 				D8241EBF294739480033ED6E /* GoogleService-Info.plist in Resources */,
+				D876A7DF29485F1200E2F0BE /* AccountSettingView.strings in Resources */,
 				D8E866C72947111900FD5E44 /* online-study.gif in Resources */,
 				D887A45C2940BEB900A0AAA9 /* online-education.gif in Resources */,
 			);
@@ -691,10 +721,16 @@
 				D887A432293F65DC00A0AAA9 /* ButtonModifier.swift in Sources */,
 				D887A455294074B400A0AAA9 /* Injector.swift in Sources */,
 				D887A44E294063AD00A0AAA9 /* AppPreference.swift in Sources */,
+				D876A7D829484B6000E2F0BE /* FeaturedView.swift in Sources */,
+				D876A7D229484A9700E2F0BE /* AccountView.swift in Sources */,
+				D876A7DC2948583200E2F0BE /* AccountViewModel.swift in Sources */,
+				D876A7D629484B1B00E2F0BE /* WishlistView.swift in Sources */,
+				D876A7E32948985400E2F0BE /* ProfileView.swift in Sources */,
 				D8AA6344291CD4CA00F2A88A /* HomeView.swift in Sources */,
 				D887A45029406C1F00A0AAA9 /* OnboardView.swift in Sources */,
 				D887A438293F698C00A0AAA9 /* Color+Extension.swift in Sources */,
 				D887A444293F6F8100A0AAA9 /* LanguageManager.swift in Sources */,
+				D876A7D429484B0800E2F0BE /* SearchView.swift in Sources */,
 				D8E866C32946F55C00FD5E44 /* EmailLoginViewModel.swift in Sources */,
 				D8B3D58B293F10C5001E959B /* LoginView.swift in Sources */,
 				D8AA6342291CD4CA00F2A88A /* iLearningApp.swift in Sources */,
@@ -738,6 +774,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		D876A7E129485F1200E2F0BE /* AccountSettingView.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D876A7E029485F1200E2F0BE /* en */,
+			);
+			name = AccountSettingView.strings;
+			sourceTree = "<group>";
+		};
 		D887A43F293F6D1300A0AAA9 /* OnboardView.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -14,6 +14,7 @@ public enum AppRoute: Equatable {
     case Login
     case Home
     case EmailLogin(isForSignUp: Bool)
+    case Profile
 }
 
 struct AppRouteView: View {
@@ -32,8 +33,11 @@ struct AppRouteView: View {
                 LoginView(viewModel: LoginViewModel(pilot: pilot))
             case .Home:
                 HomeView()
+                    .environmentObject(pilot)
             case .EmailLogin(let isForSignUp):
                 EmailLoginView(viewModel: EmailLoginViewModel(pilot: pilot, isForSignUp: isForSignUp))
+            case .Profile:
+                ProfileView()
             }
         }
         .onAppear {
