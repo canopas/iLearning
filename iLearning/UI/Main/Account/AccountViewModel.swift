@@ -21,10 +21,10 @@ class AccountViewModel: ObservableObject {
 
     init(pilot: UIPilot<AppRoute>) {
         self.pilot = pilot
-        setUserName()
+        getUserDetails()
     }
 
-    func setUserName() {
+    func getUserDetails() {
         if preference.userFirstName != "" && preference.userLastName != "" {
             userName =  preference.userFirstName.capitalized + " " + preference.userLastName.capitalized
             imageText = String(preference.userFirstName.capitalized.prefix(1) + preference.userLastName.capitalized.prefix(1))

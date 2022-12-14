@@ -37,7 +37,7 @@ struct AppRouteView: View {
             case .EmailLogin(let isForSignUp):
                 EmailLoginView(viewModel: EmailLoginViewModel(pilot: pilot, isForSignUp: isForSignUp))
             case .Profile:
-                ProfileView()
+                ProfileView(viewModel: ProfileViewModel(pilot: pilot))
             }
         }
         .onAppear {

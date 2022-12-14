@@ -1,0 +1,13 @@
+/* 
+  ProfileView.strings
+  iLearning
+
+  Created by Amisha Italiya on 14/12/22.
+  
+*/
+
+"user_profile_text"     = "Your Profile";
+"first_name_text"       = "First Name";
+"last_name_text"        = "Last Name";
+"email_text"            = "Email";
+"save_text"             = "Save";
