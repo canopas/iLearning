@@ -605,6 +605,9 @@ PODS:
   - CocoaLumberjack/Core (3.8.0)
   - CocoaLumberjack/Swift (3.8.0):
     - CocoaLumberjack/Core
+  - Cuckoo (1.9.1):
+    - Cuckoo/Swift (= 1.9.1)
+  - Cuckoo/Swift (1.9.1)
   - FirebaseAuth (10.3.0):
     - FirebaseCore (~> 10.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
@@ -719,6 +722,7 @@ PODS:
 
 DEPENDENCIES:
   - CocoaLumberjack/Swift
+  - Cuckoo
   - FirebaseAuth
   - FirebaseCore
   - FirebaseFirestore
@@ -733,6 +737,7 @@ SPEC REPOS:
     - abseil
     - BoringSSL-GRPC
     - CocoaLumberjack
+    - Cuckoo
     - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreInternal
@@ -756,6 +761,7 @@ SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
   CocoaLumberjack: 78abfb691154e2a9df8ded4350d504ee19d90732
+  Cuckoo: 1b6793fe60fac29af50b0a5915bc309a4a1ac673
   FirebaseAuth: 0e415d29d846c1dce2fb641e46f35e9888d9bec6
   FirebaseCore: 988754646ab3bd4bdcb740f1bfe26b9f6c0d5f2a
   FirebaseCoreInternal: 29b76f784d607df8b2a1259d73c3f04f1210137b
@@ -775,6 +781,6 @@ SPEC CHECKSUMS:
   Swinject: b4a11b31992e8668308dc594ba1cb9b3164a37ab
   UIPilot: dec727d11749dcb34654df4f8c94b98b29903566
 
-PODFILE CHECKSUM: 0a9efc62a288d0a6da6d228c29692238191b41e4
+PODFILE CHECKSUM: a280318363babdc223ac49aba267f74353a8015d
 
 COCOAPODS: 1.11.3

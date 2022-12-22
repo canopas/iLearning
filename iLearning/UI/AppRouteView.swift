@@ -19,7 +19,7 @@ public enum AppRoute: Equatable {
 
 struct AppRouteView: View {
 
-    @Inject var preference: AppPreference
+    @Inject var preference: AppPreferences
 
     @StateObject var pilot: UIPilot<AppRoute> = .init(initial: .Onboard)
 

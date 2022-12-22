@@ -10,7 +10,7 @@ import UIPilot
 
 class LoginViewModel: ObservableObject {
 
-    @Inject var preference: AppPreference
+    @Inject var preference: AppPreferences
 
     private let appPilot: UIPilot<AppRoute>
 
@@ -23,9 +23,10 @@ class LoginViewModel: ObservableObject {
     }
 
     func setUser(emailId: String, firstName: String, lastName: String) {
-        preference.userEmail = emailId
+        preference.userEmailId = emailId
         preference.userFirstName = firstName
         preference.userLastName = lastName
+        preference.loginType = .Apple
         preference.isVerifiedUser = true
         goToHome()
     }

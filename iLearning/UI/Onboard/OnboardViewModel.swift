@@ -11,7 +11,7 @@ import UIPilot
 
 class OnboardViewModel: ObservableObject {
 
-    @Inject var preference: AppPreference
+    @Inject var preference: AppPreferences
 
     private let appPilot: UIPilot<AppRoute>
 

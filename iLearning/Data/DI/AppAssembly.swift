@@ -19,8 +19,8 @@ public class AppAssembly: Assembly {
             LanguageManger.init()
         }.inObjectScope(.container)
 
-        container.register(AppPreference.self) { _ in
-            AppPreference.init()
+        container.register(AppPreferences.self) { _ in
+            AppPreferencesImpl.init()
         }.inObjectScope(.container)
     }
 }

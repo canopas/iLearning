@@ -7,10 +7,28 @@
 
 import Foundation
 
-public class AppPreference {
+public enum LoginType: String {
+    case Apple
+    case Email
+    case None
+}
+
+public protocol AppPreferences {
+    var isOnboardShown: Bool { get set }
+    var loginType: LoginType { get set }
+    var isVerifiedUser: Bool { get set }
+    var userFirstName: String { get set }
+    var userLastName: String { get set }
+    var userEmailId: String { get set }
+
+    func clearPreference()
+}
+
+class AppPreferencesImpl: AppPreferences {
 
     enum Key: String {
         case isOnboardShown = "is_onboard_shown"
+        case loginType      = "login_type"
         case isVerifiedUser = "is_verified_user"
         case userFirstName  = "user_first_name"
         case userLastName   = "user_last_name"
@@ -23,7 +41,7 @@ public class AppPreference {
         self.userDefaults = UserDefaults.standard
     }
 
-    public var isOnboardShown: Bool {
+    var isOnboardShown: Bool {
         get {
             return userDefaults.bool(forKey: Key.isVerifiedUser.rawValue)
         } set {
@@ -32,7 +50,15 @@ public class AppPreference {
         }
     }
 
-    public var isVerifiedUser: Bool {
+    var loginType: LoginType {
+        get {
+            return LoginType(rawValue: userDefaults.string(forKey: Key.loginType.rawValue) ?? "None") ?? .None
+        } set {
+            userDefaults.set(newValue.rawValue, forKey: Key.loginType.rawValue)
+        }
+    }
+
+    var isVerifiedUser: Bool {
         get {
             return userDefaults.bool(forKey: Key.isOnboardShown.rawValue)
         } set {
@@ -41,7 +67,7 @@ public class AppPreference {
         }
     }
 
-    public var userFirstName: String {
+    var userFirstName: String {
         get {
             return userDefaults.string(forKey: Key.userFirstName.rawValue) ?? ""
         } set {
@@ -50,7 +76,7 @@ public class AppPreference {
         }
     }
 
-    public var userLastName: String {
+    var userLastName: String {
         get {
             return userDefaults.string(forKey: Key.userLastName.rawValue) ?? ""
         } set {
@@ -59,12 +85,20 @@ public class AppPreference {
         }
     }
 
-    public var userEmail: String {
+    var userEmailId: String {
         get {
             return userDefaults.string(forKey: Key.userEmailId.rawValue) ?? ""
         } set {
             userDefaults.set(newValue, forKey: Key.userEmailId.rawValue)
             userDefaults.synchronize()
         }
+    }
+
+    func clearPreference() {
+        isOnboardShown = false
+        isVerifiedUser = false
+        userFirstName = ""
+        userLastName = ""
+        userEmailId = ""
     }
 }

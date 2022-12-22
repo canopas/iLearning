@@ -9,7 +9,12 @@ import SwiftUI
 
 struct FeaturedView: View {
     var body: some View {
-        Text("Hello, Featured...!")
+        VStack(spacing: 10) {
+            Text("Welcome!!!")
+                .font(.title.bold())
+            Text("All the best for your journey ✍🏻.")
+                .font(.subheadline)
+        }
     }
 }
 

@@ -9,7 +9,7 @@ import UIPilot
 
 class ProfileViewModel: ObservableObject {
 
-    @Inject var preference: AppPreference
+    @Inject var preference: AppPreferences
 
     @Published var firstName: String = ""
     @Published var lastName: String = ""
@@ -25,18 +25,18 @@ class ProfileViewModel: ObservableObject {
 
     func setUserName() {
         if preference.userFirstName != "" && preference.userLastName != "" {
-            emailId = preference.userEmail
+            emailId = preference.userEmailId
             firstName = preference.userFirstName
             lastName = preference.userLastName
             imageText = String(preference.userFirstName.capitalized.prefix(1) + preference.userLastName.capitalized.prefix(1))
         } else {
-            imageText = "UN"
-            emailId = preference.userEmail
+            imageText = R.string.profileView.default_image_text.localized()
+            emailId = preference.userEmailId
         }
     }
 
     func onSaveBtnClick() {
-        preference.userEmail = emailId
+        preference.userEmailId = emailId
         preference.userFirstName = firstName
         preference.userLastName = lastName
         pilot.pop()

@@ -20,6 +20,8 @@ target 'iLearning' do
 
   target 'iLearningTests' do
     inherit! :search_paths
+    
+    pod "Cuckoo"
     # Pods for testing
   end
 

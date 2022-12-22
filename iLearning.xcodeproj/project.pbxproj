@@ -42,6 +42,10 @@
 		D887A45C2940BEB900A0AAA9 /* online-education.gif in Resources */ = {isa = PBXBuildFile; fileRef = D887A45B2940BEB900A0AAA9 /* online-education.gif */; };
 		D887A45F2940C45200A0AAA9 /* LoginScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = D887A4612940C45200A0AAA9 /* LoginScreen.strings */; };
 		D887A4642942F7A400A0AAA9 /* DDLoggerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D887A4632942F7A400A0AAA9 /* DDLoggerProvider.swift */; };
+		D8A7DF6C29519A4E00AFFFD8 /* ProfileViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7DF6B29519A4E00AFFFD8 /* ProfileViewModelTest.swift */; };
+		D8A7DF722952E73000AFFFD8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7DF712952E73000AFFFD8 /* User.swift */; };
+		D8A7DF7629534DFF00AFFFD8 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7DF7529534DFE00AFFFD8 /* GeneratedMocks.swift */; };
+		D8A7DF7829545DD500AFFFD8 /* FakeAppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7DF7729545DD500AFFFD8 /* FakeAppAssembly.swift */; };
 		D8AA6342291CD4CA00F2A88A /* iLearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AA6341291CD4CA00F2A88A /* iLearningApp.swift */; };
 		D8AA6344291CD4CA00F2A88A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AA6343291CD4CA00F2A88A /* HomeView.swift */; };
 		D8AA6346291CD4CB00F2A88A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8AA6345291CD4CB00F2A88A /* Assets.xcassets */; };
@@ -119,6 +123,10 @@
 		D887A45B2940BEB900A0AAA9 /* online-education.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "online-education.gif"; sourceTree = "<group>"; };
 		D887A4602940C45200A0AAA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginScreen.strings; sourceTree = "<group>"; };
 		D887A4632942F7A400A0AAA9 /* DDLoggerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLoggerProvider.swift; sourceTree = "<group>"; };
+		D8A7DF6B29519A4E00AFFFD8 /* ProfileViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelTest.swift; sourceTree = "<group>"; };
+		D8A7DF712952E73000AFFFD8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D8A7DF7529534DFE00AFFFD8 /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
+		D8A7DF7729545DD500AFFFD8 /* FakeAppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAppAssembly.swift; sourceTree = "<group>"; };
 		D8AA633E291CD4CA00F2A88A /* iLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AA6341291CD4CA00F2A88A /* iLearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iLearningApp.swift; sourceTree = "<group>"; };
 		D8AA6343291CD4CA00F2A88A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -273,6 +281,7 @@
 		D887A445293F6FAA00A0AAA9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				D8A7DF702952E72500AFFFD8 /* Model */,
 				D887A4562940751200A0AAA9 /* DI */,
 				D887A4652942F8AC00A0AAA9 /* Logger */,
 				D887A45129406DD800A0AAA9 /* Language */,
@@ -354,6 +363,30 @@
 			path = Logger;
 			sourceTree = "<group>";
 		};
+		D8A7DF6A29519A2300AFFFD8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D8A7DF6B29519A4E00AFFFD8 /* ProfileViewModelTest.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D8A7DF702952E72500AFFFD8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D8A7DF712952E73000AFFFD8 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D8A7DF7929545DD700AFFFD8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D8A7DF7729545DD500AFFFD8 /* FakeAppAssembly.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		D8AA6335291CD4CA00F2A88A = {
 			isa = PBXGroup;
 			children = (
@@ -399,7 +432,10 @@
 		D8AA6352291CD4CB00F2A88A /* iLearningTests */ = {
 			isa = PBXGroup;
 			children = (
+				D8A7DF7529534DFE00AFFFD8 /* GeneratedMocks.swift */,
 				D8AA6353291CD4CB00F2A88A /* iLearningTests.swift */,
+				D8A7DF7929545DD700AFFFD8 /* Data */,
+				D8A7DF6A29519A2300AFFFD8 /* UI */,
 			);
 			path = iLearningTests;
 			sourceTree = "<group>";
@@ -473,9 +509,11 @@
 			buildConfigurationList = D8AA6366291CD4CB00F2A88A /* Build configuration list for PBXNativeTarget "iLearningTests" */;
 			buildPhases = (
 				5065DB7F1ACE0F48A68A287F /* [CP] Check Pods Manifest.lock */,
+				D84045B82949F570007AC5DD /* Cuckoo */,
 				D8AA634B291CD4CB00F2A88A /* Sources */,
 				D8AA634C291CD4CB00F2A88A /* Frameworks */,
 				D8AA634D291CD4CB00F2A88A /* Resources */,
+				1008977C10E91A73949DC6AC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -587,6 +625,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1008977C10E91A73949DC6AC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iLearningTests/Pods-iLearningTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iLearningTests/Pods-iLearningTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iLearningTests/Pods-iLearningTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5065DB7F1ACE0F48A68A287F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -687,6 +742,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D84045B82949F570007AC5DD /* Cuckoo */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Cuckoo;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PODS_ROOT}/Cuckoo/run\" generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/Data/Preference/AppPreference.swift\"\n";
+		};
 		D887A434293F667C00A0AAA9 /* R.Swift */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -757,6 +830,7 @@
 				D8AA6344291CD4CA00F2A88A /* HomeView.swift in Sources */,
 				D887A45029406C1F00A0AAA9 /* OnboardView.swift in Sources */,
 				D887A438293F698C00A0AAA9 /* Color+Extension.swift in Sources */,
+				D8A7DF722952E73000AFFFD8 /* User.swift in Sources */,
 				D887A444293F6F8100A0AAA9 /* LanguageManager.swift in Sources */,
 				D876A7D429484B0800E2F0BE /* SearchView.swift in Sources */,
 				D8E866C32946F55C00FD5E44 /* EmailLoginViewModel.swift in Sources */,
@@ -773,6 +847,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8A7DF7829545DD500AFFFD8 /* FakeAppAssembly.swift in Sources */,
+				D8A7DF6C29519A4E00AFFFD8 /* ProfileViewModelTest.swift in Sources */,
+				D8A7DF7629534DFF00AFFFD8 /* GeneratedMocks.swift in Sources */,
 				D8AA6354291CD4CB00F2A88A /* iLearningTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

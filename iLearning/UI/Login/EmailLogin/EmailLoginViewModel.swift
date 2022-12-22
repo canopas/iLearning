@@ -21,7 +21,7 @@ class EmailLoginViewModel: ObservableObject {
 
     private let pilot: UIPilot<AppRoute>
 
-    @Inject var preference: AppPreference
+    @Inject var preference: AppPreferences
 
     init(pilot: UIPilot<AppRoute>, isForSignUp: Bool) {
         self.pilot = pilot
@@ -49,8 +49,9 @@ class EmailLoginViewModel: ObservableObject {
                 return
             }
             guard let self = self else { return }
+            self.preference.loginType = .Email
             self.preference.isVerifiedUser = true
-            self.preference.userEmail = self.email
+            self.preference.userEmailId = self.email
         }
     }
 
@@ -62,8 +63,9 @@ class EmailLoginViewModel: ObservableObject {
                 return
             }
             guard let self = self else { return }
+            self.preference.loginType = .Email
             self.preference.isVerifiedUser = true
-            self.preference.userEmail = self.email
+            self.preference.userEmailId = self.email
         })
     }
 

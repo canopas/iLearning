@@ -11,7 +11,7 @@ import FirebaseAuth
 
 class AccountViewModel: ObservableObject {
 
-    @Inject var preference: AppPreference
+    @Inject var preference: AppPreferences
 
     @Published var userName: String = ""
     @Published var emailId: String = ""
@@ -28,11 +28,11 @@ class AccountViewModel: ObservableObject {
         if preference.userFirstName != "" && preference.userLastName != "" {
             userName =  preference.userFirstName.capitalized + " " + preference.userLastName.capitalized
             imageText = String(preference.userFirstName.capitalized.prefix(1) + preference.userLastName.capitalized.prefix(1))
-            emailId = preference.userEmail
+            emailId = preference.userEmailId
         } else {
             userName = R.string.accountSettingView.unknown_text.localized()
-            imageText = "UN"
-            emailId = preference.userEmail
+            imageText = R.string.accountSettingView.default_image_text.localized()
+            emailId = preference.userEmailId
         }
     }
 
