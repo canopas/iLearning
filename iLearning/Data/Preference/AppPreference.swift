@@ -7,12 +7,6 @@
 
 import Foundation
 
-public enum LoginType: String {
-    case Apple
-    case Email
-    case None
-}
-
 public protocol AppPreferences {
     var isOnboardShown: Bool { get set }
     var loginType: LoginType { get set }

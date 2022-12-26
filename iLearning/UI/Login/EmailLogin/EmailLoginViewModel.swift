@@ -22,6 +22,7 @@ class EmailLoginViewModel: ObservableObject {
     private let pilot: UIPilot<AppRoute>
 
     @Inject var preference: AppPreferences
+    @Inject var firestore: FirestoreManager
 
     init(pilot: UIPilot<AppRoute>, isForSignUp: Bool) {
         self.pilot = pilot
@@ -29,7 +30,7 @@ class EmailLoginViewModel: ObservableObject {
     }
 
     func onSignInClick() {
-        if isValidEmail(email) && isValidPassword(password) {
+        if email.isValidEmail() && password.isValidPassword() {
             if isForSignUp {
                 createUser()
             } else {
@@ -39,6 +40,11 @@ class EmailLoginViewModel: ObservableObject {
             showAlert = true
             alertText = R.string.loginScreen.valid_input_text.localized()
         }
+    }
+
+    func goToHome() {
+        pilot.popTo(.Login, inclusive: true)
+        pilot.push(.Home)
     }
 
     func loginUser() {
@@ -52,6 +58,9 @@ class EmailLoginViewModel: ObservableObject {
             self.preference.loginType = .Email
             self.preference.isVerifiedUser = true
             self.preference.userEmailId = self.email
+            let user = User(id: UUID().uuidString, firstName: "", lastName: "", emailId: self.email.capitalized, password: self.password.sha256(), loginType: .Email)
+            self.firestore.createUserDatabase(user: user)
+            self.goToHome()
         }
     }
 
@@ -66,6 +75,9 @@ class EmailLoginViewModel: ObservableObject {
             self.preference.loginType = .Email
             self.preference.isVerifiedUser = true
             self.preference.userEmailId = self.email
+            let user = User(id: UUID().uuidString, firstName: "", lastName: "", emailId: self.email, password: self.password.sha256(), loginType: .Email)
+            self.firestore.createUserDatabase(user: user)
+            self.goToHome()
         })
     }
 
@@ -81,19 +93,5 @@ class EmailLoginViewModel: ObservableObject {
         } catch let error {
             LogE("EmailLoginViewModel: Sign Out Failed :: \(error)")
         }
-    }
-}
-
-// MARK: - Helper Methods
-extension EmailLoginViewModel {
-    func isValidEmail(_ email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: email)
-    }
-
-    func isValidPassword(_ password: String) -> Bool {
-        let minPasswordLength = 6
-        return password.count >= minPasswordLength
     }
 }

@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-struct User {
-    let id: Int
+struct User: Identifiable {
+    let id: String
     let firstName: String
     let lastName: String
     let emailId: String
+    let password: String
     let loginType: LoginType
 
     enum CodingKeys: String, CodingKey {
@@ -19,6 +20,13 @@ struct User {
         case firstName
         case lastName
         case emailId
+        case password
         case loginType
     }
+}
+
+public enum LoginType: String {
+    case Apple
+    case Email
+    case None
 }

@@ -46,6 +46,8 @@
 		D8A7DF722952E73000AFFFD8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7DF712952E73000AFFFD8 /* User.swift */; };
 		D8A7DF7629534DFF00AFFFD8 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7DF7529534DFE00AFFFD8 /* GeneratedMocks.swift */; };
 		D8A7DF7829545DD500AFFFD8 /* FakeAppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7DF7729545DD500AFFFD8 /* FakeAppAssembly.swift */; };
+		D8A7DF7B29546F0300AFFFD8 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7DF7A29546F0300AFFFD8 /* FirestoreManager.swift */; };
+		D8A7DF7D29596F6000AFFFD8 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7DF7C29596F6000AFFFD8 /* String+Extension.swift */; };
 		D8AA6342291CD4CA00F2A88A /* iLearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AA6341291CD4CA00F2A88A /* iLearningApp.swift */; };
 		D8AA6344291CD4CA00F2A88A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AA6343291CD4CA00F2A88A /* HomeView.swift */; };
 		D8AA6346291CD4CB00F2A88A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8AA6345291CD4CB00F2A88A /* Assets.xcassets */; };
@@ -127,6 +129,8 @@
 		D8A7DF712952E73000AFFFD8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D8A7DF7529534DFE00AFFFD8 /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
 		D8A7DF7729545DD500AFFFD8 /* FakeAppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAppAssembly.swift; sourceTree = "<group>"; };
+		D8A7DF7A29546F0300AFFFD8 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		D8A7DF7C29596F6000AFFFD8 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D8AA633E291CD4CA00F2A88A /* iLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AA6341291CD4CA00F2A88A /* iLearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iLearningApp.swift; sourceTree = "<group>"; };
 		D8AA6343291CD4CA00F2A88A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -375,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				D8A7DF712952E73000AFFFD8 /* User.swift */,
+				D8A7DF7A29546F0300AFFFD8 /* FirestoreManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -476,6 +481,7 @@
 				D8B3D590293F1381001E959B /* UIView+Extension.swift */,
 				D887A437293F698C00A0AAA9 /* Color+Extension.swift */,
 				D887A441293F6F5500A0AAA9 /* StringResource+Extension.swift */,
+				D8A7DF7C29596F6000AFFFD8 /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -807,6 +813,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D887A42F293F657100A0AAA9 /* PrimaryButton.swift in Sources */,
+				D8A7DF7B29546F0300AFFFD8 /* FirestoreManager.swift in Sources */,
 				D8E866C12946F54900FD5E44 /* EmailLoginView.swift in Sources */,
 				D887A44929405B4C00A0AAA9 /* OnboardViewModel.swift in Sources */,
 				D8E866C52946FCC700FD5E44 /* OutlinedTextFieldStyle.swift in Sources */,
@@ -833,6 +840,7 @@
 				D8A7DF722952E73000AFFFD8 /* User.swift in Sources */,
 				D887A444293F6F8100A0AAA9 /* LanguageManager.swift in Sources */,
 				D876A7D429484B0800E2F0BE /* SearchView.swift in Sources */,
+				D8A7DF7D29596F6000AFFFD8 /* String+Extension.swift in Sources */,
 				D8E866C32946F55C00FD5E44 /* EmailLoginViewModel.swift in Sources */,
 				D8B3D58B293F10C5001E959B /* LoginView.swift in Sources */,
 				D8AA6342291CD4CA00F2A88A /* iLearningApp.swift in Sources */,

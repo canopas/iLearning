@@ -22,5 +22,9 @@ public class AppAssembly: Assembly {
         container.register(AppPreferences.self) { _ in
             AppPreferencesImpl.init()
         }.inObjectScope(.container)
+
+        container.register(FirestoreManager.self) { _ in
+            FirestoreManagerImpl.init()
+        }.inObjectScope(.container)
     }
 }

@@ -11,6 +11,7 @@ import UIPilot
 class LoginViewModel: ObservableObject {
 
     @Inject var preference: AppPreferences
+    @Inject var firestore: FirestoreManager
 
     private let appPilot: UIPilot<AppRoute>
 
@@ -27,6 +28,8 @@ class LoginViewModel: ObservableObject {
         preference.userFirstName = firstName
         preference.userLastName = lastName
         preference.loginType = .Apple
+        let user = User(id: UUID().uuidString, firstName: firstName, lastName: lastName, emailId: emailId, password: "", loginType: .Apple)
+        firestore.createUserDatabase(user: user)
         preference.isVerifiedUser = true
         goToHome()
     }
