@@ -28,10 +28,10 @@ class FirestoreManagerImpl: FirestoreManager, ObservableObject {
         db.collection(DATABASE_NAME).document(user.id)
             .setData(json) { error in
                 if let error {
-                    LogE("FirestoreManager:: \(#function) : Error writing document: \(error.localizedDescription).")
+                    print("FirestoreManager:: \(#function) : Error writing document: \(error.localizedDescription).")
                 } else {
                     completion()
-                    LogD("FirestoreManager:: \(#function) : Document written successfully!")
+                    print("FirestoreManager:: \(#function) : Document written successfully!")
                 }
             }
     }

@@ -22,6 +22,3 @@
 "something_went_wrong_text" = "Oops, Something went wrong.";
 "valid_input_text"          = "Please enter valid email id and password with more than 6 characters.";
 "ok_text"                   = "Ok";
-
-"user_already_exist_text"   = "This user is already exist, please add new user.";
-"wrong_credential_text"     = "You may have wrong email id or password. This user is not exist.";
