@@ -39,10 +39,8 @@ class EmailLoginViewModel: ObservableObject {
                 } receiveValue: { [weak self] users in
                     guard let self = self else { return }
                     if self.isForSignUp {
-                        print("XXX -- Log 1")
                         self.checkForNewUser(user: user, users: users)
                     } else {
-                        print("XXX -- Log 2")
                         self.checkForExistUser(user: user, users: users)
                     }
                 }.store(in: &cancellable)
@@ -53,7 +51,7 @@ class EmailLoginViewModel: ObservableObject {
     }
 
     private func checkForNewUser(user: User, users: [User]) {
-        let searchedUser = users.first(where: { $0.emailId == user.emailId && $0.password == user.password })
+        let searchedUser = users.first(where: { $0.emailId == user.emailId })
         if searchedUser == nil {
             createUser(user: user)
         } else {
@@ -76,14 +74,12 @@ class EmailLoginViewModel: ObservableObject {
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] _, error in
             if let error {
                 self?.showAuthErrorAlert()
-                LogE("EmailLoginViewModel: \(#function) failed with error :: \(error)")
+                LogE("EmailLoginViewModel: \(#function) failed with error :: \(error.localizedDescription)")
                 return
             }
             guard let self = self else { return }
-            self.firestore.createUserDatabase(user: user) {
-                self.preference.user = user
-                self.preference.isVerifiedUser = true
-            }
+            self.preference.user = user
+            self.preference.isVerifiedUser = true
             self.goToHome()
         }
     }
@@ -92,11 +88,11 @@ class EmailLoginViewModel: ObservableObject {
         Auth.auth().createUser(withEmail: email, password: password, completion: { [weak self] _, error in
             if let error {
                 self?.showAuthErrorAlert()
-                LogE("EmailLoginViewModel: \(#function) failed with error :: \(error)")
+                LogE("EmailLoginViewModel: \(#function) failed with error :: \(error.localizedDescription)")
                 return
             }
             guard let self = self else { return }
-            self.firestore.createUserDatabase(user: user) {
+            self.firestore.addUser(user: user) {
                 self.preference.user = user
                 self.preference.isVerifiedUser = true
             }
@@ -119,7 +115,7 @@ class EmailLoginViewModel: ObservableObject {
         do {
             try Auth.auth().signOut()
         } catch let error {
-            LogE("EmailLoginViewModel: \(#function) failed with error :: \(error)")
+            LogE("EmailLoginViewModel: \(#function) failed with error :: \(error.localizedDescription)")
         }
     }
 }

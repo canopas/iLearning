@@ -9,17 +9,12 @@ import SwiftUI
 
 struct FeaturedView: View {
 
-    @Inject var firestore: FirestoreManager
-
     var body: some View {
         VStack(spacing: 10) {
             Text("Welcome!!!")
                 .font(.title.bold())
             Text("All the best for your journey ✍🏻.")
                 .font(.subheadline)
-        }
-        .onAppear {
-            firestore.fetchUser()
         }
     }
 }

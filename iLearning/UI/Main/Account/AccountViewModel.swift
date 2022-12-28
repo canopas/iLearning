@@ -62,7 +62,8 @@ class AccountViewModel: ObservableObject {
     func onSignOutClick() {
         do {
             try Auth.auth().signOut()
-            preference.isVerifiedUser = false
+            preference.clearPreference()
+            pilot.popTo(.Login)
         } catch let error {
             LogE("Signout failed with: \(error)")
         }

@@ -28,18 +28,20 @@ class LoginViewModel: ObservableObject {
     private func checkForUserExistance(user: User) {
         firestore.fetchUsers()
             .sink { _ in
-            } receiveValue: { users in
-                let searchedUser = users.first(where: { $0.emailId == user.emailId && $0.firstName == user.firstName && $0.lastName == user.lastName })
+            } receiveValue: { [weak self] users in
+                guard let self = self else { return }
+                let searchedUser = users.first(where: { $0.emailId == user.emailId })
+
                 if let searchedUser {
                     self.preference.user = searchedUser
                     self.preference.isVerifiedUser = true
                     self.goToHome()
                 } else {
-                    self.firestore.createUserDatabase(user: user) {
+                    self.firestore.addUser(user: user) {
                         self.preference.user = user
                         self.preference.isVerifiedUser = true
-                        self.goToHome()
                     }
+                    self.goToHome()
                 }
             }
             .store(in: &cancellable)

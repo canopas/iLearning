@@ -71,7 +71,7 @@ class AppPreferencesImpl: AppPreferences {
     }
 
     func clearPreference() {
-        isOnboardShown = false
         isVerifiedUser = false
+        user = nil
     }
 }

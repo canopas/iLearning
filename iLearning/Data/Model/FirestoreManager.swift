@@ -10,8 +10,8 @@ import Foundation
 import FirebaseFirestore
 
 protocol FirestoreManager {
-    func createUserDatabase(user: User, completion: @escaping () -> Void)
-    func updateUserDatabase(user: User, completion: @escaping () -> Void)
+    func addUser(user: User, completion: @escaping () -> Void)
+    func updateUser(user: User, completion: @escaping () -> Void)
     func fetchUsers() -> AnyPublisher<[User], ServiceError>
 }
 
@@ -21,39 +21,33 @@ class FirestoreManagerImpl: FirestoreManager, ObservableObject {
 
     private let db = Firestore.firestore()
 
-    func createUserDatabase(user: User, completion: @escaping () -> Void) {
-        let docRef = db.collection(DATABASE_NAME).document("id")
-        docRef.setData(["id": user.id,
-                        "firstName": user.firstName,
-                        "lastName": user.lastName,
-                        "emailId": user.emailId,
-                        "password": user.password,
-                        "loginType": user.loginType.rawValue
-                       ]) { error in
-            if let error {
-                LogE("FirestoreManager:: \(#function) : Error writing document: \(error).")
-            } else {
-                completion()
-                LogD("FirestoreManager:: \(#function) : Document written successfully!")
+    func addUser(user: User, completion: @escaping () -> Void) {
+        guard let data = try? JSONEncoder().encode(user) else { return }
+        guard let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
+
+        db.collection(DATABASE_NAME)
+            .addDocument(data: json) { error in
+                if let error {
+                    LogE("FirestoreManager:: \(#function) : Error writing document: \(error).")
+                } else {
+                    completion()
+                    LogD("FirestoreManager:: \(#function) : Document written successfully!")
+                }
             }
-        }
     }
 
-    func updateUserDatabase(user: User, completion: @escaping () -> Void) {
-        let docRef = db.collection(DATABASE_NAME).document("id")
-        docRef.updateData(["id": user.id,
-                           "firstName": user.firstName,
-                           "lastName": user.lastName,
-                           "emailId": user.emailId,
-                           "password": user.password,
-                           "loginType": user.loginType.rawValue
-                       ]) { error in
-            if let error {
-                LogE("FirestoreManager:: \(#function) : Error updating document: \(error).")
-            } else {
-                LogD("FirestoreManager:: \(#function) : Document updated successfully!")
+    func updateUser(user: User, completion: @escaping () -> Void) {
+        guard let data = try? JSONEncoder().encode(user) else { return }
+        guard let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
+
+        db.collection(DATABASE_NAME).document("id")
+            .updateData(json) { error in
+                if let error {
+                    LogE("FirestoreManager:: \(#function) : Error updating document: \(error).")
+                } else {
+                    LogD("FirestoreManager:: \(#function) : Document updated successfully!")
+                }
             }
-        }
     }
 
     func fetchUsers() -> AnyPublisher<[User], ServiceError> {
@@ -80,6 +74,7 @@ class FirestoreManagerImpl: FirestoreManager, ObservableObject {
                         }
                     } else {
                         LogE("FirestoreManager:: \(#function) The document is not available.")
+                        promise(.failure(.serverError()))
                     }
                     promise(.success(users))
                 }
