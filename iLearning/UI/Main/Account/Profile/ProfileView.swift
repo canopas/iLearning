@@ -30,6 +30,7 @@ struct ProfileView: View {
                 UnderlinedTextField(fieldName: .constant(R.string.profileView.last_name_text.localized()), bindingValue: $viewModel.lastName)
 
                 UnderlinedTextField(fieldName: .constant(R.string.profileView.email_text.localized()), bindingValue: $viewModel.emailId)
+                    .disabled(true)
 
                 VSpacer(20)
 
@@ -40,6 +41,9 @@ struct ProfileView: View {
                 VSpacer()
             }
             .padding(.horizontal, 30)
+        }
+        .onAppear {
+            viewModel.setUserName()
         }
         .navigationTitle(R.string.profileView.user_profile_text.localized())
     }

@@ -25,10 +25,10 @@ class FirestoreManagerImpl: FirestoreManager, ObservableObject {
         guard let data = try? JSONEncoder().encode(user) else { return }
         guard let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
 
-        db.collection(DATABASE_NAME)
-            .addDocument(data: json) { error in
+        db.collection(DATABASE_NAME).document(user.id)
+            .setData(json) { error in
                 if let error {
-                    LogE("FirestoreManager:: \(#function) : Error writing document: \(error).")
+                    LogE("FirestoreManager:: \(#function) : Error writing document: \(error.localizedDescription).")
                 } else {
                     completion()
                     LogD("FirestoreManager:: \(#function) : Document written successfully!")
@@ -40,11 +40,12 @@ class FirestoreManagerImpl: FirestoreManager, ObservableObject {
         guard let data = try? JSONEncoder().encode(user) else { return }
         guard let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
 
-        db.collection(DATABASE_NAME).document("id")
+        db.collection(DATABASE_NAME).document(user.id)
             .updateData(json) { error in
                 if let error {
-                    LogE("FirestoreManager:: \(#function) : Error updating document: \(error).")
+                    LogE("FirestoreManager:: \(#function) : Error updating document: \(error.localizedDescription).")
                 } else {
+                    completion()
                     LogD("FirestoreManager:: \(#function) : Document updated successfully!")
                 }
             }
@@ -58,7 +59,7 @@ class FirestoreManagerImpl: FirestoreManager, ObservableObject {
             self.db.collection(self.DATABASE_NAME)
                 .getDocuments { (snapshot, error) in
                     guard error == nil else {
-                        LogE("FirestoreManager:: \(#function) error: \(String(describing: error))")
+                        LogE("FirestoreManager:: \(#function) error: \(String(describing: error?.localizedDescription))")
                         return
                     }
                     if let snapshot {
