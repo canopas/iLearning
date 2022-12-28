@@ -42,21 +42,21 @@ class AppPreferencesImpl: AppPreferences {
     var user: User? {
         get {
             do {
-                let res = userDefaults.data(forKey: Key.user.rawValue)
-                if let res {
-                    let data = try JSONDecoder().decode(User.self, from: res)
-                    return data
+                let data = userDefaults.data(forKey: Key.user.rawValue)
+                if let data {
+                    let user = try JSONDecoder().decode(User.self, from: data)
+                    return user
                 }
             } catch let error {
-                print("AppPreferences \(#function) json decode error: \(error.localizedDescription)")
+                LogE("AppPreferences \(#function) json decode error: \(error.localizedDescription)")
             }
             return nil
         } set {
             do {
-                let res = try JSONEncoder().encode(newValue)
-                userDefaults.set(res, forKey: Key.user.rawValue)
+                let data = try JSONEncoder().encode(newValue)
+                userDefaults.set(data, forKey: Key.user.rawValue)
             } catch let error {
-                print("AppPreferences \(#function) json encode error: \(error.localizedDescription)")
+                LogE("AppPreferences \(#function) json encode error: \(error.localizedDescription)")
             }
         }
     }
