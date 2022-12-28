@@ -25,15 +25,21 @@ class AccountViewModel: ObservableObject {
     }
 
     func getUserDetails() {
-        if preference.userFirstName != "" && preference.userLastName != "" {
-            userName =  preference.userFirstName.capitalized + " " + preference.userLastName.capitalized
-            imageText = String(preference.userFirstName.capitalized.prefix(1) + preference.userLastName.capitalized.prefix(1))
-            emailId = preference.userEmailId
-        } else {
-            userName = R.string.accountSettingView.unknown_text.localized()
-            imageText = R.string.accountSettingView.default_image_text.localized()
-            emailId = preference.userEmailId
+        if let user = preference.user {
+            if user.firstName != "" && user.lastName != "" {
+                userName =  user.firstName.capitalized + " " + user.lastName.capitalized
+                imageText = String(user.firstName.prefix(1) + user.lastName.prefix(1)).uppercased()
+                emailId = user.emailId
+            } else {
+                userName = R.string.accountSettingView.unknown_text.localized()
+                imageText = R.string.accountSettingView.default_image_text.localized()
+                emailId = user.emailId
+            }
         }
+    }
+
+    func getUser() {
+
     }
 
     func openProfileScreen() {

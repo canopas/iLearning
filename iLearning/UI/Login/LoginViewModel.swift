@@ -14,27 +14,38 @@ class LoginViewModel: ObservableObject {
     @Inject var firestore: FirestoreManager
 
     private let appPilot: UIPilot<AppRoute>
-
-    var emailId: String = ""
-    var firstName: String = ""
-    var lastName: String = ""
+    private var cancellable = Set<AnyCancellable>()
 
     init(pilot: UIPilot<AppRoute>) {
         self.appPilot = pilot
     }
 
     func setUser(emailId: String, firstName: String, lastName: String) {
-        preference.userEmailId = emailId
-        preference.userFirstName = firstName
-        preference.userLastName = lastName
-        preference.loginType = .Apple
         let user = User(id: UUID().uuidString, firstName: firstName, lastName: lastName, emailId: emailId, password: "", loginType: .Apple)
-        firestore.createUserDatabase(user: user)
-        preference.isVerifiedUser = true
-        goToHome()
+        checkForUserExistance(user: user)
     }
 
-    func goToHome() {
+    private func checkForUserExistance(user: User) {
+        firestore.fetchUsers()
+            .sink { _ in
+            } receiveValue: { users in
+                let searchedUser = users.first(where: { $0.emailId == user.emailId && $0.firstName == user.firstName && $0.lastName == user.lastName })
+                if let searchedUser {
+                    self.preference.user = searchedUser
+                    self.preference.isVerifiedUser = true
+                    self.goToHome()
+                } else {
+                    self.firestore.createUserDatabase(user: user) {
+                        self.preference.user = user
+                        self.preference.isVerifiedUser = true
+                        self.goToHome()
+                    }
+                }
+            }
+            .store(in: &cancellable)
+    }
+
+    private func goToHome() {
         appPilot.pop()
         appPilot.push(.Home)
     }

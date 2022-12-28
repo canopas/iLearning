@@ -44,9 +44,6 @@ struct AppRouteView: View {
             if preference.isOnboardShown {
                 pilot.pop()
                 if preference.isVerifiedUser {
-                    func isUserLoggedIn() -> Bool {
-                        return Auth.auth().currentUser != nil
-                    }
                     pilot.push(.Home)
                 } else {
                     pilot.push(.Login)

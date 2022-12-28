@@ -24,21 +24,23 @@ class ProfileViewModel: ObservableObject {
     }
 
     func setUserName() {
-        if preference.userFirstName != "" && preference.userLastName != "" {
-            emailId = preference.userEmailId
-            firstName = preference.userFirstName
-            lastName = preference.userLastName
-            imageText = String(preference.userFirstName.capitalized.prefix(1) + preference.userLastName.capitalized.prefix(1))
-        } else {
-            imageText = R.string.profileView.default_image_text.localized()
-            emailId = preference.userEmailId
+        if let user = preference.user {
+            if user.firstName != "" && user.lastName != "" {
+                emailId = user.emailId
+                firstName = user.firstName
+                lastName = user.lastName
+                imageText = String(user.firstName.prefix(1) + user.lastName.prefix(1)).uppercased()
+            } else {
+                imageText = R.string.profileView.default_image_text.localized()
+                emailId = user.emailId
+            }
         }
     }
 
     func onSaveBtnClick() {
-        preference.userEmailId = emailId
-        preference.userFirstName = firstName
-        preference.userLastName = lastName
+        self.preference.user?.emailId = emailId
+        self.preference.user?.firstName = firstName
+        self.preference.user?.lastName = lastName
         pilot.pop()
     }
 }
