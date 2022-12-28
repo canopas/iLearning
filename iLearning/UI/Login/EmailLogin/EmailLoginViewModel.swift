@@ -38,16 +38,37 @@ class EmailLoginViewModel: ObservableObject {
 
                 } receiveValue: { [weak self] users in
                     guard let self = self else { return }
-                    let searchedUser = users.first(where: { $0.emailId == user.emailId && $0.firstName == user.firstName && $0.lastName == user.lastName })
-                    if let searchedUser, !self.isForSignUp {
-                        self.loginUser(user: searchedUser)
+                    if self.isForSignUp {
+                        print("XXX -- Log 1")
+                        self.checkForNewUser(user: user, users: users)
                     } else {
-                        self.createUser(user: user)
+                        print("XXX -- Log 2")
+                        self.checkForExistUser(user: user, users: users)
                     }
                 }.store(in: &cancellable)
         } else {
             showAlert = true
             alertText = R.string.loginScreen.valid_input_text.localized()
+        }
+    }
+
+    private func checkForNewUser(user: User, users: [User]) {
+        let searchedUser = users.first(where: { $0.emailId == user.emailId && $0.password == user.password })
+        if searchedUser == nil {
+            createUser(user: user)
+        } else {
+            showAlert = true
+            alertText = R.string.loginScreen.user_already_exist_text.localized()
+        }
+    }
+
+    private func checkForExistUser(user: User, users: [User]) {
+        let searchedUser = users.first(where: { $0.emailId == user.emailId && $0.password == user.password })
+        if let searchedUser {
+            loginUser(user: searchedUser)
+        } else {
+            showAlert = true
+            alertText = R.string.loginScreen.wrong_credential_text.localized()
         }
     }
 
@@ -98,7 +119,7 @@ class EmailLoginViewModel: ObservableObject {
         do {
             try Auth.auth().signOut()
         } catch let error {
-            LogE("EmailLoginViewModel: Sign Out failed with error :: \(error)")
+            LogE("EmailLoginViewModel: \(#function) failed with error :: \(error)")
         }
     }
 }

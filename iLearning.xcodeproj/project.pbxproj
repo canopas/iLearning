@@ -278,11 +278,11 @@
 		D887A440293F6D1800A0AAA9 /* Localizable */ = {
 			isa = PBXGroup;
 			children = (
+				D8A7DF81295ABF2800AFFFD8 /* ServiceError.strings */,
 				D887A43F293F6D1300A0AAA9 /* OnboardView.strings */,
 				D887A4612940C45200A0AAA9 /* LoginScreen.strings */,
 				D84045B72949A38B007AC5DD /* ProfileView.strings */,
 				D876A7E129485F1200E2F0BE /* AccountSettingView.strings */,
-				D8A7DF81295ABF2800AFFFD8 /* ServiceError.strings */,
 			);
 			path = Localizable;
 			sourceTree = "<group>";
