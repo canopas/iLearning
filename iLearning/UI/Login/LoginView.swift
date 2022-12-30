@@ -29,22 +29,19 @@ struct LoginView: View {
                     .multilineTextAlignment(.center)
 
                 VStack(alignment: .center, spacing: 20) {
-                    SignInWithAppleButton(.continue) { request in
-                        request.requestedScopes = [.fullName, .email]
-                    } onCompletion: { result in
-                        switch result {
-                        case .success(let authorization):
-                            if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-                                viewModel.setUser(emailId: appleIDCredential.email ?? "",
-                                                  firstName: appleIDCredential.fullName?.givenName ?? "",
-                                                  lastName: appleIDCredential.fullName?.familyName ?? "")
-                            }
-                        case .failure(let error):
-                            LogE("Apple authorisation failed: \(error.localizedDescription)")
-                        }
-                    }
-                    .frame(height: 50, alignment: .center)
-                    .cornerRadius(25)
+                    Button(action: {
+                        viewModel.onAppleLoginClick()
+                    }, label: {
+                        Text(R.string.loginScreen.sign_in_with_apple_text.localized())
+                            .bold()
+                            .foregroundColor(Color.white)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .frame(height: 50)
+                            .background(.black)
+                            .minimumScaleFactor(0.5)
+                            .clipShape(Capsule())
+                    })
+                    .buttonStyle(.scale)
 
                     PrimaryButton(text: R.string.loginScreen.sign_in_with_email_text.localized()) {
                         viewModel.clickOnEmailLogin()

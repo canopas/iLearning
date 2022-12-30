@@ -42,13 +42,4 @@ public enum ServiceError: LocalizedError, Equatable {
             return "validationFailed"
         }
     }
-
-    public var statusCode: Int? {
-        switch self {
-        case .serverError(let code):
-            return code
-        default:
-            return nil
-        }
-    }
 }

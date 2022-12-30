@@ -50,6 +50,9 @@
 		D8A7DF7D29596F6000AFFFD8 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7DF7C29596F6000AFFFD8 /* String+Extension.swift */; };
 		D8A7DF7F295ABEE000AFFFD8 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7DF7E295ABEE000AFFFD8 /* ServiceError.swift */; };
 		D8A7DF82295ABF2800AFFFD8 /* ServiceError.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8A7DF81295ABF2800AFFFD8 /* ServiceError.strings */; };
+		D8A7DF84295D713600AFFFD8 /* SignInWithAppleDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7DF83295D713600AFFFD8 /* SignInWithAppleDelegates.swift */; };
+		D8A7DF86295D723700AFFFD8 /* FirebaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7DF85295D723700AFFFD8 /* FirebaseProvider.swift */; };
+		D8A7DF88295D740C00AFFFD8 /* NonceGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7DF87295D740C00AFFFD8 /* NonceGenerator.swift */; };
 		D8AA6342291CD4CA00F2A88A /* iLearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AA6341291CD4CA00F2A88A /* iLearningApp.swift */; };
 		D8AA6344291CD4CA00F2A88A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AA6343291CD4CA00F2A88A /* HomeView.swift */; };
 		D8AA6346291CD4CB00F2A88A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8AA6345291CD4CB00F2A88A /* Assets.xcassets */; };
@@ -135,6 +138,9 @@
 		D8A7DF7C29596F6000AFFFD8 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D8A7DF7E295ABEE000AFFFD8 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		D8A7DF81295ABF2800AFFFD8 /* ServiceError.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ServiceError.strings; sourceTree = "<group>"; };
+		D8A7DF83295D713600AFFFD8 /* SignInWithAppleDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleDelegates.swift; sourceTree = "<group>"; };
+		D8A7DF85295D723700AFFFD8 /* FirebaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProvider.swift; sourceTree = "<group>"; };
+		D8A7DF87295D740C00AFFFD8 /* NonceGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonceGenerator.swift; sourceTree = "<group>"; };
 		D8AA633E291CD4CA00F2A88A /* iLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AA6341291CD4CA00F2A88A /* iLearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iLearningApp.swift; sourceTree = "<group>"; };
 		D8AA6343291CD4CA00F2A88A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -257,14 +263,14 @@
 			path = GIF;
 			sourceTree = "<group>";
 		};
-		D887A430293F657700A0AAA9 /* HelperView */ = {
+		D887A430293F657700A0AAA9 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
 				D887A439293F6AF000A0AAA9 /* Spacers.swift */,
 				D887A42E293F657100A0AAA9 /* PrimaryButton.swift */,
 				D84045B12949A2F1007AC5DD /* UnderlinedTextField.swift */,
 			);
-			path = HelperView;
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		D887A433293F65F700A0AAA9 /* Modifier */ = {
@@ -297,6 +303,7 @@
 				D887A45129406DD800A0AAA9 /* Language */,
 				D887A45329406DF400A0AAA9 /* Preference */,
 				D887A45229406DE700A0AAA9 /* Notification */,
+				D8A7DF85295D723700AFFFD8 /* FirebaseProvider.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -315,6 +322,7 @@
 			children = (
 				D8B3D58A293F10C5001E959B /* LoginView.swift */,
 				D8E866BE294334BB00FD5E44 /* LoginViewModel.swift */,
+				D8A7DF83295D713600AFFFD8 /* SignInWithAppleDelegates.swift */,
 				D876A7E42948A44C00E2F0BE /* EmailLogin */,
 			);
 			path = Login;
@@ -406,6 +414,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		D8A7DF89295D741100AFFFD8 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D8A7DF87295D740C00AFFFD8 /* NonceGenerator.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		D8AA6335291CD4CA00F2A88A = {
 			isa = PBXGroup;
 			children = (
@@ -441,8 +457,9 @@
 				D887A445293F6FAA00A0AAA9 /* Data */,
 				D8B3D589293F10B8001E959B /* UI */,
 				D887A426293F202B00A0AAA9 /* Utils */,
+				D8A7DF89295D741100AFFFD8 /* Helper */,
 				D887A433293F65F700A0AAA9 /* Modifier */,
-				D887A430293F657700A0AAA9 /* HelperView */,
+				D887A430293F657700A0AAA9 /* CustomView */,
 				D8B3D592293F139B001E959B /* Extension */,
 			);
 			path = iLearning;
@@ -852,11 +869,14 @@
 				D8AA6344291CD4CA00F2A88A /* HomeView.swift in Sources */,
 				D887A45029406C1F00A0AAA9 /* OnboardView.swift in Sources */,
 				D887A438293F698C00A0AAA9 /* Color+Extension.swift in Sources */,
+				D8A7DF88295D740C00AFFFD8 /* NonceGenerator.swift in Sources */,
+				D8A7DF84295D713600AFFFD8 /* SignInWithAppleDelegates.swift in Sources */,
 				D8A7DF722952E73000AFFFD8 /* User.swift in Sources */,
 				D887A444293F6F8100A0AAA9 /* LanguageManager.swift in Sources */,
 				D876A7D429484B0800E2F0BE /* SearchView.swift in Sources */,
 				D8A7DF7D29596F6000AFFFD8 /* String+Extension.swift in Sources */,
 				D8E866C32946F55C00FD5E44 /* EmailLoginViewModel.swift in Sources */,
+				D8A7DF86295D723700AFFFD8 /* FirebaseProvider.swift in Sources */,
 				D8B3D58B293F10C5001E959B /* LoginView.swift in Sources */,
 				D8AA6342291CD4CA00F2A88A /* iLearningApp.swift in Sources */,
 				D887A436293F66D500A0AAA9 /* R.generated.swift in Sources */,

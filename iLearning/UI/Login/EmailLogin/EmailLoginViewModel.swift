@@ -43,35 +43,37 @@ class EmailLoginViewModel: ObservableObject {
             alertText = R.string.loginScreen.valid_input_text.localized()
         }
     }
-    
+
     private func createUser(user: User) {
-        Auth.auth().createUser(withEmail: email, password: password, completion: { [weak self] _, error in
-            if let error {
-                self?.showAuthErrorAlert()
-                print("EmailLoginViewModel: \(#function) failed with error :: \(error.localizedDescription)")
-                return
-            }
-            guard let self = self else { return }
-            self.firestore.addUser(user: user) {
+        FirebaseProvider.auth
+            .createUser(withEmail: email, password: password, completion: { [weak self] _, error in
+                if let error {
+                    self?.showAuthErrorAlert()
+                    LogE("EmailLoginViewModel: \(#function) failed with error :: \(error.localizedDescription)")
+                    return
+                }
+                guard let self = self else { return }
+                self.firestore.addUser(user: user) {
+                    self.preference.user = user
+                    self.preference.isVerifiedUser = true
+                    self.goToHome()
+                }
+            })
+    }
+
+    private func loginUser(user: User) {
+        FirebaseProvider.auth
+            .signIn(withEmail: email, password: password) { [weak self] _, error in
+                if let error {
+                    self?.showAuthErrorAlert()
+                    LogE("EmailLoginViewModel: \(#function) failed with error :: \(error.localizedDescription)")
+                    return
+                }
+                guard let self = self else { return }
                 self.preference.user = user
                 self.preference.isVerifiedUser = true
                 self.goToHome()
             }
-        })
-    }
-
-    private func loginUser(user: User) {
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] _, error in
-            if let error {
-                self?.showAuthErrorAlert()
-                print("EmailLoginViewModel: \(#function) failed with error :: \(error.localizedDescription)")
-                return
-            }
-            guard let self = self else { return }
-            self.preference.user = user
-            self.preference.isVerifiedUser = true
-            self.goToHome()
-        }
     }
 
     private func showAuthErrorAlert() {
