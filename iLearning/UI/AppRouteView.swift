@@ -19,7 +19,7 @@ public enum AppRoute: Equatable {
 
 struct AppRouteView: View {
 
-    @Inject var preference: AppPreference
+    @Inject var preference: AppPreferences
 
     @StateObject var pilot: UIPilot<AppRoute> = .init(initial: .Onboard)
 
@@ -37,16 +37,13 @@ struct AppRouteView: View {
             case .EmailLogin(let isForSignUp):
                 EmailLoginView(viewModel: EmailLoginViewModel(pilot: pilot, isForSignUp: isForSignUp))
             case .Profile:
-                ProfileView()
+                ProfileView(viewModel: ProfileViewModel(pilot: pilot))
             }
         }
         .onAppear {
             if preference.isOnboardShown {
                 pilot.pop()
                 if preference.isVerifiedUser {
-                    func isUserLoggedIn() -> Bool {
-                        return Auth.auth().currentUser != nil
-                    }
                     pilot.push(.Home)
                 } else {
                     pilot.push(.Login)

@@ -56,6 +56,9 @@ struct AccountView: View {
 
             Spacer()
         }
+        .onAppear {
+            viewModel.getUserDetails()
+        }
         .navigationBarIsHidden(false)
     }
 }

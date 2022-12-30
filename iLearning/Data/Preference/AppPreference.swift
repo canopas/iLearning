@@ -5,16 +5,23 @@
 //  Created by Amisha Italiya on 07/12/22.
 //
 
-import Foundation
+import UIKit
+import SwiftUI
 
-public class AppPreference {
+public protocol AppPreferences {
+    var isOnboardShown: Bool { get set }
+    var isVerifiedUser: Bool { get set }
+    var user: User? { get set }
+
+    func clearPreference()
+}
+
+class AppPreferencesImpl: AppPreferences {
 
     enum Key: String {
         case isOnboardShown = "is_onboard_shown"
         case isVerifiedUser = "is_verified_user"
-        case userFirstName  = "user_first_name"
-        case userLastName   = "user_last_name"
-        case userEmailId    = "user_email_id"
+        case user           = "user"
     }
 
     private let userDefaults: UserDefaults
@@ -23,7 +30,7 @@ public class AppPreference {
         self.userDefaults = UserDefaults.standard
     }
 
-    public var isOnboardShown: Bool {
+    var isOnboardShown: Bool {
         get {
             return userDefaults.bool(forKey: Key.isVerifiedUser.rawValue)
         } set {
@@ -32,7 +39,29 @@ public class AppPreference {
         }
     }
 
-    public var isVerifiedUser: Bool {
+    var user: User? {
+        get {
+            do {
+                let data = userDefaults.data(forKey: Key.user.rawValue)
+                if let data {
+                    let user = try JSONDecoder().decode(User.self, from: data)
+                    return user
+                }
+            } catch let error {
+                LogE("AppPreferences \(#function) json decode error: \(error.localizedDescription)")
+            }
+            return nil
+        } set {
+            do {
+                let data = try JSONEncoder().encode(newValue)
+                userDefaults.set(data, forKey: Key.user.rawValue)
+            } catch let error {
+                LogE("AppPreferences \(#function) json encode error: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    var isVerifiedUser: Bool {
         get {
             return userDefaults.bool(forKey: Key.isOnboardShown.rawValue)
         } set {
@@ -41,30 +70,8 @@ public class AppPreference {
         }
     }
 
-    public var userFirstName: String {
-        get {
-            return userDefaults.string(forKey: Key.userFirstName.rawValue) ?? ""
-        } set {
-            userDefaults.set(newValue, forKey: Key.userFirstName.rawValue)
-            userDefaults.synchronize()
-        }
-    }
-
-    public var userLastName: String {
-        get {
-            return userDefaults.string(forKey: Key.userLastName.rawValue) ?? ""
-        } set {
-            userDefaults.set(newValue, forKey: Key.userLastName.rawValue)
-            userDefaults.synchronize()
-        }
-    }
-
-    public var userEmail: String {
-        get {
-            return userDefaults.string(forKey: Key.userEmailId.rawValue) ?? ""
-        } set {
-            userDefaults.set(newValue, forKey: Key.userEmailId.rawValue)
-            userDefaults.synchronize()
-        }
+    func clearPreference() {
+        isVerifiedUser = false
+        user = nil
     }
 }

@@ -1,0 +1,12 @@
+/* 
+  ServiceError.strings
+  iLearning
+
+  Created by Amisha Italiya on 27/12/22.
+  
+*/
+
+"error_title_oops"      = "Oops...!!!";
+"error_no_internet"     = "No internet connection!";
+"error_server_error"    = "Server error encountered.";
+"error_unauthorized"    = "You are an unauthorised user.";

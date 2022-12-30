@@ -11,28 +11,28 @@ import FirebaseAuth
 
 class AccountViewModel: ObservableObject {
 
-    @Inject var preference: AppPreference
-
     @Published var userName: String = ""
     @Published var emailId: String = ""
     @Published var imageText: String = ""
 
     private let pilot: UIPilot<AppRoute>
 
+    @Inject var preference: AppPreferences
+
     init(pilot: UIPilot<AppRoute>) {
         self.pilot = pilot
-        setUserName()
     }
 
-    func setUserName() {
-        if preference.userFirstName != "" && preference.userLastName != "" {
-            userName =  preference.userFirstName.capitalized + " " + preference.userLastName.capitalized
-            imageText = String(preference.userFirstName.capitalized.prefix(1) + preference.userLastName.capitalized.prefix(1))
-            emailId = preference.userEmail
-        } else {
-            userName = R.string.accountSettingView.unknown_text.localized()
-            imageText = "UN"
-            emailId = preference.userEmail
+    func getUserDetails() {
+        if let user = preference.user {
+            emailId = user.emailId
+            if user.firstName != "" || user.lastName != "" {
+                userName =  user.firstName.capitalized + " " + user.lastName.capitalized
+                imageText = String(user.firstName.prefix(1) + user.lastName.prefix(1)).uppercased()
+            } else {
+                userName = R.string.accountSettingView.unknown_text.localized()
+                imageText = R.string.accountSettingView.default_image_text.localized()
+            }
         }
     }
 
@@ -56,9 +56,10 @@ class AccountViewModel: ObservableObject {
     func onSignOutClick() {
         do {
             try Auth.auth().signOut()
-            preference.isVerifiedUser = false
+            preference.clearPreference()
+            pilot.popTo(.Login)
         } catch let error {
-            LogE("Signout failed with: \(error)")
+            LogE("AccountViewModel: Signout failed with: \(error)")
         }
     }
 }

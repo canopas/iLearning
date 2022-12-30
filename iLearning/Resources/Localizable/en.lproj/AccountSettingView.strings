@@ -8,6 +8,7 @@
 
 
 "account_text"              = "Account";
+"default_image_text"        = "UN";
 "unknown_text"              = "Unknown User";
 "account_setting_text"      = "Account Settings";
 "download_option_text"      = "Download options";
