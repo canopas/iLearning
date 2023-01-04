@@ -35,8 +35,7 @@ class LoginViewModel: ObservableObject {
         request.nonce = currentNonce.sha256()
 
         appleSignInDelegates = SignInWithAppleDelegates { (token, firstName, lastName, email) in
-            let user = User(id: UUID().uuidString, firstName: firstName, lastName: lastName, emailId: email, password: "", loginType: .Apple)
-            self.performFirebaseLogin(provider: "apple.com", token: token, user: user)
+            self.performFirebaseLogin(provider: "apple.com", token: token, userData: (firstName, lastName, email))
         }
 
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
@@ -44,18 +43,22 @@ class LoginViewModel: ObservableObject {
         authorizationController.performRequests()
     }
 
-    private func performFirebaseLogin(provider: String, token: String, user: User) {
+    private func performFirebaseLogin(provider: String, token: String, userData: (String, String, String)) {
         let credential = OAuthProvider.credential(withProviderID: provider, idToken: token, rawNonce: currentNonce)
 
         FirebaseProvider.auth
-            .signIn(with: credential) { [weak self] _, error in
+            .signIn(with: credential) { [weak self] result, error in
                 guard let self = self else { return }
                 if let error = error {
                     print("SignInViewModel: Firebase Error: \(error), with type Apple login.")
                     self.showAlert = true
                     self.alertText = R.string.serviceError.error_server_error.localized()
-                } else {
+                } else if let result {
+                    let user = User(id: result.user.uid, firstName: userData.0, lastName: userData.1, emailId: userData.2, password: "", loginType: .Apple)
                     self.storeUser(user: user)
+                } else {
+                    self.alertText = R.string.commonStrings.contact_support.localized()
+                    self.showAlert = true
                 }
             }
     }
@@ -65,7 +68,7 @@ class LoginViewModel: ObservableObject {
             .sink { _ in
             } receiveValue: { [weak self] users in
                 guard let self = self else { return }
-                let searchedUser = users.first(where: { $0.emailId == user.emailId })
+                let searchedUser = users.first(where: { $0.id == user.id && $0.emailId == user.emailId })
 
                 if let searchedUser {
                     self.preference.user = searchedUser

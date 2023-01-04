@@ -60,6 +60,7 @@ struct AccountView: View {
             viewModel.getUserDetails()
         }
         .navigationBarIsHidden(false)
+        .backport.alert(isPresented: $viewModel.showAlert, alertStruct: viewModel.alert)
     }
 }
 

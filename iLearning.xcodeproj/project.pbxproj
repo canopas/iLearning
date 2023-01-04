@@ -61,8 +61,9 @@
 		D8AA6360291CD4CB00F2A88A /* iLearningUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AA635F291CD4CB00F2A88A /* iLearningUITestsLaunchTests.swift */; };
 		D8B3D58B293F10C5001E959B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B3D58A293F10C5001E959B /* LoginView.swift */; };
 		D8B3D58D293F1162001E959B /* AppRouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B3D58C293F1162001E959B /* AppRouteView.swift */; };
-		D8B3D591293F1381001E959B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B3D590293F1381001E959B /* UIView+Extension.swift */; };
 		D8BCE96B291E2CE700BBD0D4 /* SplashView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8BCE96A291E2CE700BBD0D4 /* SplashView.storyboard */; };
+		D8CCA80F296402F60085E451 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CCA80E296402F60085E451 /* View+Extension.swift */; };
+		D8CCA8122964056F0085E451 /* CommonStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8CCA8142964056F0085E451 /* CommonStrings.strings */; };
 		D8E866BF294334BB00FD5E44 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E866BE294334BB00FD5E44 /* LoginViewModel.swift */; };
 		D8E866C12946F54900FD5E44 /* EmailLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E866C02946F54900FD5E44 /* EmailLoginView.swift */; };
 		D8E866C32946F55C00FD5E44 /* EmailLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E866C22946F55C00FD5E44 /* EmailLoginViewModel.swift */; };
@@ -153,8 +154,9 @@
 		D8AA635F291CD4CB00F2A88A /* iLearningUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iLearningUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D8B3D58A293F10C5001E959B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D8B3D58C293F1162001E959B /* AppRouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouteView.swift; sourceTree = "<group>"; };
-		D8B3D590293F1381001E959B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D8BCE96A291E2CE700BBD0D4 /* SplashView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SplashView.storyboard; sourceTree = "<group>"; };
+		D8CCA80E296402F60085E451 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		D8CCA8132964056F0085E451 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CommonStrings.strings; sourceTree = "<group>"; };
 		D8E866BE294334BB00FD5E44 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		D8E866C02946F54900FD5E44 /* EmailLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginView.swift; sourceTree = "<group>"; };
 		D8E866C22946F55C00FD5E44 /* EmailLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewModel.swift; sourceTree = "<group>"; };
@@ -285,10 +287,11 @@
 			isa = PBXGroup;
 			children = (
 				D8A7DF81295ABF2800AFFFD8 /* ServiceError.strings */,
+				D8CCA8142964056F0085E451 /* CommonStrings.strings */,
 				D887A43F293F6D1300A0AAA9 /* OnboardView.strings */,
 				D887A4612940C45200A0AAA9 /* LoginScreen.strings */,
-				D84045B72949A38B007AC5DD /* ProfileView.strings */,
 				D876A7E129485F1200E2F0BE /* AccountSettingView.strings */,
+				D84045B72949A38B007AC5DD /* ProfileView.strings */,
 			);
 			path = Localizable;
 			sourceTree = "<group>";
@@ -509,10 +512,10 @@
 		D8B3D592293F139B001E959B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				D8B3D590293F1381001E959B /* UIView+Extension.swift */,
+				D8CCA80E296402F60085E451 /* View+Extension.swift */,
 				D887A437293F698C00A0AAA9 /* Color+Extension.swift */,
-				D887A441293F6F5500A0AAA9 /* StringResource+Extension.swift */,
 				D8A7DF7C29596F6000AFFFD8 /* String+Extension.swift */,
+				D887A441293F6F5500A0AAA9 /* StringResource+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -636,6 +639,7 @@
 				D8BCE96B291E2CE700BBD0D4 /* SplashView.storyboard in Resources */,
 				D887A45F2940C45200A0AAA9 /* LoginScreen.strings in Resources */,
 				D8AA6346291CD4CB00F2A88A /* Assets.xcassets in Resources */,
+				D8CCA8122964056F0085E451 /* CommonStrings.strings in Resources */,
 				D887A428293F634600A0AAA9 /* online-classroom.gif in Resources */,
 				D84045B52949A38B007AC5DD /* ProfileView.strings in Resources */,
 				D8241EBF294739480033ED6E /* GoogleService-Info.plist in Resources */,
@@ -848,12 +852,12 @@
 				D8A7DF7B29546F0300AFFFD8 /* FirestoreManager.swift in Sources */,
 				D8E866C12946F54900FD5E44 /* EmailLoginView.swift in Sources */,
 				D887A44929405B4C00A0AAA9 /* OnboardViewModel.swift in Sources */,
+				D8CCA80F296402F60085E451 /* View+Extension.swift in Sources */,
 				D8E866C52946FCC700FD5E44 /* OutlinedTextFieldStyle.swift in Sources */,
 				D8E866BF294334BB00FD5E44 /* LoginViewModel.swift in Sources */,
 				D8FC55CB291CDAA700106153 /* AppDelegate.swift in Sources */,
 				D887A442293F6F5500A0AAA9 /* StringResource+Extension.swift in Sources */,
 				D887A4642942F7A400A0AAA9 /* DDLoggerProvider.swift in Sources */,
-				D8B3D591293F1381001E959B /* UIView+Extension.swift in Sources */,
 				D8B3D58D293F1162001E959B /* AppRouteView.swift in Sources */,
 				D84045B22949A2F1007AC5DD /* UnderlinedTextField.swift in Sources */,
 				D887A447293F6FB700A0AAA9 /* NotificationDispatcher.swift in Sources */,
@@ -953,6 +957,14 @@
 				D887A4602940C45200A0AAA9 /* en */,
 			);
 			name = LoginScreen.strings;
+			sourceTree = "<group>";
+		};
+		D8CCA8142964056F0085E451 /* CommonStrings.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8CCA8132964056F0085E451 /* en */,
+			);
+			name = CommonStrings.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
