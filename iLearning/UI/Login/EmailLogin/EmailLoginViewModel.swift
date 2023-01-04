@@ -17,7 +17,7 @@ class EmailLoginViewModel: ObservableObject {
     @Published var isForSignUp: Bool
 
     @Published var showAlert: Bool = false
-    @Published var alertText: String = ""
+    @Published private(set) var alert: AlertPrompt = .init(title: "", message: "")
 
     private let pilot: UIPilot<AppRoute>
 
@@ -41,8 +41,8 @@ class EmailLoginViewModel: ObservableObject {
                 loginUser()
             }
         } else {
+            alert = .init(message: R.string.loginScreen.valid_input_text.localized())
             showAlert = true
-            alertText = R.string.loginScreen.valid_input_text.localized()
         }
     }
 
@@ -57,7 +57,7 @@ class EmailLoginViewModel: ObservableObject {
                 } else if let result {
                     self.storeUser(userId: result.user.uid)
                 } else {
-                    self.alertText = R.string.commonStrings.contact_support.localized()
+                    self.alert = .init(message: R.string.commonStrings.contact_support.localized())
                     self.showAlert = true
                 }
             })
@@ -74,7 +74,7 @@ class EmailLoginViewModel: ObservableObject {
                 } else if let result {
                     self.storeUser(userId: result.user.uid)
                 } else {
-                    self.alertText = R.string.commonStrings.contact_support.localized()
+                    self.alert = .init(message: R.string.commonStrings.contact_support.localized())
                     self.showAlert = true
                 }
             }
@@ -105,9 +105,8 @@ class EmailLoginViewModel: ObservableObject {
     }
 
     private func showAuthErrorAlert() {
+        alert = .init(message: R.string.loginScreen.something_went_wrong_text.localized())
         showAlert = true
-        alertText = R.string.loginScreen.something_went_wrong_text.localized()
-        signOut()
     }
 
     private func goToHome() {

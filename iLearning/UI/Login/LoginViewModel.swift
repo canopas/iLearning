@@ -13,7 +13,7 @@ import AuthenticationServices
 class LoginViewModel: ObservableObject {
 
     @Published var showAlert: Bool = false
-    @Published var alertText: String = ""
+    @Published private(set) var alert: AlertPrompt = .init(title: "", message: "")
 
     private let appPilot: UIPilot<AppRoute>
     private var appleSignInDelegates: SignInWithAppleDelegates! = nil
@@ -51,13 +51,13 @@ class LoginViewModel: ObservableObject {
                 guard let self = self else { return }
                 if let error = error {
                     print("SignInViewModel: Firebase Error: \(error), with type Apple login.")
+                    self.alert = .init(message: R.string.serviceError.error_server_error.localized())
                     self.showAlert = true
-                    self.alertText = R.string.serviceError.error_server_error.localized()
                 } else if let result {
                     let user = User(id: result.user.uid, firstName: userData.0, lastName: userData.1, emailId: userData.2, password: "", loginType: .Apple)
                     self.storeUser(user: user)
                 } else {
-                    self.alertText = R.string.commonStrings.contact_support.localized()
+                    self.alert = .init(message: R.string.commonStrings.contact_support.localized())
                     self.showAlert = true
                 }
             }
