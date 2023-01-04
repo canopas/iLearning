@@ -42,12 +42,8 @@ struct EmailLoginView: View {
 
             VSpacer()
         }
-        .alert(viewModel.alertText, isPresented: $viewModel.showAlert) {
-            Button(R.string.loginScreen.ok_text.localized()) {
-                viewModel.showAlert = false
-            }
-        }
         .padding(20)
+        .backport.alert(isPresented: $viewModel.showAlert, alertStruct: viewModel.alert)
         .navigationBarIsHidden(false)
     }
 }

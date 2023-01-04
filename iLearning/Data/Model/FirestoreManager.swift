@@ -12,6 +12,7 @@ import FirebaseFirestore
 protocol FirestoreManager {
     func addUser(user: User, completion: @escaping () -> Void)
     func updateUser(user: User, completion: @escaping () -> Void)
+    func deleteUser(id: String, completion: @escaping () -> Void)
     func fetchUsers() -> AnyPublisher<[User], ServiceError>
 }
 
@@ -28,10 +29,10 @@ class FirestoreManagerImpl: FirestoreManager, ObservableObject {
         db.collection(DATABASE_NAME).document(user.id)
             .setData(json) { error in
                 if let error {
-                    print("FirestoreManager:: \(#function) : Error writing document: \(error.localizedDescription).")
+                    print("FirestoreManager :: \(#function) : Writing document failed with error: \(error.localizedDescription).")
                 } else {
                     completion()
-                    print("FirestoreManager:: \(#function) : Document written successfully!")
+                    print("FirestoreManager :: \(#function) : Document written successfully!")
                 }
             }
     }
@@ -43,10 +44,21 @@ class FirestoreManagerImpl: FirestoreManager, ObservableObject {
         db.collection(DATABASE_NAME).document(user.id)
             .updateData(json) { error in
                 if let error {
-                    LogE("FirestoreManager:: \(#function) : Error updating document: \(error.localizedDescription).")
+                    LogE("FirestoreManager :: \(#function) : Updating document failed with error: \(error.localizedDescription).")
                 } else {
                     completion()
-                    LogD("FirestoreManager:: \(#function) : Document updated successfully!")
+                    LogD("FirestoreManager :: \(#function) : Document updated successfully!")
+                }
+            }
+    }
+
+    func deleteUser(id: String, completion: @escaping () -> Void) {
+        db.collection(DATABASE_NAME).document(id)
+            .delete { error in
+                if let error {
+                    LogE("FirestoreManager :: \(#function): Deleting collection failed with error: \(error.localizedDescription).")
+                } else {
+                    completion()
                 }
             }
     }
@@ -59,7 +71,7 @@ class FirestoreManagerImpl: FirestoreManager, ObservableObject {
             self.db.collection(self.DATABASE_NAME)
                 .getDocuments { (snapshot, error) in
                     guard error == nil else {
-                        LogE("FirestoreManager:: \(#function) error: \(String(describing: error?.localizedDescription))")
+                        LogE("FirestoreManager :: \(#function) error: \(String(describing: error?.localizedDescription))")
                         return
                     }
                     if let snapshot {
@@ -69,12 +81,12 @@ class FirestoreManagerImpl: FirestoreManager, ObservableObject {
                                 let res = try JSONDecoder().decode(User.self, from: data)
                                 users.append(res)
                             } catch let error {
-                                LogE("FirestoreManager:: \(#function) Decode error :: \(error.localizedDescription)")
+                                LogE("FirestoreManager :: \(#function) Decode error: \(error.localizedDescription)")
                                 promise(.failure(.serverError()))
                             }
                         }
                     } else {
-                        LogE("FirestoreManager:: \(#function) The document is not available.")
+                        LogE("FirestoreManager :: \(#function) The document is not available.")
                         promise(.failure(.serverError()))
                     }
                     promise(.success(users))
