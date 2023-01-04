@@ -1,0 +1,15 @@
+/* 
+  CommonStrings.strings
+  iLearning
+
+  Created by Amisha Italiya on 03/01/23.
+  
+*/
+
+"ok_text"           = "Ok";
+"yes_text"          = "Yes";
+"cancel_text"       = "Cancel";
+"warning_text"      = "Warning";
+"sign_out_text"     = "Do you really want to sign out?";
+"delete_text"       = "Delete";
+"delete_alert_text" = "Are you sure you want to delete your account?";
