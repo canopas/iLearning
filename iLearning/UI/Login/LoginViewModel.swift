@@ -68,7 +68,7 @@ class LoginViewModel: ObservableObject {
             .sink { _ in
             } receiveValue: { [weak self] users in
                 guard let self = self else { return }
-                let searchedUser = users.first(where: { $0.id == user.id && $0.emailId == user.emailId })
+                let searchedUser = users.first(where: { $0.id == user.id })
 
                 if let searchedUser {
                     self.preference.user = searchedUser

@@ -61,6 +61,9 @@ struct AccountView: View {
         }
         .navigationBarIsHidden(false)
         .backport.alert(isPresented: $viewModel.showAlert, alertStruct: viewModel.alert)
+        .sheet(isPresented: $viewModel.showEmailSignInPrompt) {
+            EmailLoginView(viewModel: EmailLoginViewModel(pilot: viewModel.pilot, isForSignUp: false, onLoginSuccess: viewModel.onEmailLoginSuccess))
+        }
     }
 }
 

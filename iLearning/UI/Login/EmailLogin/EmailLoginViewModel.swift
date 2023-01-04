@@ -20,14 +20,17 @@ class EmailLoginViewModel: ObservableObject {
     @Published var alertText: String = ""
 
     private let pilot: UIPilot<AppRoute>
+
+    private var onLoginSuccess: (() -> Void)?
     private var cancellable = Set<AnyCancellable>()
 
     @Inject var preference: AppPreferences
     @Inject var firestore: FirestoreManager
 
-    init(pilot: UIPilot<AppRoute>, isForSignUp: Bool) {
+    init(pilot: UIPilot<AppRoute>, isForSignUp: Bool, onLoginSuccess: (() -> Void)? = nil) {
         self.pilot = pilot
         self.isForSignUp = isForSignUp
+        self.onLoginSuccess = onLoginSuccess
     }
 
     func onSignInClick() {
@@ -96,6 +99,7 @@ class EmailLoginViewModel: ObservableObject {
                         self.goToHome()
                     }
                 }
+                self.onLoginSuccess?()
             }
             .store(in: &cancellable)
     }

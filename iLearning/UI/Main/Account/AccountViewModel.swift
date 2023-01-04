@@ -18,13 +18,15 @@ class AccountViewModel: ObservableObject {
     @Published var emailId: String = ""
     @Published var imageText: String = ""
 
+    @Published var showEmailSignInPrompt = false
+
     @Published var showAlert: Bool = false
     @Published private(set) var alert: AlertPrompt = .init(title: "", message: "")
 
     private var currentNonce: String = ""
     private var cancellable = Set<AnyCancellable>()
 
-    private let pilot: UIPilot<AppRoute>
+    let pilot: UIPilot<AppRoute>
     private var appleSignInDelegates: SignInWithAppleDelegates! = nil
 
     @Inject var preference: AppPreferences
@@ -83,9 +85,9 @@ class AccountViewModel: ObservableObject {
                 } else if let error = error as? NSError, error.code == self.ERROR_CODE_REQUIRED_RECRENT_LOGIN {
                     if let preferenceUser = self.preference.user {
                         if preferenceUser.loginType == .Apple {
-                            self.performAppleLogin()
+                            self.promptForAppleLogin()
                         } else {
-                            self.performAppleLogin()
+                            self.promptForEmailLogin()
                         }
                     }
                 } else {
@@ -96,7 +98,16 @@ class AccountViewModel: ObservableObject {
         }
     }
 
-    func performAppleLogin() {
+    func promptForEmailLogin() {
+        showEmailSignInPrompt = true
+    }
+
+    func onEmailLoginSuccess() {
+        showEmailSignInPrompt = false
+        deleteUserAccount()
+    }
+
+    func promptForAppleLogin() {
         self.currentNonce = NonceGenerator.randomNonceString()
         let request = ASAuthorizationAppleIDProvider().createRequest()
         request.requestedScopes = [.fullName, .email]
