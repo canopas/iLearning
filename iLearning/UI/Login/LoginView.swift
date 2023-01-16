@@ -60,6 +60,7 @@ struct LoginView: View {
             }
             .padding(.horizontal, 20)
             .navigationBarIsHidden(true)
+            .backport.alert(isPresented: $viewModel.showAlert, alertStruct: viewModel.alert)
         }
     }
 }
