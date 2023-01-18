@@ -93,11 +93,21 @@ class EmailLoginViewModel: ObservableObject {
                     self.goToHome()
                 } else {
                     let user = User(id: userId, firstName: "", lastName: "", emailId: self.email, password: self.password.sha256(), loginType: .Email)
-                    self.firestore.addUser(user: user) {
-                        self.preference.user = user
-                        self.preference.isVerifiedUser = true
-                        self.goToHome()
-                    }
+                    self.firestore.addUser(user: user)
+                        .receive(on: DispatchQueue.main)
+                        .sink { completion in
+                            switch completion {
+                            case .failure(let error):
+                                self.alert = .init(message: error.localizedDescription)
+                                self.showAlert = true
+                            case .finished:
+                                self.preference.user = user
+                                self.preference.isVerifiedUser = true
+                                self.goToHome()
+                            }
+                        } receiveValue: { _ in
+                        }
+                        .store(in: &self.cancellable)
                 }
                 self.onLoginSuccess?()
             }

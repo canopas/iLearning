@@ -77,10 +77,20 @@ class AccountViewModel: ObservableObject {
                 guard let self = self else { return }
                 if error == nil {
                     if let id = self.preference.user?.id {
-                        self.firestore.deleteUser(id: id) {
-                            self.preference.clearPreference()
-                            self.goToRoot()
-                        }
+                        self.firestore.deleteUser(id: id)
+                            .receive(on: DispatchQueue.main)
+                            .sink { completion in
+                                switch completion {
+                                case .failure(let error):
+                                    self.alert = .init(message: error.localizedDescription)
+                                    self.showAlert = true
+                                case .finished:
+                                    self.preference.clearPreference()
+                                    self.goToRoot()
+                                }
+                            } receiveValue: { _ in
+                            }
+                            .store(in: &self.cancellable)
                     }
                 } else if let error = error as? NSError, error.code == self.ERROR_CODE_REQUIRED_RECRENT_LOGIN {
                     if let preferenceUser = self.preference.user {

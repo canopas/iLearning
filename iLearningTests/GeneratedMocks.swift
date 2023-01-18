@@ -1,4 +1,566 @@
-// MARK: - Mocks generated from file: iLearning/Data/Preference/AppPreference.swift at 2022-12-22 10:31:26 +0000
+// MARK: - Mocks generated from file: iLearning/Data/Model/FirestoreManager.swift at 2023-01-18 13:30:34 +0000
+
+//
+//  FirestoreManager.swift
+//  iLearning
+// 
+//  Created by Amisha Italiya on 22/12/22.
+//
+
+import Cuckoo
+@testable import iLearning
+
+import Combine
+import FirebaseFirestore
+import Foundation
+
+
+
+
+
+
+public class MockFirestoreManager: FirestoreManager, Cuckoo.ProtocolMock {
+    
+    public typealias MocksType = FirestoreManager
+    
+    public typealias Stubbing = __StubbingProxy_FirestoreManager
+    public typealias Verification = __VerificationProxy_FirestoreManager
+
+    public let cuckoo_manager = Cuckoo.MockManager.preconfiguredManager ?? Cuckoo.MockManager(hasParent: false)
+
+    
+    private var __defaultImplStub: FirestoreManager?
+
+    public func enableDefaultImplementation(_ stub: FirestoreManager) {
+        __defaultImplStub = stub
+        cuckoo_manager.enableDefaultStubImplementation()
+    }
+    
+
+    
+
+    
+
+    
+    
+    
+    
+    public func addUser(user: User) -> AnyPublisher<Void, Error> {
+        
+    return cuckoo_manager.call(
+    """
+    addUser(user: User) -> AnyPublisher<Void, Error>
+    """,
+            parameters: (user),
+            escapingParameters: (user),
+            superclassCall:
+                
+                Cuckoo.MockManager.crashOnProtocolSuperclassCall()
+                ,
+            defaultCall: __defaultImplStub!.addUser(user: user))
+        
+    }
+    
+    
+    
+    
+    
+    public func updateUser(user: User) -> AnyPublisher<Void, Error> {
+        
+    return cuckoo_manager.call(
+    """
+    updateUser(user: User) -> AnyPublisher<Void, Error>
+    """,
+            parameters: (user),
+            escapingParameters: (user),
+            superclassCall:
+                
+                Cuckoo.MockManager.crashOnProtocolSuperclassCall()
+                ,
+            defaultCall: __defaultImplStub!.updateUser(user: user))
+        
+    }
+    
+    
+    
+    
+    
+    public func deleteUser(id: String) -> AnyPublisher<Void, Error> {
+        
+    return cuckoo_manager.call(
+    """
+    deleteUser(id: String) -> AnyPublisher<Void, Error>
+    """,
+            parameters: (id),
+            escapingParameters: (id),
+            superclassCall:
+                
+                Cuckoo.MockManager.crashOnProtocolSuperclassCall()
+                ,
+            defaultCall: __defaultImplStub!.deleteUser(id: id))
+        
+    }
+    
+    
+    
+    
+    
+    public func fetchUsers() -> AnyPublisher<[User], ServiceError> {
+        
+    return cuckoo_manager.call(
+    """
+    fetchUsers() -> AnyPublisher<[User], ServiceError>
+    """,
+            parameters: (),
+            escapingParameters: (),
+            superclassCall:
+                
+                Cuckoo.MockManager.crashOnProtocolSuperclassCall()
+                ,
+            defaultCall: __defaultImplStub!.fetchUsers())
+        
+    }
+    
+    
+
+    public struct __StubbingProxy_FirestoreManager: Cuckoo.StubbingProxy {
+        private let cuckoo_manager: Cuckoo.MockManager
+    
+        public init(manager: Cuckoo.MockManager) {
+            self.cuckoo_manager = manager
+        }
+        
+        
+        
+        
+        func addUser<M1: Cuckoo.Matchable>(user: M1) -> Cuckoo.ProtocolStubFunction<(User), AnyPublisher<Void, Error>> where M1.MatchedType == User {
+            let matchers: [Cuckoo.ParameterMatcher<(User)>] = [wrap(matchable: user) { $0 }]
+            return .init(stub: cuckoo_manager.createStub(for: MockFirestoreManager.self, method:
+    """
+    addUser(user: User) -> AnyPublisher<Void, Error>
+    """, parameterMatchers: matchers))
+        }
+        
+        
+        
+        
+        func updateUser<M1: Cuckoo.Matchable>(user: M1) -> Cuckoo.ProtocolStubFunction<(User), AnyPublisher<Void, Error>> where M1.MatchedType == User {
+            let matchers: [Cuckoo.ParameterMatcher<(User)>] = [wrap(matchable: user) { $0 }]
+            return .init(stub: cuckoo_manager.createStub(for: MockFirestoreManager.self, method:
+    """
+    updateUser(user: User) -> AnyPublisher<Void, Error>
+    """, parameterMatchers: matchers))
+        }
+        
+        
+        
+        
+        func deleteUser<M1: Cuckoo.Matchable>(id: M1) -> Cuckoo.ProtocolStubFunction<(String), AnyPublisher<Void, Error>> where M1.MatchedType == String {
+            let matchers: [Cuckoo.ParameterMatcher<(String)>] = [wrap(matchable: id) { $0 }]
+            return .init(stub: cuckoo_manager.createStub(for: MockFirestoreManager.self, method:
+    """
+    deleteUser(id: String) -> AnyPublisher<Void, Error>
+    """, parameterMatchers: matchers))
+        }
+        
+        
+        
+        
+        func fetchUsers() -> Cuckoo.ProtocolStubFunction<(), AnyPublisher<[User], ServiceError>> {
+            let matchers: [Cuckoo.ParameterMatcher<Void>] = []
+            return .init(stub: cuckoo_manager.createStub(for: MockFirestoreManager.self, method:
+    """
+    fetchUsers() -> AnyPublisher<[User], ServiceError>
+    """, parameterMatchers: matchers))
+        }
+        
+        
+    }
+
+    public struct __VerificationProxy_FirestoreManager: Cuckoo.VerificationProxy {
+        private let cuckoo_manager: Cuckoo.MockManager
+        private let callMatcher: Cuckoo.CallMatcher
+        private let sourceLocation: Cuckoo.SourceLocation
+    
+        public init(manager: Cuckoo.MockManager, callMatcher: Cuckoo.CallMatcher, sourceLocation: Cuckoo.SourceLocation) {
+            self.cuckoo_manager = manager
+            self.callMatcher = callMatcher
+            self.sourceLocation = sourceLocation
+        }
+    
+        
+    
+        
+        
+        
+        @discardableResult
+        func addUser<M1: Cuckoo.Matchable>(user: M1) -> Cuckoo.__DoNotUse<(User), AnyPublisher<Void, Error>> where M1.MatchedType == User {
+            let matchers: [Cuckoo.ParameterMatcher<(User)>] = [wrap(matchable: user) { $0 }]
+            return cuckoo_manager.verify(
+    """
+    addUser(user: User) -> AnyPublisher<Void, Error>
+    """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+        }
+        
+        
+        
+        
+        @discardableResult
+        func updateUser<M1: Cuckoo.Matchable>(user: M1) -> Cuckoo.__DoNotUse<(User), AnyPublisher<Void, Error>> where M1.MatchedType == User {
+            let matchers: [Cuckoo.ParameterMatcher<(User)>] = [wrap(matchable: user) { $0 }]
+            return cuckoo_manager.verify(
+    """
+    updateUser(user: User) -> AnyPublisher<Void, Error>
+    """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+        }
+        
+        
+        
+        
+        @discardableResult
+        func deleteUser<M1: Cuckoo.Matchable>(id: M1) -> Cuckoo.__DoNotUse<(String), AnyPublisher<Void, Error>> where M1.MatchedType == String {
+            let matchers: [Cuckoo.ParameterMatcher<(String)>] = [wrap(matchable: id) { $0 }]
+            return cuckoo_manager.verify(
+    """
+    deleteUser(id: String) -> AnyPublisher<Void, Error>
+    """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+        }
+        
+        
+        
+        
+        @discardableResult
+        func fetchUsers() -> Cuckoo.__DoNotUse<(), AnyPublisher<[User], ServiceError>> {
+            let matchers: [Cuckoo.ParameterMatcher<Void>] = []
+            return cuckoo_manager.verify(
+    """
+    fetchUsers() -> AnyPublisher<[User], ServiceError>
+    """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+        }
+        
+        
+    }
+}
+
+
+public class FirestoreManagerStub: FirestoreManager {
+    
+
+    
+
+    
+    
+    
+    
+    public func addUser(user: User) -> AnyPublisher<Void, Error>  {
+        return DefaultValueRegistry.defaultValue(for: (AnyPublisher<Void, Error>).self)
+    }
+    
+    
+    
+    
+    
+    public func updateUser(user: User) -> AnyPublisher<Void, Error>  {
+        return DefaultValueRegistry.defaultValue(for: (AnyPublisher<Void, Error>).self)
+    }
+    
+    
+    
+    
+    
+    public func deleteUser(id: String) -> AnyPublisher<Void, Error>  {
+        return DefaultValueRegistry.defaultValue(for: (AnyPublisher<Void, Error>).self)
+    }
+    
+    
+    
+    
+    
+    public func fetchUsers() -> AnyPublisher<[User], ServiceError>  {
+        return DefaultValueRegistry.defaultValue(for: (AnyPublisher<[User], ServiceError>).self)
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+ class MockFirestoreManagerImpl: FirestoreManagerImpl, Cuckoo.ClassMock {
+    
+     typealias MocksType = FirestoreManagerImpl
+    
+     typealias Stubbing = __StubbingProxy_FirestoreManagerImpl
+     typealias Verification = __VerificationProxy_FirestoreManagerImpl
+
+     let cuckoo_manager = Cuckoo.MockManager.preconfiguredManager ?? Cuckoo.MockManager(hasParent: true)
+
+    
+    private var __defaultImplStub: FirestoreManagerImpl?
+
+     func enableDefaultImplementation(_ stub: FirestoreManagerImpl) {
+        __defaultImplStub = stub
+        cuckoo_manager.enableDefaultStubImplementation()
+    }
+    
+
+    
+
+    
+
+    
+    
+    
+    
+     override func addUser(user: User) -> AnyPublisher<Void, Error> {
+        
+    return cuckoo_manager.call(
+    """
+    addUser(user: User) -> AnyPublisher<Void, Error>
+    """,
+            parameters: (user),
+            escapingParameters: (user),
+            superclassCall:
+                
+                super.addUser(user: user)
+                ,
+            defaultCall: __defaultImplStub!.addUser(user: user))
+        
+    }
+    
+    
+    
+    
+    
+     override func updateUser(user: User) -> AnyPublisher<Void, Error> {
+        
+    return cuckoo_manager.call(
+    """
+    updateUser(user: User) -> AnyPublisher<Void, Error>
+    """,
+            parameters: (user),
+            escapingParameters: (user),
+            superclassCall:
+                
+                super.updateUser(user: user)
+                ,
+            defaultCall: __defaultImplStub!.updateUser(user: user))
+        
+    }
+    
+    
+    
+    
+    
+     override func deleteUser(id: String) -> AnyPublisher<Void, Error> {
+        
+    return cuckoo_manager.call(
+    """
+    deleteUser(id: String) -> AnyPublisher<Void, Error>
+    """,
+            parameters: (id),
+            escapingParameters: (id),
+            superclassCall:
+                
+                super.deleteUser(id: id)
+                ,
+            defaultCall: __defaultImplStub!.deleteUser(id: id))
+        
+    }
+    
+    
+    
+    
+    
+     override func fetchUsers() -> AnyPublisher<[User], ServiceError> {
+        
+    return cuckoo_manager.call(
+    """
+    fetchUsers() -> AnyPublisher<[User], ServiceError>
+    """,
+            parameters: (),
+            escapingParameters: (),
+            superclassCall:
+                
+                super.fetchUsers()
+                ,
+            defaultCall: __defaultImplStub!.fetchUsers())
+        
+    }
+    
+    
+
+     struct __StubbingProxy_FirestoreManagerImpl: Cuckoo.StubbingProxy {
+        private let cuckoo_manager: Cuckoo.MockManager
+    
+         init(manager: Cuckoo.MockManager) {
+            self.cuckoo_manager = manager
+        }
+        
+        
+        
+        
+        func addUser<M1: Cuckoo.Matchable>(user: M1) -> Cuckoo.ClassStubFunction<(User), AnyPublisher<Void, Error>> where M1.MatchedType == User {
+            let matchers: [Cuckoo.ParameterMatcher<(User)>] = [wrap(matchable: user) { $0 }]
+            return .init(stub: cuckoo_manager.createStub(for: MockFirestoreManagerImpl.self, method:
+    """
+    addUser(user: User) -> AnyPublisher<Void, Error>
+    """, parameterMatchers: matchers))
+        }
+        
+        
+        
+        
+        func updateUser<M1: Cuckoo.Matchable>(user: M1) -> Cuckoo.ClassStubFunction<(User), AnyPublisher<Void, Error>> where M1.MatchedType == User {
+            let matchers: [Cuckoo.ParameterMatcher<(User)>] = [wrap(matchable: user) { $0 }]
+            return .init(stub: cuckoo_manager.createStub(for: MockFirestoreManagerImpl.self, method:
+    """
+    updateUser(user: User) -> AnyPublisher<Void, Error>
+    """, parameterMatchers: matchers))
+        }
+        
+        
+        
+        
+        func deleteUser<M1: Cuckoo.Matchable>(id: M1) -> Cuckoo.ClassStubFunction<(String), AnyPublisher<Void, Error>> where M1.MatchedType == String {
+            let matchers: [Cuckoo.ParameterMatcher<(String)>] = [wrap(matchable: id) { $0 }]
+            return .init(stub: cuckoo_manager.createStub(for: MockFirestoreManagerImpl.self, method:
+    """
+    deleteUser(id: String) -> AnyPublisher<Void, Error>
+    """, parameterMatchers: matchers))
+        }
+        
+        
+        
+        
+        func fetchUsers() -> Cuckoo.ClassStubFunction<(), AnyPublisher<[User], ServiceError>> {
+            let matchers: [Cuckoo.ParameterMatcher<Void>] = []
+            return .init(stub: cuckoo_manager.createStub(for: MockFirestoreManagerImpl.self, method:
+    """
+    fetchUsers() -> AnyPublisher<[User], ServiceError>
+    """, parameterMatchers: matchers))
+        }
+        
+        
+    }
+
+     struct __VerificationProxy_FirestoreManagerImpl: Cuckoo.VerificationProxy {
+        private let cuckoo_manager: Cuckoo.MockManager
+        private let callMatcher: Cuckoo.CallMatcher
+        private let sourceLocation: Cuckoo.SourceLocation
+    
+         init(manager: Cuckoo.MockManager, callMatcher: Cuckoo.CallMatcher, sourceLocation: Cuckoo.SourceLocation) {
+            self.cuckoo_manager = manager
+            self.callMatcher = callMatcher
+            self.sourceLocation = sourceLocation
+        }
+    
+        
+    
+        
+        
+        
+        @discardableResult
+        func addUser<M1: Cuckoo.Matchable>(user: M1) -> Cuckoo.__DoNotUse<(User), AnyPublisher<Void, Error>> where M1.MatchedType == User {
+            let matchers: [Cuckoo.ParameterMatcher<(User)>] = [wrap(matchable: user) { $0 }]
+            return cuckoo_manager.verify(
+    """
+    addUser(user: User) -> AnyPublisher<Void, Error>
+    """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+        }
+        
+        
+        
+        
+        @discardableResult
+        func updateUser<M1: Cuckoo.Matchable>(user: M1) -> Cuckoo.__DoNotUse<(User), AnyPublisher<Void, Error>> where M1.MatchedType == User {
+            let matchers: [Cuckoo.ParameterMatcher<(User)>] = [wrap(matchable: user) { $0 }]
+            return cuckoo_manager.verify(
+    """
+    updateUser(user: User) -> AnyPublisher<Void, Error>
+    """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+        }
+        
+        
+        
+        
+        @discardableResult
+        func deleteUser<M1: Cuckoo.Matchable>(id: M1) -> Cuckoo.__DoNotUse<(String), AnyPublisher<Void, Error>> where M1.MatchedType == String {
+            let matchers: [Cuckoo.ParameterMatcher<(String)>] = [wrap(matchable: id) { $0 }]
+            return cuckoo_manager.verify(
+    """
+    deleteUser(id: String) -> AnyPublisher<Void, Error>
+    """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+        }
+        
+        
+        
+        
+        @discardableResult
+        func fetchUsers() -> Cuckoo.__DoNotUse<(), AnyPublisher<[User], ServiceError>> {
+            let matchers: [Cuckoo.ParameterMatcher<Void>] = []
+            return cuckoo_manager.verify(
+    """
+    fetchUsers() -> AnyPublisher<[User], ServiceError>
+    """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+        }
+        
+        
+    }
+}
+
+
+ class FirestoreManagerImplStub: FirestoreManagerImpl {
+    
+
+    
+
+    
+    
+    
+    
+     override func addUser(user: User) -> AnyPublisher<Void, Error>  {
+        return DefaultValueRegistry.defaultValue(for: (AnyPublisher<Void, Error>).self)
+    }
+    
+    
+    
+    
+    
+     override func updateUser(user: User) -> AnyPublisher<Void, Error>  {
+        return DefaultValueRegistry.defaultValue(for: (AnyPublisher<Void, Error>).self)
+    }
+    
+    
+    
+    
+    
+     override func deleteUser(id: String) -> AnyPublisher<Void, Error>  {
+        return DefaultValueRegistry.defaultValue(for: (AnyPublisher<Void, Error>).self)
+    }
+    
+    
+    
+    
+    
+     override func fetchUsers() -> AnyPublisher<[User], ServiceError>  {
+        return DefaultValueRegistry.defaultValue(for: (AnyPublisher<[User], ServiceError>).self)
+    }
+    
+    
+}
+
+
+
+
+
+// MARK: - Mocks generated from file: iLearning/Data/Preference/AppPreference.swift at 2023-01-18 13:30:34 +0000
 
 //
 //  AppPreference.swift
@@ -10,7 +572,8 @@
 import Cuckoo
 @testable import iLearning
 
-import Foundation
+import SwiftUI
+import UIKit
 
 
 
@@ -65,32 +628,6 @@ public class MockAppPreferences: AppPreferences, Cuckoo.ProtocolMock {
     
     
     
-    public var loginType: LoginType {
-        get {
-            return cuckoo_manager.getter("loginType",
-                superclassCall:
-                    
-                    Cuckoo.MockManager.crashOnProtocolSuperclassCall()
-                    ,
-                defaultCall: __defaultImplStub!.loginType)
-        }
-        
-        set {
-            cuckoo_manager.setter("loginType",
-                value: newValue,
-                superclassCall:
-                    
-                    Cuckoo.MockManager.crashOnProtocolSuperclassCall()
-                    ,
-                defaultCall: __defaultImplStub!.loginType = newValue)
-        }
-        
-    }
-    
-    
-    
-    
-    
     public var isVerifiedUser: Bool {
         get {
             return cuckoo_manager.getter("isVerifiedUser",
@@ -117,76 +654,24 @@ public class MockAppPreferences: AppPreferences, Cuckoo.ProtocolMock {
     
     
     
-    public var userFirstName: String {
+    public var user: User? {
         get {
-            return cuckoo_manager.getter("userFirstName",
+            return cuckoo_manager.getter("user",
                 superclassCall:
                     
                     Cuckoo.MockManager.crashOnProtocolSuperclassCall()
                     ,
-                defaultCall: __defaultImplStub!.userFirstName)
+                defaultCall: __defaultImplStub!.user)
         }
         
         set {
-            cuckoo_manager.setter("userFirstName",
+            cuckoo_manager.setter("user",
                 value: newValue,
                 superclassCall:
                     
                     Cuckoo.MockManager.crashOnProtocolSuperclassCall()
                     ,
-                defaultCall: __defaultImplStub!.userFirstName = newValue)
-        }
-        
-    }
-    
-    
-    
-    
-    
-    public var userLastName: String {
-        get {
-            return cuckoo_manager.getter("userLastName",
-                superclassCall:
-                    
-                    Cuckoo.MockManager.crashOnProtocolSuperclassCall()
-                    ,
-                defaultCall: __defaultImplStub!.userLastName)
-        }
-        
-        set {
-            cuckoo_manager.setter("userLastName",
-                value: newValue,
-                superclassCall:
-                    
-                    Cuckoo.MockManager.crashOnProtocolSuperclassCall()
-                    ,
-                defaultCall: __defaultImplStub!.userLastName = newValue)
-        }
-        
-    }
-    
-    
-    
-    
-    
-    public var userEmailId: String {
-        get {
-            return cuckoo_manager.getter("userEmailId",
-                superclassCall:
-                    
-                    Cuckoo.MockManager.crashOnProtocolSuperclassCall()
-                    ,
-                defaultCall: __defaultImplStub!.userEmailId)
-        }
-        
-        set {
-            cuckoo_manager.setter("userEmailId",
-                value: newValue,
-                superclassCall:
-                    
-                    Cuckoo.MockManager.crashOnProtocolSuperclassCall()
-                    ,
-                defaultCall: __defaultImplStub!.userEmailId = newValue)
+                defaultCall: __defaultImplStub!.user = newValue)
         }
         
     }
@@ -233,13 +718,6 @@ public class MockAppPreferences: AppPreferences, Cuckoo.ProtocolMock {
         
         
         
-        var loginType: Cuckoo.ProtocolToBeStubbedProperty<MockAppPreferences, LoginType> {
-            return .init(manager: cuckoo_manager, name: "loginType")
-        }
-        
-        
-        
-        
         var isVerifiedUser: Cuckoo.ProtocolToBeStubbedProperty<MockAppPreferences, Bool> {
             return .init(manager: cuckoo_manager, name: "isVerifiedUser")
         }
@@ -247,22 +725,8 @@ public class MockAppPreferences: AppPreferences, Cuckoo.ProtocolMock {
         
         
         
-        var userFirstName: Cuckoo.ProtocolToBeStubbedProperty<MockAppPreferences, String> {
-            return .init(manager: cuckoo_manager, name: "userFirstName")
-        }
-        
-        
-        
-        
-        var userLastName: Cuckoo.ProtocolToBeStubbedProperty<MockAppPreferences, String> {
-            return .init(manager: cuckoo_manager, name: "userLastName")
-        }
-        
-        
-        
-        
-        var userEmailId: Cuckoo.ProtocolToBeStubbedProperty<MockAppPreferences, String> {
-            return .init(manager: cuckoo_manager, name: "userEmailId")
+        var user: Cuckoo.ProtocolToBeStubbedOptionalProperty<MockAppPreferences, User> {
+            return .init(manager: cuckoo_manager, name: "user")
         }
         
         
@@ -301,13 +765,6 @@ public class MockAppPreferences: AppPreferences, Cuckoo.ProtocolMock {
         
         
         
-        var loginType: Cuckoo.VerifyProperty<LoginType> {
-            return .init(manager: cuckoo_manager, name: "loginType", callMatcher: callMatcher, sourceLocation: sourceLocation)
-        }
-        
-        
-        
-        
         var isVerifiedUser: Cuckoo.VerifyProperty<Bool> {
             return .init(manager: cuckoo_manager, name: "isVerifiedUser", callMatcher: callMatcher, sourceLocation: sourceLocation)
         }
@@ -315,22 +772,8 @@ public class MockAppPreferences: AppPreferences, Cuckoo.ProtocolMock {
         
         
         
-        var userFirstName: Cuckoo.VerifyProperty<String> {
-            return .init(manager: cuckoo_manager, name: "userFirstName", callMatcher: callMatcher, sourceLocation: sourceLocation)
-        }
-        
-        
-        
-        
-        var userLastName: Cuckoo.VerifyProperty<String> {
-            return .init(manager: cuckoo_manager, name: "userLastName", callMatcher: callMatcher, sourceLocation: sourceLocation)
-        }
-        
-        
-        
-        
-        var userEmailId: Cuckoo.VerifyProperty<String> {
-            return .init(manager: cuckoo_manager, name: "userEmailId", callMatcher: callMatcher, sourceLocation: sourceLocation)
+        var user: Cuckoo.VerifyOptionalProperty<User> {
+            return .init(manager: cuckoo_manager, name: "user", callMatcher: callMatcher, sourceLocation: sourceLocation)
         }
         
         
@@ -370,19 +813,6 @@ public class AppPreferencesStub: AppPreferences {
     
     
     
-    public var loginType: LoginType {
-        get {
-            return DefaultValueRegistry.defaultValue(for: (LoginType).self)
-        }
-        
-        set { }
-        
-    }
-    
-    
-    
-    
-    
     public var isVerifiedUser: Bool {
         get {
             return DefaultValueRegistry.defaultValue(for: (Bool).self)
@@ -396,35 +826,9 @@ public class AppPreferencesStub: AppPreferences {
     
     
     
-    public var userFirstName: String {
+    public var user: User? {
         get {
-            return DefaultValueRegistry.defaultValue(for: (String).self)
-        }
-        
-        set { }
-        
-    }
-    
-    
-    
-    
-    
-    public var userLastName: String {
-        get {
-            return DefaultValueRegistry.defaultValue(for: (String).self)
-        }
-        
-        set { }
-        
-    }
-    
-    
-    
-    
-    
-    public var userEmailId: String {
-        get {
-            return DefaultValueRegistry.defaultValue(for: (String).self)
+            return DefaultValueRegistry.defaultValue(for: (User?).self)
         }
         
         set { }
@@ -503,24 +907,24 @@ public class AppPreferencesStub: AppPreferences {
     
     
     
-     override var loginType: LoginType {
+     override var user: User? {
         get {
-            return cuckoo_manager.getter("loginType",
+            return cuckoo_manager.getter("user",
                 superclassCall:
                     
-                    super.loginType
+                    super.user
                     ,
-                defaultCall: __defaultImplStub!.loginType)
+                defaultCall: __defaultImplStub!.user)
         }
         
         set {
-            cuckoo_manager.setter("loginType",
+            cuckoo_manager.setter("user",
                 value: newValue,
                 superclassCall:
                     
-                    super.loginType = newValue
+                    super.user = newValue
                     ,
-                defaultCall: __defaultImplStub!.loginType = newValue)
+                defaultCall: __defaultImplStub!.user = newValue)
         }
         
     }
@@ -547,84 +951,6 @@ public class AppPreferencesStub: AppPreferences {
                     super.isVerifiedUser = newValue
                     ,
                 defaultCall: __defaultImplStub!.isVerifiedUser = newValue)
-        }
-        
-    }
-    
-    
-    
-    
-    
-     override var userFirstName: String {
-        get {
-            return cuckoo_manager.getter("userFirstName",
-                superclassCall:
-                    
-                    super.userFirstName
-                    ,
-                defaultCall: __defaultImplStub!.userFirstName)
-        }
-        
-        set {
-            cuckoo_manager.setter("userFirstName",
-                value: newValue,
-                superclassCall:
-                    
-                    super.userFirstName = newValue
-                    ,
-                defaultCall: __defaultImplStub!.userFirstName = newValue)
-        }
-        
-    }
-    
-    
-    
-    
-    
-     override var userLastName: String {
-        get {
-            return cuckoo_manager.getter("userLastName",
-                superclassCall:
-                    
-                    super.userLastName
-                    ,
-                defaultCall: __defaultImplStub!.userLastName)
-        }
-        
-        set {
-            cuckoo_manager.setter("userLastName",
-                value: newValue,
-                superclassCall:
-                    
-                    super.userLastName = newValue
-                    ,
-                defaultCall: __defaultImplStub!.userLastName = newValue)
-        }
-        
-    }
-    
-    
-    
-    
-    
-     override var userEmailId: String {
-        get {
-            return cuckoo_manager.getter("userEmailId",
-                superclassCall:
-                    
-                    super.userEmailId
-                    ,
-                defaultCall: __defaultImplStub!.userEmailId)
-        }
-        
-        set {
-            cuckoo_manager.setter("userEmailId",
-                value: newValue,
-                superclassCall:
-                    
-                    super.userEmailId = newValue
-                    ,
-                defaultCall: __defaultImplStub!.userEmailId = newValue)
         }
         
     }
@@ -671,8 +997,8 @@ public class AppPreferencesStub: AppPreferences {
         
         
         
-        var loginType: Cuckoo.ClassToBeStubbedProperty<MockAppPreferencesImpl, LoginType> {
-            return .init(manager: cuckoo_manager, name: "loginType")
+        var user: Cuckoo.ClassToBeStubbedOptionalProperty<MockAppPreferencesImpl, User> {
+            return .init(manager: cuckoo_manager, name: "user")
         }
         
         
@@ -680,27 +1006,6 @@ public class AppPreferencesStub: AppPreferences {
         
         var isVerifiedUser: Cuckoo.ClassToBeStubbedProperty<MockAppPreferencesImpl, Bool> {
             return .init(manager: cuckoo_manager, name: "isVerifiedUser")
-        }
-        
-        
-        
-        
-        var userFirstName: Cuckoo.ClassToBeStubbedProperty<MockAppPreferencesImpl, String> {
-            return .init(manager: cuckoo_manager, name: "userFirstName")
-        }
-        
-        
-        
-        
-        var userLastName: Cuckoo.ClassToBeStubbedProperty<MockAppPreferencesImpl, String> {
-            return .init(manager: cuckoo_manager, name: "userLastName")
-        }
-        
-        
-        
-        
-        var userEmailId: Cuckoo.ClassToBeStubbedProperty<MockAppPreferencesImpl, String> {
-            return .init(manager: cuckoo_manager, name: "userEmailId")
         }
         
         
@@ -739,8 +1044,8 @@ public class AppPreferencesStub: AppPreferences {
         
         
         
-        var loginType: Cuckoo.VerifyProperty<LoginType> {
-            return .init(manager: cuckoo_manager, name: "loginType", callMatcher: callMatcher, sourceLocation: sourceLocation)
+        var user: Cuckoo.VerifyOptionalProperty<User> {
+            return .init(manager: cuckoo_manager, name: "user", callMatcher: callMatcher, sourceLocation: sourceLocation)
         }
         
         
@@ -748,27 +1053,6 @@ public class AppPreferencesStub: AppPreferences {
         
         var isVerifiedUser: Cuckoo.VerifyProperty<Bool> {
             return .init(manager: cuckoo_manager, name: "isVerifiedUser", callMatcher: callMatcher, sourceLocation: sourceLocation)
-        }
-        
-        
-        
-        
-        var userFirstName: Cuckoo.VerifyProperty<String> {
-            return .init(manager: cuckoo_manager, name: "userFirstName", callMatcher: callMatcher, sourceLocation: sourceLocation)
-        }
-        
-        
-        
-        
-        var userLastName: Cuckoo.VerifyProperty<String> {
-            return .init(manager: cuckoo_manager, name: "userLastName", callMatcher: callMatcher, sourceLocation: sourceLocation)
-        }
-        
-        
-        
-        
-        var userEmailId: Cuckoo.VerifyProperty<String> {
-            return .init(manager: cuckoo_manager, name: "userEmailId", callMatcher: callMatcher, sourceLocation: sourceLocation)
         }
         
         
@@ -808,9 +1092,9 @@ public class AppPreferencesStub: AppPreferences {
     
     
     
-     override var loginType: LoginType {
+     override var user: User? {
         get {
-            return DefaultValueRegistry.defaultValue(for: (LoginType).self)
+            return DefaultValueRegistry.defaultValue(for: (User?).self)
         }
         
         set { }
@@ -824,45 +1108,6 @@ public class AppPreferencesStub: AppPreferences {
      override var isVerifiedUser: Bool {
         get {
             return DefaultValueRegistry.defaultValue(for: (Bool).self)
-        }
-        
-        set { }
-        
-    }
-    
-    
-    
-    
-    
-     override var userFirstName: String {
-        get {
-            return DefaultValueRegistry.defaultValue(for: (String).self)
-        }
-        
-        set { }
-        
-    }
-    
-    
-    
-    
-    
-     override var userLastName: String {
-        get {
-            return DefaultValueRegistry.defaultValue(for: (String).self)
-        }
-        
-        set { }
-        
-    }
-    
-    
-    
-    
-    
-     override var userEmailId: String {
-        get {
-            return DefaultValueRegistry.defaultValue(for: (String).self)
         }
         
         set { }

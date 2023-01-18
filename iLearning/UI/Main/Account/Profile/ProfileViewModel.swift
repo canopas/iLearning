@@ -6,6 +6,7 @@
 //
 
 import UIPilot
+import Combine
 
 class ProfileViewModel: ObservableObject {
 
@@ -13,6 +14,11 @@ class ProfileViewModel: ObservableObject {
     @Published var lastName: String = ""
     @Published var emailId: String = ""
     @Published var imageText: String = ""
+
+    @Published var showAlert: Bool = false
+    @Published private(set) var alert: AlertPrompt = .init(title: "", message: "")
+
+    private var cancellable = Set<AnyCancellable>()
 
     private let pilot: UIPilot<AppRoute>
 
@@ -40,10 +46,20 @@ class ProfileViewModel: ObservableObject {
     func onSaveBtnClick() {
         if let user = preference.user {
             let user = User(id: user.id, firstName: firstName, lastName: lastName, emailId: user.emailId, password: user.password, loginType: user.loginType)
-            firestore.updateUser(user: user) {
-                self.preference.user = user
-                self.pilot.pop()
-            }
+            self.firestore.updateUser(user: user)
+                .receive(on: DispatchQueue.main)
+                .sink { completion in
+                    switch completion {
+                    case .failure(let error):
+                        self.alert = .init(message: error.localizedDescription)
+                        self.showAlert = true
+                    case .finished:
+                        self.preference.user = user
+                        self.pilot.pop()
+                    }
+                } receiveValue: { _ in
+                }
+                .store(in: &self.cancellable)
         }
     }
 }

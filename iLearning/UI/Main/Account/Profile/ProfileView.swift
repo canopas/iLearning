@@ -45,6 +45,7 @@ struct ProfileView: View {
         .onAppear {
             viewModel.setUserName()
         }
+        .backport.alert(isPresented: $viewModel.showAlert, alertStruct: viewModel.alert)
         .navigationTitle(R.string.profileView.user_profile_text.localized())
     }
 }

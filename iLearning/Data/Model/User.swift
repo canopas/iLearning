@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct User: Codable {
+public struct User: Codable, Equatable {
     let id: String
     var firstName: String
     var lastName: String

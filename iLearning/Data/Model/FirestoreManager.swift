@@ -9,10 +9,10 @@ import Combine
 import Foundation
 import FirebaseFirestore
 
-protocol FirestoreManager {
-    func addUser(user: User, completion: @escaping () -> Void)
-    func updateUser(user: User, completion: @escaping () -> Void)
-    func deleteUser(id: String, completion: @escaping () -> Void)
+public protocol FirestoreManager {
+    func addUser(user: User) -> AnyPublisher<Void, Error>
+    func updateUser(user: User) -> AnyPublisher<Void, Error>
+    func deleteUser(id: String) -> AnyPublisher<Void, Error>
     func fetchUsers() -> AnyPublisher<[User], ServiceError>
 }
 
@@ -22,45 +22,57 @@ class FirestoreManagerImpl: FirestoreManager, ObservableObject {
 
     private let db = Firestore.firestore()
 
-    func addUser(user: User, completion: @escaping () -> Void) {
-        guard let data = try? JSONEncoder().encode(user) else { return }
-        guard let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
+    func addUser(user: User) -> AnyPublisher<Void, Error> {
+        return Future { [weak self] promise in
+            guard let self = self else { return }
+            guard let data = try? JSONEncoder().encode(user) else { return }
+            guard let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
 
-        db.collection(DATABASE_NAME).document(user.id)
-            .setData(json) { error in
-                if let error {
-                    print("FirestoreManager :: \(#function) : Writing document failed with error: \(error.localizedDescription).")
-                } else {
-                    completion()
-                    print("FirestoreManager :: \(#function) : Document written successfully!")
+            self.db.collection(self.DATABASE_NAME).document(user.id)
+                .setData(json) { error in
+                    if let error {
+                        print("FirestoreManager :: \(#function) : Writing document failed with error: \(error.localizedDescription).")
+                        promise(.failure(error))
+                    } else {
+                        print("FirestoreManager :: \(#function) : Document written successfully!")
+                        promise(.success(()))
+                    }
                 }
-            }
+        }.eraseToAnyPublisher()
     }
 
-    func updateUser(user: User, completion: @escaping () -> Void) {
-        guard let data = try? JSONEncoder().encode(user) else { return }
-        guard let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
+    func updateUser(user: User) -> AnyPublisher<Void, Error> {
+        return Future { [weak self] promise in
+            guard let self = self else { return }
+            guard let data = try? JSONEncoder().encode(user) else { return }
+            guard let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
 
-        db.collection(DATABASE_NAME).document(user.id)
-            .updateData(json) { error in
-                if let error {
-                    LogE("FirestoreManager :: \(#function) : Updating document failed with error: \(error.localizedDescription).")
-                } else {
-                    completion()
-                    LogD("FirestoreManager :: \(#function) : Document updated successfully!")
+            self.db.collection(self.DATABASE_NAME).document(user.id)
+                .updateData(json) { error in
+                    if let error {
+                        LogE("FirestoreManager :: \(#function) : Updating document failed with error: \(error.localizedDescription).")
+                        promise(.failure(error))
+                    } else {
+                        LogD("FirestoreManager :: \(#function) : Document updated successfully!")
+                        promise(.success(()))
+                    }
                 }
-            }
+        }.eraseToAnyPublisher()
     }
 
-    func deleteUser(id: String, completion: @escaping () -> Void) {
-        db.collection(DATABASE_NAME).document(id)
-            .delete { error in
-                if let error {
-                    LogE("FirestoreManager :: \(#function): Deleting collection failed with error: \(error.localizedDescription).")
-                } else {
-                    completion()
+    func deleteUser(id: String) -> AnyPublisher<Void, Error> {
+        return Future { [weak self] promise in
+            guard let self = self else { return }
+            self.db.collection(self.DATABASE_NAME).document(id)
+                .delete { error in
+                    if let error {
+                        LogE("FirestoreManager :: \(#function): Deleting collection failed with error: \(error.localizedDescription).")
+                        promise(.failure(error))
+                    } else {
+                        promise(.success(()))
+                    }
                 }
-            }
+        }.eraseToAnyPublisher()
     }
 
     func fetchUsers() -> AnyPublisher<[User], ServiceError> {

@@ -59,5 +59,4 @@ node_modules/
 package-lock.json
 
 *.generated.swift 
-GeneratedMocks.swift
-
+./iLearningTests/GeneratedMocks.swift

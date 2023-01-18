@@ -75,11 +75,21 @@ class LoginViewModel: ObservableObject {
                     self.preference.isVerifiedUser = true
                     self.goToHome()
                 } else {
-                    self.firestore.addUser(user: user) {
-                        self.preference.user = user
-                        self.preference.isVerifiedUser = true
-                        self.goToHome()
-                    }
+                    self.firestore.addUser(user: user)
+                        .receive(on: DispatchQueue.main)
+                        .sink { completion in
+                            switch completion {
+                            case .failure(let error):
+                                self.alert = .init(message: error.localizedDescription)
+                                self.showAlert = true
+                            case .finished:
+                                self.preference.user = user
+                                self.preference.isVerifiedUser = true
+                                self.goToHome()
+                            }
+                        } receiveValue: { _ in
+                        }
+                        .store(in: &self.cancellable)
                 }
             }
             .store(in: &cancellable)

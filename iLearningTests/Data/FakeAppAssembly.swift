@@ -16,5 +16,9 @@ public class FakeAppAssembly: Assembly {
         container.register(AppPreferences.self) { _ in
             MockAppPreferences()
         }.inObjectScope(.container)
+        
+        container.register(FirestoreManager.self) { _ in
+            MockFirestoreManager()
+        }.inObjectScope(.container)
     }
 }
