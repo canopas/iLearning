@@ -85,9 +85,9 @@ class LoginViewModel: ObservableObject {
                             case .finished:
                                 self.preference.user = user
                                 self.preference.isVerifiedUser = true
-                                self.goToHome()
                             }
-                        } receiveValue: { _ in
+                        } receiveValue: { [weak self] _ in
+                            self?.goToHome()
                         }
                         .store(in: &self.cancellable)
                 }

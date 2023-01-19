@@ -47,7 +47,6 @@ class ProfileViewModel: ObservableObject {
         if let user = preference.user {
             let user = User(id: user.id, firstName: firstName, lastName: lastName, emailId: user.emailId, password: user.password, loginType: user.loginType)
             self.firestore.updateUser(user: user)
-                .receive(on: DispatchQueue.main)
                 .sink { completion in
                     switch completion {
                     case .failure(let error):
@@ -55,9 +54,9 @@ class ProfileViewModel: ObservableObject {
                         self.showAlert = true
                     case .finished:
                         self.preference.user = user
-                        self.pilot.pop()
                     }
-                } receiveValue: { _ in
+                } receiveValue: { [weak self] _ in
+                    self?.pilot.pop()
                 }
                 .store(in: &self.cancellable)
         }

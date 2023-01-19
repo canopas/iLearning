@@ -86,9 +86,9 @@ class AccountViewModel: ObservableObject {
                                     self.showAlert = true
                                 case .finished:
                                     self.preference.clearPreference()
-                                    self.goToRoot()
                                 }
-                            } receiveValue: { _ in
+                            } receiveValue: { [weak self] _ in
+                                self?.goToRoot()
                             }
                             .store(in: &self.cancellable)
                     }
