@@ -16,10 +16,10 @@ final class ProfileViewModelTest: XCTestCase {
     var viewModel: ProfileViewModel!
     var preferences: MockAppPreferences!
     var mockFirestore: MockFirestoreManager!
-    
-    let user = User(id: "XYZ", firstName: "Amisha", lastName: "Italiya", emailId: "amisha.i@canopas.com", password: "amisha_123", loginType: .Apple)
 
     let pilot: UIPilot<AppRoute> = UIPilot(initial: .Profile)
+    
+    let user = User(id: "123", firstName: "Amisha", lastName: "Italiya", emailId: "amisha.i@canopas.com", password: "amisha_123", loginType: .Apple)
 
     override func setUpWithError() throws {
         Injector.shared.setTestAassembler(assemblies: [FakeAppAssembly()])

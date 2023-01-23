@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: iLearning/Data/Model/FirestoreManager.swift at 2023-01-19 11:04:09 +0000
+// MARK: - Mocks generated from file: iLearning/Data/Model/FirestoreManager.swift at 2023-01-23 10:53:17 +0000
 
 //
 //  FirestoreManager.swift
@@ -560,7 +560,7 @@ public class FirestoreManagerStub: FirestoreManager {
 
 
 
-// MARK: - Mocks generated from file: iLearning/Data/Preference/AppPreference.swift at 2023-01-19 11:04:09 +0000
+// MARK: - Mocks generated from file: iLearning/Data/Preference/AppPreference.swift at 2023-01-23 10:53:17 +0000
 
 //
 //  AppPreference.swift

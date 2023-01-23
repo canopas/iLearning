@@ -20,5 +20,9 @@ public class FakeAppAssembly: Assembly {
         container.register(FirestoreManager.self) { _ in
             MockFirestoreManager()
         }.inObjectScope(.container)
+        
+        container.register(LanguageManger.self) { _ in
+            LanguageManger.init()
+        }.inObjectScope(.container)
     }
 }
