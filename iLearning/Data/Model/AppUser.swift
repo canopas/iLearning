@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  AppUser.swift
 //  iLearning
 //
 //  Created by Amisha Italiya on 21/12/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct User: Codable, Equatable {
+public struct AppUser: Codable, Equatable {
     let id: String
     var firstName: String
     var lastName: String

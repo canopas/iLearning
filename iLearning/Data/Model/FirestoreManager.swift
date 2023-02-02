@@ -10,10 +10,10 @@ import Foundation
 import FirebaseFirestore
 
 public protocol FirestoreManager {
-    func addUser(user: User) -> AnyPublisher<Void, Error>
-    func updateUser(user: User) -> AnyPublisher<Void, Error>
+    func addUser(user: AppUser) -> AnyPublisher<Void, Error>
+    func updateUser(user: AppUser) -> AnyPublisher<Void, Error>
     func deleteUser(id: String) -> AnyPublisher<Void, Error>
-    func fetchUsers() -> AnyPublisher<[User], ServiceError>
+    func fetchUsers() -> AnyPublisher<[AppUser], ServiceError>
 }
 
 class FirestoreManagerImpl: FirestoreManager, ObservableObject {
@@ -22,7 +22,7 @@ class FirestoreManagerImpl: FirestoreManager, ObservableObject {
 
     private let db = Firestore.firestore()
 
-    func addUser(user: User) -> AnyPublisher<Void, Error> {
+    func addUser(user: AppUser) -> AnyPublisher<Void, Error> {
         return Future { [weak self] promise in
             guard let self = self else { return }
             guard let data = try? JSONEncoder().encode(user) else { return }
@@ -41,7 +41,7 @@ class FirestoreManagerImpl: FirestoreManager, ObservableObject {
         }.eraseToAnyPublisher()
     }
 
-    func updateUser(user: User) -> AnyPublisher<Void, Error> {
+    func updateUser(user: AppUser) -> AnyPublisher<Void, Error> {
         return Future { [weak self] promise in
             guard let self = self else { return }
             guard let data = try? JSONEncoder().encode(user) else { return }
@@ -75,8 +75,8 @@ class FirestoreManagerImpl: FirestoreManager, ObservableObject {
         }.eraseToAnyPublisher()
     }
 
-    func fetchUsers() -> AnyPublisher<[User], ServiceError> {
-        var users: [User] = []
+    func fetchUsers() -> AnyPublisher<[AppUser], ServiceError> {
+        var users: [AppUser] = []
 
         return Future { [weak self] promise in
             guard let self = self else { return }
@@ -90,7 +90,7 @@ class FirestoreManagerImpl: FirestoreManager, ObservableObject {
                         for document in snapshot.documents {
                             do {
                                 let data = try JSONSerialization.data(withJSONObject: document.data(), options: .prettyPrinted)
-                                let res = try JSONDecoder().decode(User.self, from: data)
+                                let res = try JSONDecoder().decode(AppUser.self, from: data)
                                 users.append(res)
                             } catch let error {
                                 LogE("FirestoreManager :: \(#function) Decode error: \(error.localizedDescription)")

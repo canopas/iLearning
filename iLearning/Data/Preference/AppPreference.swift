@@ -11,7 +11,7 @@ import SwiftUI
 public protocol AppPreferences {
     var isOnboardShown: Bool { get set }
     var isVerifiedUser: Bool { get set }
-    var user: User? { get set }
+    var user: AppUser? { get set }
 
     func clearPreference()
 }
@@ -39,12 +39,12 @@ class AppPreferencesImpl: AppPreferences {
         }
     }
 
-    var user: User? {
+    var user: AppUser? {
         get {
             do {
                 let data = userDefaults.data(forKey: Key.user.rawValue)
                 if let data {
-                    let user = try JSONDecoder().decode(User.self, from: data)
+                    let user = try JSONDecoder().decode(AppUser.self, from: data)
                     return user
                 }
             } catch let error {

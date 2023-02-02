@@ -24,5 +24,9 @@ public class FakeAppAssembly: Assembly {
         container.register(LanguageManger.self) { _ in
             LanguageManger.init()
         }.inObjectScope(.container)
+        
+        container.register(AuthHandler.self) { _ in
+            MockAuthHandler.init()
+        }.inObjectScope(.container)
     }
 }

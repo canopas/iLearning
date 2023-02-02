@@ -26,5 +26,9 @@ public class AppAssembly: Assembly {
         container.register(FirestoreManager.self) { _ in
             FirestoreManagerImpl.init()
         }.inObjectScope(.container)
+
+        container.register(AuthHandler.self) { _ in
+            AuthHandlerImpl.init()
+        }.inObjectScope(.container)
     }
 }

@@ -54,7 +54,7 @@ class LoginViewModel: ObservableObject {
                     self.alert = .init(message: R.string.serviceError.error_server_error.localized())
                     self.showAlert = true
                 } else if let result {
-                    let user = User(id: result.user.uid, firstName: userData.0, lastName: userData.1, emailId: userData.2, password: "", loginType: .Apple)
+                    let user = AppUser(id: result.user.uid, firstName: userData.0, lastName: userData.1, emailId: userData.2, password: "", loginType: .Apple)
                     self.storeUser(user: user)
                 } else {
                     self.alert = .init(message: R.string.commonStrings.contact_support.localized())
@@ -63,7 +63,7 @@ class LoginViewModel: ObservableObject {
             }
     }
 
-    private func storeUser(user: User) {
+    private func storeUser(user: AppUser) {
         firestore.fetchUsers()
             .sink { _ in
             } receiveValue: { [weak self] users in

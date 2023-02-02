@@ -13,6 +13,7 @@
 		D8241EBF294739480033ED6E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8241EBE294739480033ED6E /* GoogleService-Info.plist */; };
 		D84045B22949A2F1007AC5DD /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84045B12949A2F1007AC5DD /* UnderlinedTextField.swift */; };
 		D84045B52949A38B007AC5DD /* ProfileView.strings in Resources */ = {isa = PBXBuildFile; fileRef = D84045B72949A38B007AC5DD /* ProfileView.strings */; };
+		D875B84A298A88A90040F692 /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D875B849298A88A90040F692 /* AuthHandler.swift */; };
 		D876A7D229484A9700E2F0BE /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A7D129484A9700E2F0BE /* AccountView.swift */; };
 		D876A7D429484B0800E2F0BE /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A7D329484B0800E2F0BE /* SearchView.swift */; };
 		D876A7D629484B1B00E2F0BE /* WishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876A7D529484B1B00E2F0BE /* WishlistView.swift */; };
@@ -43,7 +44,7 @@
 		D887A45F2940C45200A0AAA9 /* LoginScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = D887A4612940C45200A0AAA9 /* LoginScreen.strings */; };
 		D887A4642942F7A400A0AAA9 /* DDLoggerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D887A4632942F7A400A0AAA9 /* DDLoggerProvider.swift */; };
 		D8A7DF6C29519A4E00AFFFD8 /* ProfileViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7DF6B29519A4E00AFFFD8 /* ProfileViewModelTest.swift */; };
-		D8A7DF722952E73000AFFFD8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7DF712952E73000AFFFD8 /* User.swift */; };
+		D8A7DF722952E73000AFFFD8 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7DF712952E73000AFFFD8 /* AppUser.swift */; };
 		D8A7DF7629534DFF00AFFFD8 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7DF7529534DFE00AFFFD8 /* GeneratedMocks.swift */; };
 		D8A7DF7829545DD500AFFFD8 /* FakeAppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7DF7729545DD500AFFFD8 /* FakeAppAssembly.swift */; };
 		D8A7DF7B29546F0300AFFFD8 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7DF7A29546F0300AFFFD8 /* FirestoreManager.swift */; };
@@ -103,6 +104,7 @@
 		D8241EBE294739480033ED6E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D84045B12949A2F1007AC5DD /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
 		D84045B62949A38B007AC5DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProfileView.strings; sourceTree = "<group>"; };
+		D875B849298A88A90040F692 /* AuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHandler.swift; sourceTree = "<group>"; };
 		D876A7D129484A9700E2F0BE /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		D876A7D329484B0800E2F0BE /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		D876A7D529484B1B00E2F0BE /* WishlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistView.swift; sourceTree = "<group>"; };
@@ -133,7 +135,7 @@
 		D887A4602940C45200A0AAA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginScreen.strings; sourceTree = "<group>"; };
 		D887A4632942F7A400A0AAA9 /* DDLoggerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLoggerProvider.swift; sourceTree = "<group>"; };
 		D8A7DF6B29519A4E00AFFFD8 /* ProfileViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelTest.swift; sourceTree = "<group>"; };
-		D8A7DF712952E73000AFFFD8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D8A7DF712952E73000AFFFD8 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		D8A7DF7529534DFE00AFFFD8 /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
 		D8A7DF7729545DD500AFFFD8 /* FakeAppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAppAssembly.swift; sourceTree = "<group>"; };
 		D8A7DF7A29546F0300AFFFD8 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
@@ -398,8 +400,9 @@
 		D8A7DF702952E72500AFFFD8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D8A7DF712952E73000AFFFD8 /* User.swift */,
+				D8A7DF712952E73000AFFFD8 /* AppUser.swift */,
 				D8A7DF7A29546F0300AFFFD8 /* FirestoreManager.swift */,
+				D875B849298A88A90040F692 /* AuthHandler.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -803,7 +806,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PODS_ROOT}/Cuckoo/run\" generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/Data/Preference/AppPreference.swift\" \\\n\"${INPUT_DIR}/Data/Model/FirestoreManager.swift\"\n";
+			shellScript = "# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PODS_ROOT}/Cuckoo/run\" generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/Data/Preference/AppPreference.swift\" \\\n\"${INPUT_DIR}/Data/Model/FirestoreManager.swift\" \\\n\"${INPUT_DIR}/Data/Model/AuthHandler.swift\" \n";
 		};
 		D887A434293F667C00A0AAA9 /* R.Swift */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -867,6 +870,7 @@
 				D887A432293F65DC00A0AAA9 /* ButtonModifier.swift in Sources */,
 				D887A455294074B400A0AAA9 /* Injector.swift in Sources */,
 				D887A44E294063AD00A0AAA9 /* AppPreference.swift in Sources */,
+				D875B84A298A88A90040F692 /* AuthHandler.swift in Sources */,
 				D876A7E72948A48600E2F0BE /* ProfileViewModel.swift in Sources */,
 				D876A7D829484B6000E2F0BE /* FeaturedView.swift in Sources */,
 				D876A7D229484A9700E2F0BE /* AccountView.swift in Sources */,
@@ -878,7 +882,7 @@
 				D887A438293F698C00A0AAA9 /* Color+Extension.swift in Sources */,
 				D8A7DF88295D740C00AFFFD8 /* NonceGenerator.swift in Sources */,
 				D8A7DF84295D713600AFFFD8 /* SignInWithAppleDelegates.swift in Sources */,
-				D8A7DF722952E73000AFFFD8 /* User.swift in Sources */,
+				D8A7DF722952E73000AFFFD8 /* AppUser.swift in Sources */,
 				D887A444293F6F8100A0AAA9 /* LanguageManager.swift in Sources */,
 				D876A7D429484B0800E2F0BE /* SearchView.swift in Sources */,
 				D8A7DF7D29596F6000AFFFD8 /* String+Extension.swift in Sources */,

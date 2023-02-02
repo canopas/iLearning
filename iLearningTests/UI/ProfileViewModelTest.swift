@@ -19,7 +19,7 @@ final class ProfileViewModelTest: XCTestCase {
 
     let pilot: UIPilot<AppRoute> = UIPilot(initial: .Profile)
     
-    let user = User(id: "123", firstName: "Amisha", lastName: "Italiya", emailId: "amisha.i@canopas.com", password: "amisha_123", loginType: .Apple)
+    let user = AppUser(id: "123", firstName: "Amisha", lastName: "Italiya", emailId: "amisha.i@canopas.com", password: "amisha_123", loginType: .Apple)
 
     override func setUpWithError() throws {
         Injector.shared.setTestAassembler(assemblies: [FakeAppAssembly()])
@@ -64,11 +64,11 @@ final class ProfileViewModelTest: XCTestCase {
             when(mock.user).set(any()).thenDoNothing()
         }
         
-        let expectedResult = PassthroughSubject<Void, Error>()
-        let newUser = User(id: user.id, firstName: "Test", lastName: "User", emailId: user.emailId, password: user.password, loginType: .Apple)
+        let expectedResult = Just(Void()).setFailureType(to: Error.self).eraseToAnyPublisher()
+        let newUser = AppUser(id: user.id, firstName: "Test", lastName: "User", emailId: user.emailId, password: user.password, loginType: .Apple)
         
         stub(mockFirestore) { mock in
-            when(mock.updateUser(user: equal(to: newUser))).thenReturn(expectedResult.eraseToAnyPublisher())
+            when(mock.updateUser(user: equal(to: newUser))).thenReturn(expectedResult)
         }
 
         viewModel = ProfileViewModel(pilot: pilot)
@@ -76,7 +76,6 @@ final class ProfileViewModelTest: XCTestCase {
         viewModel.lastName = newUser.lastName
         viewModel.onSaveBtnClick()
 
-        expectedResult.send(completion: .finished)
         verify(mockFirestore).updateUser(user: equal(to: newUser))
         verify(preferences).user.set(equal(to: newUser))
     }
@@ -87,19 +86,18 @@ final class ProfileViewModelTest: XCTestCase {
             when(mock.user).get.thenReturn(user)
         }
         
-        let expectedResult = PassthroughSubject<Void, Error>()
-        let newUser = User(id: user.id, firstName: "Test", lastName: "User", emailId: user.emailId, password: user.password, loginType: .Apple)
+        let expectedResult = Fail<Void, Error>(error: ServiceError.serverError() as Error).eraseToAnyPublisher()
+        let newUser = AppUser(id: user.id, firstName: "Test", lastName: "User", emailId: user.emailId, password: user.password, loginType: .Apple)
         
         stub(mockFirestore) { mock in
-            when(mock.updateUser(user: equal(to: newUser))).thenReturn(expectedResult.eraseToAnyPublisher())
+            when(mock.updateUser(user: equal(to: newUser))).thenReturn(expectedResult)
         }
 
         viewModel = ProfileViewModel(pilot: pilot)
         viewModel.firstName = newUser.firstName
         viewModel.lastName = newUser.lastName
         viewModel.onSaveBtnClick()
-        
-        expectedResult.send(completion: .failure(ServiceError.serverError() as Error))
+
         verify(mockFirestore).updateUser(user: equal(to: newUser))
         XCTAssertTrue(viewModel.showAlert)
     }

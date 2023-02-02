@@ -31,6 +31,7 @@ class AccountViewModel: ObservableObject {
 
     @Inject var preference: AppPreferences
     @Inject var firestore: FirestoreManager
+    @Inject var authHandler: AuthHandler
 
     init(pilot: UIPilot<AppRoute>) {
         self.pilot = pilot
@@ -177,17 +178,13 @@ class AccountViewModel: ObservableObject {
         showAlert = true
     }
 
-    private func performSignOut() {
-        do {
-            try FirebaseProvider.auth.signOut()
-            preference.clearPreference()
-            goToRoot()
-        } catch let error {
-            LogE("AccountViewModel: Signout failed with: \(error)")
-        }
+    func performSignOut() {
+        authHandler.signOut()
+        preference.clearPreference()
+        goToRoot()
     }
 
-    private func goToRoot() {
+    func goToRoot() {
         pilot.pop()
         pilot.push(.Login)
     }

@@ -45,7 +45,7 @@ class ProfileViewModel: ObservableObject {
 
     func onSaveBtnClick() {
         if let user = preference.user {
-            let user = User(id: user.id, firstName: firstName, lastName: lastName, emailId: user.emailId, password: user.password, loginType: user.loginType)
+            let user = AppUser(id: user.id, firstName: firstName, lastName: lastName, emailId: user.emailId, password: user.password, loginType: user.loginType)
             self.firestore.updateUser(user: user)
                 .sink { completion in
                     switch completion {

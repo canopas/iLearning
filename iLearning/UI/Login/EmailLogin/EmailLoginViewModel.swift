@@ -92,7 +92,7 @@ class EmailLoginViewModel: ObservableObject {
                     self.preference.isVerifiedUser = true
                     self.goToHome()
                 } else {
-                    let user = User(id: userId, firstName: "", lastName: "", emailId: self.email, password: self.password.sha256(), loginType: .Email)
+                    let user = AppUser(id: userId, firstName: "", lastName: "", emailId: self.email, password: self.password.sha256(), loginType: .Email)
                     self.firestore.addUser(user: user)
                         .receive(on: DispatchQueue.main)
                         .sink { completion in
