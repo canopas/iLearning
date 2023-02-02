@@ -1,4 +1,368 @@
-// MARK: - Mocks generated from file: iLearning/Data/Model/AuthHandler.swift at 2023-02-02 05:57:13 +0000
+// MARK: - Mocks generated from file: iLearning/Data/Language/LanguageManager.swift at 2023-02-02 06:49:53 +0000
+
+//
+//  LanguageManager.swift
+//  iLearning
+//
+//  Created by Amisha Italiya on 06/12/22.
+//
+
+import Cuckoo
+@testable import iLearning
+
+import SwiftUI
+import UIKit
+
+
+
+
+
+
+public class MockLanguageManager: LanguageManager, Cuckoo.ClassMock {
+    
+    public typealias MocksType = LanguageManager
+    
+    public typealias Stubbing = __StubbingProxy_LanguageManager
+    public typealias Verification = __VerificationProxy_LanguageManager
+
+    public let cuckoo_manager = Cuckoo.MockManager.preconfiguredManager ?? Cuckoo.MockManager(hasParent: true)
+
+    
+    private var __defaultImplStub: LanguageManager?
+
+    public func enableDefaultImplementation(_ stub: LanguageManager) {
+        __defaultImplStub = stub
+        cuckoo_manager.enableDefaultStubImplementation()
+    }
+    
+
+    
+    
+    
+    
+    public override var currentLanguage: Languages {
+        get {
+            return cuckoo_manager.getter("currentLanguage",
+                superclassCall:
+                    
+                    super.currentLanguage
+                    ,
+                defaultCall: __defaultImplStub!.currentLanguage)
+        }
+        
+        set {
+            cuckoo_manager.setter("currentLanguage",
+                value: newValue,
+                superclassCall:
+                    
+                    super.currentLanguage = newValue
+                    ,
+                defaultCall: __defaultImplStub!.currentLanguage = newValue)
+        }
+        
+    }
+    
+    
+    
+    
+    
+    public override var defaultLanguage: Languages {
+        get {
+            return cuckoo_manager.getter("defaultLanguage",
+                superclassCall:
+                    
+                    super.defaultLanguage
+                    ,
+                defaultCall: __defaultImplStub!.defaultLanguage)
+        }
+        
+        set {
+            cuckoo_manager.setter("defaultLanguage",
+                value: newValue,
+                superclassCall:
+                    
+                    super.defaultLanguage = newValue
+                    ,
+                defaultCall: __defaultImplStub!.defaultLanguage = newValue)
+        }
+        
+    }
+    
+    
+    
+    
+    
+    public override var isRightToLeft: Bool {
+        get {
+            return cuckoo_manager.getter("isRightToLeft",
+                superclassCall:
+                    
+                    super.isRightToLeft
+                    ,
+                defaultCall: __defaultImplStub!.isRightToLeft)
+        }
+        
+    }
+    
+    
+    
+    
+    
+    public override var appLocale: Locale {
+        get {
+            return cuckoo_manager.getter("appLocale",
+                superclassCall:
+                    
+                    super.appLocale
+                    ,
+                defaultCall: __defaultImplStub!.appLocale)
+        }
+        
+    }
+    
+    
+    
+    
+    
+    public override var supportedLanguages: [Languages] {
+        get {
+            return cuckoo_manager.getter("supportedLanguages",
+                superclassCall:
+                    
+                    super.supportedLanguages
+                    ,
+                defaultCall: __defaultImplStub!.supportedLanguages)
+        }
+        
+    }
+    
+    
+
+    
+
+    
+    
+    
+    
+    public override func setLanguage(language: Languages)  {
+        
+    return cuckoo_manager.call(
+    """
+    setLanguage(language: Languages)
+    """,
+            parameters: (language),
+            escapingParameters: (language),
+            superclassCall:
+                
+                super.setLanguage(language: language)
+                ,
+            defaultCall: __defaultImplStub!.setLanguage(language: language))
+        
+    }
+    
+    
+
+    public struct __StubbingProxy_LanguageManager: Cuckoo.StubbingProxy {
+        private let cuckoo_manager: Cuckoo.MockManager
+    
+        public init(manager: Cuckoo.MockManager) {
+            self.cuckoo_manager = manager
+        }
+        
+        
+        
+        var currentLanguage: Cuckoo.ClassToBeStubbedProperty<MockLanguageManager, Languages> {
+            return .init(manager: cuckoo_manager, name: "currentLanguage")
+        }
+        
+        
+        
+        
+        var defaultLanguage: Cuckoo.ClassToBeStubbedProperty<MockLanguageManager, Languages> {
+            return .init(manager: cuckoo_manager, name: "defaultLanguage")
+        }
+        
+        
+        
+        
+        var isRightToLeft: Cuckoo.ClassToBeStubbedReadOnlyProperty<MockLanguageManager, Bool> {
+            return .init(manager: cuckoo_manager, name: "isRightToLeft")
+        }
+        
+        
+        
+        
+        var appLocale: Cuckoo.ClassToBeStubbedReadOnlyProperty<MockLanguageManager, Locale> {
+            return .init(manager: cuckoo_manager, name: "appLocale")
+        }
+        
+        
+        
+        
+        var supportedLanguages: Cuckoo.ClassToBeStubbedReadOnlyProperty<MockLanguageManager, [Languages]> {
+            return .init(manager: cuckoo_manager, name: "supportedLanguages")
+        }
+        
+        
+        
+        
+        
+        func setLanguage<M1: Cuckoo.Matchable>(language: M1) -> Cuckoo.ClassStubNoReturnFunction<(Languages)> where M1.MatchedType == Languages {
+            let matchers: [Cuckoo.ParameterMatcher<(Languages)>] = [wrap(matchable: language) { $0 }]
+            return .init(stub: cuckoo_manager.createStub(for: MockLanguageManager.self, method:
+    """
+    setLanguage(language: Languages)
+    """, parameterMatchers: matchers))
+        }
+        
+        
+    }
+
+    public struct __VerificationProxy_LanguageManager: Cuckoo.VerificationProxy {
+        private let cuckoo_manager: Cuckoo.MockManager
+        private let callMatcher: Cuckoo.CallMatcher
+        private let sourceLocation: Cuckoo.SourceLocation
+    
+        public init(manager: Cuckoo.MockManager, callMatcher: Cuckoo.CallMatcher, sourceLocation: Cuckoo.SourceLocation) {
+            self.cuckoo_manager = manager
+            self.callMatcher = callMatcher
+            self.sourceLocation = sourceLocation
+        }
+    
+        
+        
+        
+        var currentLanguage: Cuckoo.VerifyProperty<Languages> {
+            return .init(manager: cuckoo_manager, name: "currentLanguage", callMatcher: callMatcher, sourceLocation: sourceLocation)
+        }
+        
+        
+        
+        
+        var defaultLanguage: Cuckoo.VerifyProperty<Languages> {
+            return .init(manager: cuckoo_manager, name: "defaultLanguage", callMatcher: callMatcher, sourceLocation: sourceLocation)
+        }
+        
+        
+        
+        
+        var isRightToLeft: Cuckoo.VerifyReadOnlyProperty<Bool> {
+            return .init(manager: cuckoo_manager, name: "isRightToLeft", callMatcher: callMatcher, sourceLocation: sourceLocation)
+        }
+        
+        
+        
+        
+        var appLocale: Cuckoo.VerifyReadOnlyProperty<Locale> {
+            return .init(manager: cuckoo_manager, name: "appLocale", callMatcher: callMatcher, sourceLocation: sourceLocation)
+        }
+        
+        
+        
+        
+        var supportedLanguages: Cuckoo.VerifyReadOnlyProperty<[Languages]> {
+            return .init(manager: cuckoo_manager, name: "supportedLanguages", callMatcher: callMatcher, sourceLocation: sourceLocation)
+        }
+        
+        
+    
+        
+        
+        
+        @discardableResult
+        func setLanguage<M1: Cuckoo.Matchable>(language: M1) -> Cuckoo.__DoNotUse<(Languages), Void> where M1.MatchedType == Languages {
+            let matchers: [Cuckoo.ParameterMatcher<(Languages)>] = [wrap(matchable: language) { $0 }]
+            return cuckoo_manager.verify(
+    """
+    setLanguage(language: Languages)
+    """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+        }
+        
+        
+    }
+}
+
+
+public class LanguageManagerStub: LanguageManager {
+    
+    
+    
+    
+    public override var currentLanguage: Languages {
+        get {
+            return DefaultValueRegistry.defaultValue(for: (Languages).self)
+        }
+        
+        set { }
+        
+    }
+    
+    
+    
+    
+    
+    public override var defaultLanguage: Languages {
+        get {
+            return DefaultValueRegistry.defaultValue(for: (Languages).self)
+        }
+        
+        set { }
+        
+    }
+    
+    
+    
+    
+    
+    public override var isRightToLeft: Bool {
+        get {
+            return DefaultValueRegistry.defaultValue(for: (Bool).self)
+        }
+        
+    }
+    
+    
+    
+    
+    
+    public override var appLocale: Locale {
+        get {
+            return DefaultValueRegistry.defaultValue(for: (Locale).self)
+        }
+        
+    }
+    
+    
+    
+    
+    
+    public override var supportedLanguages: [Languages] {
+        get {
+            return DefaultValueRegistry.defaultValue(for: ([Languages]).self)
+        }
+        
+    }
+    
+    
+
+    
+
+    
+    
+    
+    
+    public override func setLanguage(language: Languages)   {
+        return DefaultValueRegistry.defaultValue(for: (Void).self)
+    }
+    
+    
+}
+
+
+
+
+
+// MARK: - Mocks generated from file: iLearning/Data/Model/AuthHandler.swift at 2023-02-02 06:49:53 +0000
 
 //
 //  AuthHandler.swift
@@ -36,6 +400,22 @@ public class MockAuthHandler: AuthHandler, Cuckoo.ProtocolMock {
     }
     
 
+    
+    
+    
+    
+    public var currentUser: User? {
+        get {
+            return cuckoo_manager.getter("currentUser",
+                superclassCall:
+                    
+                    Cuckoo.MockManager.crashOnProtocolSuperclassCall()
+                    ,
+                defaultCall: __defaultImplStub!.currentUser)
+        }
+        
+    }
+    
     
 
     
@@ -91,6 +471,13 @@ public class MockAuthHandler: AuthHandler, Cuckoo.ProtocolMock {
         
         
         
+        var currentUser: Cuckoo.ProtocolToBeStubbedReadOnlyProperty<MockAuthHandler, User?> {
+            return .init(manager: cuckoo_manager, name: "currentUser")
+        }
+        
+        
+        
+        
         
         func signOut() -> Cuckoo.ProtocolStubNoReturnFunction<()> {
             let matchers: [Cuckoo.ParameterMatcher<Void>] = []
@@ -126,6 +513,13 @@ public class MockAuthHandler: AuthHandler, Cuckoo.ProtocolMock {
         }
     
         
+        
+        
+        var currentUser: Cuckoo.VerifyReadOnlyProperty<User?> {
+            return .init(manager: cuckoo_manager, name: "currentUser", callMatcher: callMatcher, sourceLocation: sourceLocation)
+        }
+        
+        
     
         
         
@@ -157,6 +551,17 @@ public class MockAuthHandler: AuthHandler, Cuckoo.ProtocolMock {
 
 
 public class AuthHandlerStub: AuthHandler {
+    
+    
+    
+    
+    public var currentUser: User? {
+        get {
+            return DefaultValueRegistry.defaultValue(for: (User?).self)
+        }
+        
+    }
+    
     
 
     
@@ -207,6 +612,22 @@ public class AuthHandlerStub: AuthHandler {
     }
     
 
+    
+    
+    
+    
+     override var currentUser: User? {
+        get {
+            return cuckoo_manager.getter("currentUser",
+                superclassCall:
+                    
+                    super.currentUser
+                    ,
+                defaultCall: __defaultImplStub!.currentUser)
+        }
+        
+    }
+    
     
 
     
@@ -262,6 +683,13 @@ public class AuthHandlerStub: AuthHandler {
         
         
         
+        var currentUser: Cuckoo.ClassToBeStubbedReadOnlyProperty<MockAuthHandlerImpl, User?> {
+            return .init(manager: cuckoo_manager, name: "currentUser")
+        }
+        
+        
+        
+        
         
         func signOut() -> Cuckoo.ClassStubNoReturnFunction<()> {
             let matchers: [Cuckoo.ParameterMatcher<Void>] = []
@@ -297,6 +725,13 @@ public class AuthHandlerStub: AuthHandler {
         }
     
         
+        
+        
+        var currentUser: Cuckoo.VerifyReadOnlyProperty<User?> {
+            return .init(manager: cuckoo_manager, name: "currentUser", callMatcher: callMatcher, sourceLocation: sourceLocation)
+        }
+        
+        
     
         
         
@@ -329,6 +764,17 @@ public class AuthHandlerStub: AuthHandler {
 
  class AuthHandlerImplStub: AuthHandlerImpl {
     
+    
+    
+    
+     override var currentUser: User? {
+        get {
+            return DefaultValueRegistry.defaultValue(for: (User?).self)
+        }
+        
+    }
+    
+    
 
     
 
@@ -355,7 +801,7 @@ public class AuthHandlerStub: AuthHandler {
 
 
 
-// MARK: - Mocks generated from file: iLearning/Data/Model/FirestoreManager.swift at 2023-02-02 05:57:13 +0000
+// MARK: - Mocks generated from file: iLearning/Data/Model/FirestoreManager.swift at 2023-02-02 06:49:53 +0000
 
 //
 //  FirestoreManager.swift
@@ -917,7 +1363,7 @@ public class FirestoreManagerStub: FirestoreManager {
 
 
 
-// MARK: - Mocks generated from file: iLearning/Data/Preference/AppPreference.swift at 2023-02-02 05:57:13 +0000
+// MARK: - Mocks generated from file: iLearning/Data/Preference/AppPreference.swift at 2023-02-02 06:49:53 +0000
 
 //
 //  AppPreference.swift

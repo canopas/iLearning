@@ -21,12 +21,12 @@ public class FakeAppAssembly: Assembly {
             MockFirestoreManager()
         }.inObjectScope(.container)
         
-        container.register(LanguageManger.self) { _ in
-            LanguageManger.init()
+        container.register(LanguageManager.self) { _ in
+            MockLanguageManager()
         }.inObjectScope(.container)
         
         container.register(AuthHandler.self) { _ in
-            MockAuthHandler.init()
+            MockAuthHandler()
         }.inObjectScope(.container)
     }
 }

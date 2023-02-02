@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-public class LanguageManger {
+public class LanguageManager {
 
     public init() { }
 
@@ -112,7 +112,7 @@ public enum Languages: String, CaseIterable {
     }
 
     public var isSelected: Bool {
-        let language = appResolve(serviceType: LanguageManger.self)
+        let language = appResolve(serviceType: LanguageManager.self)
         return self == language.currentLanguage
     }
 }

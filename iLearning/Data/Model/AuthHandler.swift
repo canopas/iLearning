@@ -9,6 +9,8 @@ import Foundation
 import FirebaseAuth
 
 public protocol AuthHandler {
+    var currentUser: User? { get }
+
     func signOut()
     func delete()
 }
@@ -16,6 +18,12 @@ public protocol AuthHandler {
 class AuthHandlerImpl: AuthHandler {
 
     let auth = FirebaseProvider.auth
+
+    var currentUser: User? {
+        get {
+            auth.currentUser
+        }
+    }
 
     func signOut() {
         try? auth.signOut()

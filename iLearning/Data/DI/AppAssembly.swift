@@ -15,8 +15,8 @@ public class AppAssembly: Assembly {
 
     public func assemble(container: Container) {
 
-        container.register(LanguageManger.self) { _ in
-            LanguageManger.init()
+        container.register(LanguageManager.self) { _ in
+            LanguageManager.init()
         }.inObjectScope(.container)
 
         container.register(AppPreferences.self) { _ in

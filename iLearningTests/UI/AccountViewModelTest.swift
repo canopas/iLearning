@@ -18,6 +18,7 @@ final class AccountViewModelTest: XCTestCase {
     var mockPreferences: MockAppPreferences!
     var mockFirestore: MockFirestoreManager!
     var mockAuthHandler: MockAuthHandler!
+    var mockLanguageManager: MockLanguageManager!
     
     let pilot: UIPilot<AppRoute> = UIPilot(initial: .Home)
     
@@ -31,6 +32,11 @@ final class AccountViewModelTest: XCTestCase {
         mockPreferences = appResolve(serviceType: AppPreferences.self) as? MockAppPreferences
         mockFirestore = appResolve(serviceType: FirestoreManager.self) as? MockFirestoreManager
         mockAuthHandler = appResolve(serviceType: AuthHandler.self) as? MockAuthHandler
+        mockLanguageManager = appResolve(serviceType: LanguageManager.self) as? MockLanguageManager
+        
+        stub(mockLanguageManager) { mock in
+            when(mock.currentLanguage.get).thenReturn(.en)
+        }
     }
 
     override func tearDownWithError() throws {
@@ -69,16 +75,20 @@ final class AccountViewModelTest: XCTestCase {
 //            when(mock.user.get).thenReturn(user)
 //            when(mock.clearPreference()).thenDoNothing()
 //        }
-//        
+//
+//        stub(mockAuthHandler) { mock in
+//            when(mock.currentUser.get).thenReturn()
+//        }
+//
 //        let expectedResult = PassthroughSubject<Void, Error>()
 //        let expectedResult = Just(Void()).setFailureType(to: Error.self).eraseToAnyPublisher()
-//        
+//
 //        stub(mockFirestore) { mock in
 //            when(mock.deleteUser(id: equal(to: user.id))).thenReturn(expectedResult.eraseToAnyPublisher())
 //        }
-//        
+//
 //        viewModel.deleteUserAccount()
-//        
+//
 //        expectedResult.send(completion: .finished)
 //        verify(mockPreferences).clearPreference()
 //    }
