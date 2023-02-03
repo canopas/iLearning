@@ -71,6 +71,7 @@
 		D8E866C32946F55C00FD5E44 /* EmailLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E866C22946F55C00FD5E44 /* EmailLoginViewModel.swift */; };
 		D8E866C52946FCC700FD5E44 /* OutlinedTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E866C42946FCC700FD5E44 /* OutlinedTextFieldStyle.swift */; };
 		D8E866C72947111900FD5E44 /* online-study.gif in Resources */ = {isa = PBXBuildFile; fileRef = D8E866C62947111900FD5E44 /* online-study.gif */; };
+		D8F4603C298B989100506A2B /* EmailLoginViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F4603B298B989100506A2B /* EmailLoginViewModelTest.swift */; };
 		D8FC55CB291CDAA700106153 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FC55CA291CDAA700106153 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -166,6 +167,7 @@
 		D8E866C22946F55C00FD5E44 /* EmailLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewModel.swift; sourceTree = "<group>"; };
 		D8E866C42946FCC700FD5E44 /* OutlinedTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlinedTextFieldStyle.swift; sourceTree = "<group>"; };
 		D8E866C62947111900FD5E44 /* online-study.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "online-study.gif"; sourceTree = "<group>"; };
+		D8F4603B298B989100506A2B /* EmailLoginViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewModelTest.swift; sourceTree = "<group>"; };
 		D8FC55CA291CDAA700106153 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -392,6 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				D8A7DF6B29519A4E00AFFFD8 /* ProfileViewModelTest.swift */,
+				D8F4603B298B989100506A2B /* EmailLoginViewModelTest.swift */,
 				D8AC8E152979845600683D1B /* AccountViewModelTest.swift */,
 			);
 			path = UI;
@@ -907,6 +910,7 @@
 				D8A7DF6C29519A4E00AFFFD8 /* ProfileViewModelTest.swift in Sources */,
 				D8A7DF7629534DFF00AFFFD8 /* GeneratedMocks.swift in Sources */,
 				D8AA6354291CD4CB00F2A88A /* iLearningTests.swift in Sources */,
+				D8F4603C298B989100506A2B /* EmailLoginViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

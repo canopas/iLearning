@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: iLearning/Data/Language/LanguageManager.swift at 2023-02-02 06:49:53 +0000
+// MARK: - Mocks generated from file: iLearning/Data/Language/LanguageManager.swift at 2023-02-03 06:56:30 +0000
 
 //
 //  LanguageManager.swift
@@ -362,7 +362,7 @@ public class LanguageManagerStub: LanguageManager {
 
 
 
-// MARK: - Mocks generated from file: iLearning/Data/Model/AuthHandler.swift at 2023-02-02 06:49:53 +0000
+// MARK: - Mocks generated from file: iLearning/Data/Model/AuthHandler.swift at 2023-02-03 06:56:30 +0000
 
 //
 //  AuthHandler.swift
@@ -424,6 +424,66 @@ public class MockAuthHandler: AuthHandler, Cuckoo.ProtocolMock {
     
     
     
+    public func createUser(email: String, password: String, completion: ((AuthHandlerResult?, Error?) -> Void)?)  {
+        
+    return cuckoo_manager.call(
+    """
+    createUser(email: String, password: String, completion: ((AuthHandlerResult?, Error?) -> Void)?)
+    """,
+            parameters: (email, password, completion),
+            escapingParameters: (email, password, completion),
+            superclassCall:
+                
+                Cuckoo.MockManager.crashOnProtocolSuperclassCall()
+                ,
+            defaultCall: __defaultImplStub!.createUser(email: email, password: password, completion: completion))
+        
+    }
+    
+    
+    
+    
+    
+    public func signIn(With email: String, password: String, completion: ((AuthHandlerResult?, Error?) -> Void)?)  {
+        
+    return cuckoo_manager.call(
+    """
+    signIn(With: String, password: String, completion: ((AuthHandlerResult?, Error?) -> Void)?)
+    """,
+            parameters: (email, password, completion),
+            escapingParameters: (email, password, completion),
+            superclassCall:
+                
+                Cuckoo.MockManager.crashOnProtocolSuperclassCall()
+                ,
+            defaultCall: __defaultImplStub!.signIn(With: email, password: password, completion: completion))
+        
+    }
+    
+    
+    
+    
+    
+    public func signIn(with credential: AuthCredential, completion: ((AuthHandlerResult?, Error?) -> Void)?)  {
+        
+    return cuckoo_manager.call(
+    """
+    signIn(with: AuthCredential, completion: ((AuthHandlerResult?, Error?) -> Void)?)
+    """,
+            parameters: (credential, completion),
+            escapingParameters: (credential, completion),
+            superclassCall:
+                
+                Cuckoo.MockManager.crashOnProtocolSuperclassCall()
+                ,
+            defaultCall: __defaultImplStub!.signIn(with: credential, completion: completion))
+        
+    }
+    
+    
+    
+    
+    
     public func signOut()  {
         
     return cuckoo_manager.call(
@@ -479,6 +539,39 @@ public class MockAuthHandler: AuthHandler, Cuckoo.ProtocolMock {
         
         
         
+        func createUser<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.OptionalMatchable>(email: M1, password: M2, completion: M3) -> Cuckoo.ProtocolStubNoReturnFunction<(String, String, ((AuthHandlerResult?, Error?) -> Void)?)> where M1.MatchedType == String, M2.MatchedType == String, M3.OptionalMatchedType == ((AuthHandlerResult?, Error?) -> Void) {
+            let matchers: [Cuckoo.ParameterMatcher<(String, String, ((AuthHandlerResult?, Error?) -> Void)?)>] = [wrap(matchable: email) { $0.0 }, wrap(matchable: password) { $0.1 }, wrap(matchable: completion) { $0.2 }]
+            return .init(stub: cuckoo_manager.createStub(for: MockAuthHandler.self, method:
+    """
+    createUser(email: String, password: String, completion: ((AuthHandlerResult?, Error?) -> Void)?)
+    """, parameterMatchers: matchers))
+        }
+        
+        
+        
+        
+        func signIn<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.OptionalMatchable>(With email: M1, password: M2, completion: M3) -> Cuckoo.ProtocolStubNoReturnFunction<(String, String, ((AuthHandlerResult?, Error?) -> Void)?)> where M1.MatchedType == String, M2.MatchedType == String, M3.OptionalMatchedType == ((AuthHandlerResult?, Error?) -> Void) {
+            let matchers: [Cuckoo.ParameterMatcher<(String, String, ((AuthHandlerResult?, Error?) -> Void)?)>] = [wrap(matchable: email) { $0.0 }, wrap(matchable: password) { $0.1 }, wrap(matchable: completion) { $0.2 }]
+            return .init(stub: cuckoo_manager.createStub(for: MockAuthHandler.self, method:
+    """
+    signIn(With: String, password: String, completion: ((AuthHandlerResult?, Error?) -> Void)?)
+    """, parameterMatchers: matchers))
+        }
+        
+        
+        
+        
+        func signIn<M1: Cuckoo.Matchable, M2: Cuckoo.OptionalMatchable>(with credential: M1, completion: M2) -> Cuckoo.ProtocolStubNoReturnFunction<(AuthCredential, ((AuthHandlerResult?, Error?) -> Void)?)> where M1.MatchedType == AuthCredential, M2.OptionalMatchedType == ((AuthHandlerResult?, Error?) -> Void) {
+            let matchers: [Cuckoo.ParameterMatcher<(AuthCredential, ((AuthHandlerResult?, Error?) -> Void)?)>] = [wrap(matchable: credential) { $0.0 }, wrap(matchable: completion) { $0.1 }]
+            return .init(stub: cuckoo_manager.createStub(for: MockAuthHandler.self, method:
+    """
+    signIn(with: AuthCredential, completion: ((AuthHandlerResult?, Error?) -> Void)?)
+    """, parameterMatchers: matchers))
+        }
+        
+        
+        
+        
         func signOut() -> Cuckoo.ProtocolStubNoReturnFunction<()> {
             let matchers: [Cuckoo.ParameterMatcher<Void>] = []
             return .init(stub: cuckoo_manager.createStub(for: MockAuthHandler.self, method:
@@ -525,6 +618,42 @@ public class MockAuthHandler: AuthHandler, Cuckoo.ProtocolMock {
         
         
         @discardableResult
+        func createUser<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.OptionalMatchable>(email: M1, password: M2, completion: M3) -> Cuckoo.__DoNotUse<(String, String, ((AuthHandlerResult?, Error?) -> Void)?), Void> where M1.MatchedType == String, M2.MatchedType == String, M3.OptionalMatchedType == ((AuthHandlerResult?, Error?) -> Void) {
+            let matchers: [Cuckoo.ParameterMatcher<(String, String, ((AuthHandlerResult?, Error?) -> Void)?)>] = [wrap(matchable: email) { $0.0 }, wrap(matchable: password) { $0.1 }, wrap(matchable: completion) { $0.2 }]
+            return cuckoo_manager.verify(
+    """
+    createUser(email: String, password: String, completion: ((AuthHandlerResult?, Error?) -> Void)?)
+    """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+        }
+        
+        
+        
+        
+        @discardableResult
+        func signIn<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.OptionalMatchable>(With email: M1, password: M2, completion: M3) -> Cuckoo.__DoNotUse<(String, String, ((AuthHandlerResult?, Error?) -> Void)?), Void> where M1.MatchedType == String, M2.MatchedType == String, M3.OptionalMatchedType == ((AuthHandlerResult?, Error?) -> Void) {
+            let matchers: [Cuckoo.ParameterMatcher<(String, String, ((AuthHandlerResult?, Error?) -> Void)?)>] = [wrap(matchable: email) { $0.0 }, wrap(matchable: password) { $0.1 }, wrap(matchable: completion) { $0.2 }]
+            return cuckoo_manager.verify(
+    """
+    signIn(With: String, password: String, completion: ((AuthHandlerResult?, Error?) -> Void)?)
+    """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+        }
+        
+        
+        
+        
+        @discardableResult
+        func signIn<M1: Cuckoo.Matchable, M2: Cuckoo.OptionalMatchable>(with credential: M1, completion: M2) -> Cuckoo.__DoNotUse<(AuthCredential, ((AuthHandlerResult?, Error?) -> Void)?), Void> where M1.MatchedType == AuthCredential, M2.OptionalMatchedType == ((AuthHandlerResult?, Error?) -> Void) {
+            let matchers: [Cuckoo.ParameterMatcher<(AuthCredential, ((AuthHandlerResult?, Error?) -> Void)?)>] = [wrap(matchable: credential) { $0.0 }, wrap(matchable: completion) { $0.1 }]
+            return cuckoo_manager.verify(
+    """
+    signIn(with: AuthCredential, completion: ((AuthHandlerResult?, Error?) -> Void)?)
+    """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+        }
+        
+        
+        
+        
+        @discardableResult
         func signOut() -> Cuckoo.__DoNotUse<(), Void> {
             let matchers: [Cuckoo.ParameterMatcher<Void>] = []
             return cuckoo_manager.verify(
@@ -566,6 +695,30 @@ public class AuthHandlerStub: AuthHandler {
 
     
 
+    
+    
+    
+    
+    public func createUser(email: String, password: String, completion: ((AuthHandlerResult?, Error?) -> Void)?)   {
+        return DefaultValueRegistry.defaultValue(for: (Void).self)
+    }
+    
+    
+    
+    
+    
+    public func signIn(With email: String, password: String, completion: ((AuthHandlerResult?, Error?) -> Void)?)   {
+        return DefaultValueRegistry.defaultValue(for: (Void).self)
+    }
+    
+    
+    
+    
+    
+    public func signIn(with credential: AuthCredential, completion: ((AuthHandlerResult?, Error?) -> Void)?)   {
+        return DefaultValueRegistry.defaultValue(for: (Void).self)
+    }
+    
     
     
     
@@ -636,6 +789,66 @@ public class AuthHandlerStub: AuthHandler {
     
     
     
+     override func createUser(email: String, password: String, completion: ((AuthHandlerResult?, Error?) -> Void)?)  {
+        
+    return cuckoo_manager.call(
+    """
+    createUser(email: String, password: String, completion: ((AuthHandlerResult?, Error?) -> Void)?)
+    """,
+            parameters: (email, password, completion),
+            escapingParameters: (email, password, completion),
+            superclassCall:
+                
+                super.createUser(email: email, password: password, completion: completion)
+                ,
+            defaultCall: __defaultImplStub!.createUser(email: email, password: password, completion: completion))
+        
+    }
+    
+    
+    
+    
+    
+     override func signIn(With email: String, password: String, completion: ((AuthHandlerResult?, Error?) -> Void)?)  {
+        
+    return cuckoo_manager.call(
+    """
+    signIn(With: String, password: String, completion: ((AuthHandlerResult?, Error?) -> Void)?)
+    """,
+            parameters: (email, password, completion),
+            escapingParameters: (email, password, completion),
+            superclassCall:
+                
+                super.signIn(With: email, password: password, completion: completion)
+                ,
+            defaultCall: __defaultImplStub!.signIn(With: email, password: password, completion: completion))
+        
+    }
+    
+    
+    
+    
+    
+     override func signIn(with credential: AuthCredential, completion: ((AuthHandlerResult?, Error?) -> Void)?)  {
+        
+    return cuckoo_manager.call(
+    """
+    signIn(with: AuthCredential, completion: ((AuthHandlerResult?, Error?) -> Void)?)
+    """,
+            parameters: (credential, completion),
+            escapingParameters: (credential, completion),
+            superclassCall:
+                
+                super.signIn(with: credential, completion: completion)
+                ,
+            defaultCall: __defaultImplStub!.signIn(with: credential, completion: completion))
+        
+    }
+    
+    
+    
+    
+    
      override func signOut()  {
         
     return cuckoo_manager.call(
@@ -691,6 +904,39 @@ public class AuthHandlerStub: AuthHandler {
         
         
         
+        func createUser<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.OptionalMatchable>(email: M1, password: M2, completion: M3) -> Cuckoo.ClassStubNoReturnFunction<(String, String, ((AuthHandlerResult?, Error?) -> Void)?)> where M1.MatchedType == String, M2.MatchedType == String, M3.OptionalMatchedType == ((AuthHandlerResult?, Error?) -> Void) {
+            let matchers: [Cuckoo.ParameterMatcher<(String, String, ((AuthHandlerResult?, Error?) -> Void)?)>] = [wrap(matchable: email) { $0.0 }, wrap(matchable: password) { $0.1 }, wrap(matchable: completion) { $0.2 }]
+            return .init(stub: cuckoo_manager.createStub(for: MockAuthHandlerImpl.self, method:
+    """
+    createUser(email: String, password: String, completion: ((AuthHandlerResult?, Error?) -> Void)?)
+    """, parameterMatchers: matchers))
+        }
+        
+        
+        
+        
+        func signIn<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.OptionalMatchable>(With email: M1, password: M2, completion: M3) -> Cuckoo.ClassStubNoReturnFunction<(String, String, ((AuthHandlerResult?, Error?) -> Void)?)> where M1.MatchedType == String, M2.MatchedType == String, M3.OptionalMatchedType == ((AuthHandlerResult?, Error?) -> Void) {
+            let matchers: [Cuckoo.ParameterMatcher<(String, String, ((AuthHandlerResult?, Error?) -> Void)?)>] = [wrap(matchable: email) { $0.0 }, wrap(matchable: password) { $0.1 }, wrap(matchable: completion) { $0.2 }]
+            return .init(stub: cuckoo_manager.createStub(for: MockAuthHandlerImpl.self, method:
+    """
+    signIn(With: String, password: String, completion: ((AuthHandlerResult?, Error?) -> Void)?)
+    """, parameterMatchers: matchers))
+        }
+        
+        
+        
+        
+        func signIn<M1: Cuckoo.Matchable, M2: Cuckoo.OptionalMatchable>(with credential: M1, completion: M2) -> Cuckoo.ClassStubNoReturnFunction<(AuthCredential, ((AuthHandlerResult?, Error?) -> Void)?)> where M1.MatchedType == AuthCredential, M2.OptionalMatchedType == ((AuthHandlerResult?, Error?) -> Void) {
+            let matchers: [Cuckoo.ParameterMatcher<(AuthCredential, ((AuthHandlerResult?, Error?) -> Void)?)>] = [wrap(matchable: credential) { $0.0 }, wrap(matchable: completion) { $0.1 }]
+            return .init(stub: cuckoo_manager.createStub(for: MockAuthHandlerImpl.self, method:
+    """
+    signIn(with: AuthCredential, completion: ((AuthHandlerResult?, Error?) -> Void)?)
+    """, parameterMatchers: matchers))
+        }
+        
+        
+        
+        
         func signOut() -> Cuckoo.ClassStubNoReturnFunction<()> {
             let matchers: [Cuckoo.ParameterMatcher<Void>] = []
             return .init(stub: cuckoo_manager.createStub(for: MockAuthHandlerImpl.self, method:
@@ -733,6 +979,42 @@ public class AuthHandlerStub: AuthHandler {
         
         
     
+        
+        
+        
+        @discardableResult
+        func createUser<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.OptionalMatchable>(email: M1, password: M2, completion: M3) -> Cuckoo.__DoNotUse<(String, String, ((AuthHandlerResult?, Error?) -> Void)?), Void> where M1.MatchedType == String, M2.MatchedType == String, M3.OptionalMatchedType == ((AuthHandlerResult?, Error?) -> Void) {
+            let matchers: [Cuckoo.ParameterMatcher<(String, String, ((AuthHandlerResult?, Error?) -> Void)?)>] = [wrap(matchable: email) { $0.0 }, wrap(matchable: password) { $0.1 }, wrap(matchable: completion) { $0.2 }]
+            return cuckoo_manager.verify(
+    """
+    createUser(email: String, password: String, completion: ((AuthHandlerResult?, Error?) -> Void)?)
+    """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+        }
+        
+        
+        
+        
+        @discardableResult
+        func signIn<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.OptionalMatchable>(With email: M1, password: M2, completion: M3) -> Cuckoo.__DoNotUse<(String, String, ((AuthHandlerResult?, Error?) -> Void)?), Void> where M1.MatchedType == String, M2.MatchedType == String, M3.OptionalMatchedType == ((AuthHandlerResult?, Error?) -> Void) {
+            let matchers: [Cuckoo.ParameterMatcher<(String, String, ((AuthHandlerResult?, Error?) -> Void)?)>] = [wrap(matchable: email) { $0.0 }, wrap(matchable: password) { $0.1 }, wrap(matchable: completion) { $0.2 }]
+            return cuckoo_manager.verify(
+    """
+    signIn(With: String, password: String, completion: ((AuthHandlerResult?, Error?) -> Void)?)
+    """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+        }
+        
+        
+        
+        
+        @discardableResult
+        func signIn<M1: Cuckoo.Matchable, M2: Cuckoo.OptionalMatchable>(with credential: M1, completion: M2) -> Cuckoo.__DoNotUse<(AuthCredential, ((AuthHandlerResult?, Error?) -> Void)?), Void> where M1.MatchedType == AuthCredential, M2.OptionalMatchedType == ((AuthHandlerResult?, Error?) -> Void) {
+            let matchers: [Cuckoo.ParameterMatcher<(AuthCredential, ((AuthHandlerResult?, Error?) -> Void)?)>] = [wrap(matchable: credential) { $0.0 }, wrap(matchable: completion) { $0.1 }]
+            return cuckoo_manager.verify(
+    """
+    signIn(with: AuthCredential, completion: ((AuthHandlerResult?, Error?) -> Void)?)
+    """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+        }
+        
         
         
         
@@ -782,6 +1064,30 @@ public class AuthHandlerStub: AuthHandler {
     
     
     
+     override func createUser(email: String, password: String, completion: ((AuthHandlerResult?, Error?) -> Void)?)   {
+        return DefaultValueRegistry.defaultValue(for: (Void).self)
+    }
+    
+    
+    
+    
+    
+     override func signIn(With email: String, password: String, completion: ((AuthHandlerResult?, Error?) -> Void)?)   {
+        return DefaultValueRegistry.defaultValue(for: (Void).self)
+    }
+    
+    
+    
+    
+    
+     override func signIn(with credential: AuthCredential, completion: ((AuthHandlerResult?, Error?) -> Void)?)   {
+        return DefaultValueRegistry.defaultValue(for: (Void).self)
+    }
+    
+    
+    
+    
+    
      override func signOut()   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
@@ -801,7 +1107,7 @@ public class AuthHandlerStub: AuthHandler {
 
 
 
-// MARK: - Mocks generated from file: iLearning/Data/Model/FirestoreManager.swift at 2023-02-02 06:49:53 +0000
+// MARK: - Mocks generated from file: iLearning/Data/Model/FirestoreManager.swift at 2023-02-03 06:56:30 +0000
 
 //
 //  FirestoreManager.swift
@@ -1363,7 +1669,7 @@ public class FirestoreManagerStub: FirestoreManager {
 
 
 
-// MARK: - Mocks generated from file: iLearning/Data/Preference/AppPreference.swift at 2023-02-02 06:49:53 +0000
+// MARK: - Mocks generated from file: iLearning/Data/Preference/AppPreference.swift at 2023-02-03 06:56:30 +0000
 
 //
 //  AppPreference.swift

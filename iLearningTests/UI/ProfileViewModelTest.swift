@@ -14,7 +14,7 @@ import Combine
 final class ProfileViewModelTest: XCTestCase {
 
     var viewModel: ProfileViewModel!
-    var preferences: MockAppPreferences!
+    var mockPreference: MockAppPreferences!
     var mockFirestore: MockFirestoreManager!
 
     let pilot: UIPilot<AppRoute> = UIPilot(initial: .Profile)
@@ -23,7 +23,7 @@ final class ProfileViewModelTest: XCTestCase {
 
     override func setUpWithError() throws {
         Injector.shared.setTestAassembler(assemblies: [FakeAppAssembly()])
-        preferences = appResolve(serviceType: AppPreferences.self) as? MockAppPreferences
+        mockPreference = appResolve(serviceType: AppPreferences.self) as? MockAppPreferences
         mockFirestore = appResolve(serviceType: FirestoreManager.self) as? MockFirestoreManager
     }
 
@@ -33,7 +33,7 @@ final class ProfileViewModelTest: XCTestCase {
 
     func testViewModelInitialization() {
 
-        stub(preferences) { mock in
+        stub(mockPreference) { mock in
             when(mock.user.get).thenReturn(user)
         }
         
@@ -45,7 +45,7 @@ final class ProfileViewModelTest: XCTestCase {
     }
     
     func testSetUserName() {
-        stub(preferences) { mock in
+        stub(mockPreference) { mock in
             when(mock.user.get).thenReturn(user)
         }
         
@@ -59,7 +59,7 @@ final class ProfileViewModelTest: XCTestCase {
     
     func testOnSaveButtonClickSuccess() {
         
-        stub(preferences) { mock in
+        stub(mockPreference) { mock in
             when(mock.user).get.thenReturn(user)
             when(mock.user).set(any()).thenDoNothing()
         }
@@ -77,12 +77,12 @@ final class ProfileViewModelTest: XCTestCase {
         viewModel.onSaveBtnClick()
 
         verify(mockFirestore).updateUser(user: equal(to: newUser))
-        verify(preferences).user.set(equal(to: newUser))
+        verify(mockPreference).user.set(equal(to: newUser))
     }
     
     func testOnSaveButtonClickFailed() {
 
-        stub(preferences) { mock in
+        stub(mockPreference) { mock in
             when(mock.user).get.thenReturn(user)
         }
         

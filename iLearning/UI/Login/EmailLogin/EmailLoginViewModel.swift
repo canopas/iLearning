@@ -24,6 +24,7 @@ class EmailLoginViewModel: ObservableObject {
     private var onLoginSuccess: (() -> Void)?
     private var cancellable = Set<AnyCancellable>()
 
+    @Inject var authHandler: AuthHandler
     @Inject var preference: AppPreferences
     @Inject var firestore: FirestoreManager
 
@@ -46,33 +47,33 @@ class EmailLoginViewModel: ObservableObject {
         }
     }
 
-    private func createUser() {
-        FirebaseProvider.auth
-            .createUser(withEmail: email, password: password, completion: { [weak self] result, error in
-                guard let self = self else { return }
-                if let error {
-                    self.showAuthErrorAlert()
-                    LogE("EmailLoginViewModel: \(#function) failed with error :: \(error.localizedDescription)")
-                    return
-                } else if let result {
-                    self.storeUser(userId: result.user.uid)
-                } else {
-                    self.alert = .init(message: R.string.commonStrings.contact_support.localized())
-                    self.showAlert = true
-                }
-            })
+    func createUser() {
+        authHandler
+            .createUser(email: email, password: password) { [weak self] result, error in
+            guard let self = self else { return }
+            if let error {
+                self.showAuthErrorAlert()
+                LogE("EmailLoginViewModel: \(#function) failed with error :: \(error.localizedDescription)")
+                return
+            } else if let result {
+                self.storeUser(userId: result.uid)
+            } else {
+                self.alert = .init(message: R.string.commonStrings.contact_support.localized())
+                self.showAlert = true
+            }
+        }
     }
 
-    private func loginUser() {
-        FirebaseProvider.auth
-            .signIn(withEmail: email, password: password) { [weak self] result, error in
+    func loginUser() {
+        authHandler
+            .signIn(With: email, password: password) { [weak self] result, error in
                 guard let self = self else { return }
                 if let error {
                     self.showAuthErrorAlert()
                     LogE("EmailLoginViewModel: \(#function) failed with error :: \(error.localizedDescription)")
                     return
                 } else if let result {
-                    self.storeUser(userId: result.user.uid)
+                    self.storeUser(userId: result.uid)
                 } else {
                     self.alert = .init(message: R.string.commonStrings.contact_support.localized())
                     self.showAlert = true
@@ -122,13 +123,5 @@ class EmailLoginViewModel: ObservableObject {
     private func goToHome() {
         pilot.popTo(.Login, inclusive: true)
         pilot.push(.Home)
-    }
-
-    func signOut() {
-        do {
-            try Auth.auth().signOut()
-        } catch let error {
-            LogE("EmailLoginViewModel: \(#function) failed with error :: \(error.localizedDescription)")
-        }
     }
 }

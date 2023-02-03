@@ -29,9 +29,9 @@ class AccountViewModel: ObservableObject {
     let pilot: UIPilot<AppRoute>
     private var appleSignInDelegates: SignInWithAppleDelegates! = nil
 
+    @Inject var authHandler: AuthHandler
     @Inject var preference: AppPreferences
     @Inject var firestore: FirestoreManager
-    @Inject var authHandler: AuthHandler
 
     init(pilot: UIPilot<AppRoute>) {
         self.pilot = pilot
@@ -73,7 +73,7 @@ class AccountViewModel: ObservableObject {
     }
 
     func deleteUserAccount() {
-        if let currentUser = FirebaseProvider.auth.currentUser {
+        if let currentUser = authHandler.currentUser {
             currentUser.delete { [weak self] error in
                 guard let self = self else { return }
                 if error == nil {
@@ -115,7 +115,6 @@ class AccountViewModel: ObservableObject {
 
     func onEmailLoginSuccess() {
         showEmailSignInPrompt = false
-        deleteUserAccount()
     }
 
     func promptForAppleLogin() {

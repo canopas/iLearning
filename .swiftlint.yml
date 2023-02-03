@@ -4,4 +4,5 @@ disabled_rules: # rule identifiers to exclude from running
   - force_cast
   - line_length
   - large_tuple
+  - implicit_getter
   - identifier_name
